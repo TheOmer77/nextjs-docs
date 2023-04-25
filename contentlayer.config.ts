@@ -12,7 +12,7 @@ const Doc = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (doc) => `/docs/${doc._raw.flattenedPath}`,
+      resolve: doc => `/docs/${doc._raw.flattenedPath}`,
     },
   },
 }));
