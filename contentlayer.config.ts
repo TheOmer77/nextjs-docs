@@ -2,29 +2,24 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import rehypePrism from 'rehype-prism-plus';
 import remarkGfm from 'remark-gfm';
 
-export const Docs = defineDocumentType(() => ({
-  name: 'Docs',
-  filePathPattern: 'docs/**/*.mdx',
+const Doc = defineDocumentType(() => ({
+  name: 'Doc',
+  filePathPattern: `**/*.mdx`,
   contentType: 'mdx',
   fields: {
-    id: { type: 'string' },
     title: { type: 'string', required: true },
   },
   computedFields: {
-    id: {
+    url: {
       type: 'string',
-      resolve: doc => doc.id || doc._raw.flattenedPath.replace('docs/', ''),
-    },
-    slug: {
-      type: 'string',
-      resolve: doc => doc._raw.flattenedPath.replace('docs/', ''),
+      resolve: (doc) => `/docs/${doc._raw.flattenedPath}`,
     },
   },
 }));
 
 export default makeSource({
-  contentDirPath: 'content',
-  documentTypes: [Docs],
+  contentDirPath: 'data',
+  documentTypes: [Doc],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [[rehypePrism, { ignoreMissing: true }]],

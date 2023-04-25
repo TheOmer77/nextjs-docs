@@ -1,5 +1,4 @@
 ---
-id: 'sample'
 title: 'Sample Doc'
 ---
 
@@ -17,7 +16,7 @@ Nulla aute quis aute Lorem ipsum. Minim ut proident aliqua voluptate. Enim sint 
 
 ### Here's a photo from Unsplash!
 
-[Photo by Martin Adams](https://images.unsplash.com/photo-1533282960533-51328aa49826?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3342&q=80)
+![Photo by Martin Adams](https://images.unsplash.com/photo-1533282960533-51328aa49826?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3342&q=80)
 
 ### Some random code
 
@@ -31,7 +30,7 @@ const Counter = () => {
 
   return (
     <div>
-      <button onClick={() => setCount(prev => prev + 1)}>{count}</button>
+      <button onClick={() => setCount((prev) => prev + 1)}>{count}</button>
     </div>
   );
 };
