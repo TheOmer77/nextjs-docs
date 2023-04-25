@@ -1,12 +1,19 @@
 import type { ReactNode } from 'react';
-import { Figtree } from 'next/font/google';
+import { Figtree, Fira_Code } from 'next/font/google';
 
+import 'styles/reset.css';
 import 'styles/globals.css';
+import 'styles/prism.css';
 
 const font = Figtree({
   subsets: ['latin'],
   variable: '--font-family',
   fallback: ['sans-serif'],
+});
+const fontMono = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-family-monospace',
+  fallback: ['monospace'],
 });
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
@@ -16,7 +23,9 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         <title>App</title>
         <link rel='icon' type='image/x-icon' href='/favicon.png' />
       </head>
-      <body className={font.variable}>{children}</body>
+      <body className={[font.variable, fontMono.variable].join(' ')}>
+        {children}
+      </body>
     </html>
   );
 };
