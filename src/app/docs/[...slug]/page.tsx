@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { allDocs } from 'contentlayer/generated';
 import { getMDXComponent } from 'next-contentlayer/hooks';
 
+import layoutStyles from './styles.module.scss';
 import markupStyles from 'styles/markup.module.scss';
 
 export const generateStaticParams = async () =>
@@ -21,9 +22,16 @@ const DocLayout = ({ params }: { params: { slug: string[] } }) => {
   const MdxContent = getMDXComponent(doc.body.code);
 
   return (
-    <div className={markupStyles.container}>
-      <h1>{doc.title}</h1>
-      <MdxContent />
+    <div className={layoutStyles.container}>
+      <div /> {/* TBD? */}
+      <article className={layoutStyles.article}>
+        <header className={layoutStyles.header}>
+          <h1 className={layoutStyles.title}>{doc.title}</h1>
+        </header>
+        <div className={markupStyles.container}>
+          <MdxContent />
+        </div>
+      </article>
     </div>
   );
 };
