@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import { allDocs } from 'contentlayer/generated';
 import { getMDXComponent } from 'next-contentlayer/hooks';
 
+import markupStyles from 'styles/markup.module.scss';
+
 export const generateStaticParams = async () =>
   allDocs.map(doc => ({ slug: doc._raw.flattenedPath.split('/') }));
 
@@ -19,7 +21,7 @@ const DocLayout = ({ params }: { params: { slug: string[] } }) => {
   const MdxContent = getMDXComponent(doc.body.code);
 
   return (
-    <div>
+    <div className={markupStyles.container}>
       <h1>{doc.title}</h1>
       <MdxContent />
     </div>
