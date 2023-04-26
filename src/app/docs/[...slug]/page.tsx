@@ -2,15 +2,17 @@ import { allDocs } from 'contentlayer/generated';
 import { getMDXComponent } from 'next-contentlayer/hooks';
 
 export const generateStaticParams = async () =>
-  allDocs.map(doc => ({ slug: doc._raw.flattenedPath }));
+  allDocs.map(doc => ({ slug: doc._raw.flattenedPath.split('/') }));
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const doc = allDocs.find(doc => doc._raw.flattenedPath === params.slug);
   return { title: doc?.title };
 };
 
-const DocLayout = ({ params }: { params: { slug: string } }) => {
-  const doc = allDocs.find(doc => doc._raw.flattenedPath === params.slug);
+const DocLayout = ({ params }: { params: { slug: string[] } }) => {
+  const doc = allDocs.find(
+    doc => doc._raw.flattenedPath === params.slug.join('/')
+  );
   if (!doc)
     return (
       <div>
