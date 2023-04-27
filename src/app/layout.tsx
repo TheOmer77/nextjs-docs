@@ -2,6 +2,10 @@ import type { ReactNode } from 'react';
 import { Figtree, Fira_Code } from 'next/font/google';
 import clsx from 'clsx';
 
+import 'styles/reset.css';
+import 'styles/globals.css';
+import 'styles/prism.css';
+
 const font = Figtree({
   subsets: ['latin'],
   variable: '--font-family',
