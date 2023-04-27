@@ -1,9 +1,6 @@
 import type { ReactNode } from 'react';
 import { Figtree, Fira_Code } from 'next/font/google';
-
-import 'styles/reset.css';
-import 'styles/globals.css';
-import 'styles/prism.css';
+import clsx from 'clsx';
 
 const font = Figtree({
   subsets: ['latin'],
@@ -23,9 +20,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         <title>App</title>
         <link rel='icon' type='image/x-icon' href='/favicon.png' />
       </head>
-      <body className={[font.variable, fontMono.variable].join(' ')}>
-        {children}
-      </body>
+      <body className={clsx(font.variable, fontMono.variable)}>{children}</body>
     </html>
   );
 };
