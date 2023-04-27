@@ -1,6 +1,8 @@
+'use client';
+
 import { useMemo } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
 
@@ -8,10 +10,10 @@ import type { NavItem } from './types';
 import styles from './index.module.scss';
 
 const SidebarItem = ({ item }: { item: NavItem }) => {
-  const router = useRouter();
+  const pathname = usePathname();
   const isActive = useMemo(
-    () => 'href' in item && item.href === router.asPath,
-    [item, router.asPath]
+    () => 'href' in item && item.href === pathname,
+    [item, pathname]
   );
 
   return 'items' in item ? (
