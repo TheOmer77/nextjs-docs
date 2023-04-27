@@ -11,7 +11,7 @@ import styles from './index.module.scss';
 
 const SidebarItem = ({ doc }: { doc: Doc }) => {
   const pathname = usePathname();
-  const isActive = useMemo(() => doc.url === pathname, [doc, pathname]);
+
   const children = useMemo(
     () =>
       allDocs.filter(childDoc =>
@@ -20,10 +20,16 @@ const SidebarItem = ({ doc }: { doc: Doc }) => {
     [doc._raw.flattenedPath]
   );
 
+  const isActive = useMemo(() => doc.url === pathname, [doc, pathname]),
+    isChildActive = useMemo(
+      () => children.some(childDoc => childDoc.url === pathname),
+      [children, pathname]
+    );
+
   return children.length > 0 ? (
     // Item is a category
     <li className={styles.category}>
-      <details>
+      <details open={isActive || isChildActive}>
         <summary className={styles.button}>
           {doc.title}
           <ChevronRightIcon />
