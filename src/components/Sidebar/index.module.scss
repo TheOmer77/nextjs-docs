@@ -7,12 +7,16 @@ $rowGap: 0.25rem;
   height: 100vh;
   position: sticky;
   top: 0;
+  box-sizing: border-box;
 }
 
 .list {
   display: grid;
   row-gap: $rowGap;
   color: var(--color-gray-600);
+  padding: 0;
+  list-style: none;
+  margin: 0;
 }
 
 .category {
@@ -48,13 +52,19 @@ $rowGap: 0.25rem;
 
 .button {
   display: flex;
-  padding: 0.3rem 0.75rem;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 0.75rem;
   border-radius: var(--rounded-md);
   font-weight: var(--font-weight-medium);
   transition: var(--transition-bg);
   border: 1px solid transparent;
   cursor: pointer;
   width: 100%;
+  box-sizing: border-box;
+  color: inherit;
+  text-decoration: none;
+  height: 2.5rem;
 
   &.active {
     font-weight: var(--font-weight-semibold);
