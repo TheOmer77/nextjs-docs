@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import { allDocs } from 'contentlayer/generated';
 import { getMDXComponent } from 'next-contentlayer/hooks';
 
+import Sidebar from 'components/Sidebar';
+import dummySidebarItems from 'constants/dummySidebarItems';
 import layoutStyles from './styles.module.scss';
 import markupStyles from 'styles/markup.module.scss';
 
@@ -23,7 +25,7 @@ const DocLayout = ({ params }: { params: { slug: string[] } }) => {
 
   return (
     <div className={layoutStyles.container}>
-      <div /> {/* TBD? */}
+      <Sidebar items={dummySidebarItems} />
       <article className={layoutStyles.article}>
         <header className={layoutStyles.header}>
           <h1 className={layoutStyles.title}>{doc.title}</h1>
