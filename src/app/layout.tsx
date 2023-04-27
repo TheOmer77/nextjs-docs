@@ -13,11 +13,14 @@ const fontMono = Fira_Code({
   fallback: ['monospace'],
 });
 
+export const metadata = {
+  title: { template: '%s | App', default: 'App' },
+};
+
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html>
       <head>
-        <title>App</title>
         <link rel='icon' type='image/x-icon' href='/favicon.png' />
       </head>
       <body className={clsx(font.variable, fontMono.variable)}>{children}</body>
