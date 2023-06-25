@@ -15,7 +15,7 @@ const font = Figtree({
 });
 const fontMono = Fira_Code({
   subsets: ['latin'],
-  variable: '--font-family-monospace',
+  variable: '--font-family-mono',
   fallback: ['monospace'],
 });
 
