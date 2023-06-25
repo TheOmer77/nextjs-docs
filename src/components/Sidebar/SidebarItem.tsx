@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-import { ChevronRightIcon } from '@heroicons/react/20/solid';
+import ChevronRightIcon from 'assets/icons/chevron_right.svg';
 
 import { type Doc, allDocs } from 'contentlayer/generated';
 import styles from './index.module.scss';
