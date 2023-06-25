@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 import { Figtree, Fira_Code } from 'next/font/google';
 import clsx from 'clsx';
 
+import Sidebar from 'components/Sidebar';
+
 import 'styles/reset.css';
 import 'styles/globals.css';
 import 'styles/prism.css';
@@ -27,7 +29,10 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       <head>
         <link rel='icon' type='image/x-icon' href='/favicon.png' />
       </head>
-      <body className={clsx(font.variable, fontMono.variable)}>{children}</body>
+      <body className={clsx(font.variable, fontMono.variable, 'container')}>
+        <Sidebar />
+        <main>{children}</main>
+      </body>
     </html>
   );
 };

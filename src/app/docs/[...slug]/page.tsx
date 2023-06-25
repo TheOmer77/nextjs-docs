@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import { allDocs } from 'contentlayer/generated';
 
 import Markup from 'components/Markup';
-import styles from './styles.module.scss';
 
 export const generateStaticParams = async () =>
   allDocs.map(doc => ({ slug: doc._raw.flattenedPath.split('/') }));
@@ -26,8 +25,8 @@ const DocLayout = ({ params }: { params: { slug: string[] } }) => {
 
   return (
     <>
-      <header className={styles.header}>
-        <h1 className={styles.title}>{doc.title}</h1>
+      <header>
+        <h1>{doc.title}</h1>
       </header>
       <Markup doc={doc} />
     </>
