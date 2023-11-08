@@ -57,3 +57,22 @@
   --color-danger-dark: var(--color-danger-600);
   --color-danger-contrast: var(--color-danger-50);
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary-main: var(--color-primary-200);
+    --color-primary-light: var(--color-primary-100);
+    --color-primary-dark: var(--color-primary-300);
+    --color-primary-contrast: var(--color-primary-950);
+
+    --color-neutral-main: var(--color-neutral-200);
+    --color-neutral-light: var(--color-neutral-100);
+    --color-neutral-dark: var(--color-neutral-300);
+    --color-neutral-contrast: var(--color-neutral-950);
+
+    --color-danger-main: var(--color-danger-200);
+    --color-danger-light: var(--color-danger-100);
+    --color-danger-dark: var(--color-danger-300);
+    --color-danger-contrast: var(--color-danger-950);
+  }
+}
