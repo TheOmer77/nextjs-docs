@@ -4,8 +4,8 @@ import clsx from 'clsx';
 
 import Sidebar from 'components/Sidebar';
 
-import 'styles/reset.css';
-import 'styles/globals.css';
+import 'styles/index.css';
+import 'styles/globals.css'; // TODO: Remove once not needed
 import 'styles/prism.css';
 
 const font = Figtree({
@@ -25,11 +25,11 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <html>
+    <html className={clsx(font.variable, fontMono.variable)}>
       <head>
         <link rel='icon' type='image/x-icon' href='/favicon.png' />
       </head>
-      <body className={clsx(font.variable, fontMono.variable, 'container')}>
+      <body>
         <Sidebar />
         <main>{children}</main>
       </body>
