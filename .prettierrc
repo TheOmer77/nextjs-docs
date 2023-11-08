@@ -3,5 +3,7 @@
   "useTabs": false,
   "singleQuote": true,
   "jsxSingleQuote": true,
-  "arrowParens": "avoid"
+  "trailingComma": "es5",
+  "arrowParens": "avoid",
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
