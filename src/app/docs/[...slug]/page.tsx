@@ -25,7 +25,7 @@ const DocLayout = ({ params }: { params: { slug: string[] } }) => {
 
   return (
     <>
-      <header>
+      <header className='prose dark:prose-invert prose-xl mx-auto max-w-3xl pt-8'>
         <h1>{doc.title}</h1>
       </header>
       <Markup doc={doc} />
