@@ -1,7 +1,40 @@
 import typography from '@tailwindcss/typography';
+import plugin from 'tailwindcss/plugin';
+import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
+import toColorValue from 'tailwindcss/lib/util/toColorValue';
 import type { Config } from 'tailwindcss';
 
 const shades = [50, ...[...Array(9).keys()].map(key => (key + 1) * 100), 950];
+
+const stateLayer = plugin(({ addUtilities, matchUtilities, theme }) => {
+  const themeColors = flattenColorPalette(theme('colors'));
+  const colors = Object.fromEntries(
+    Object.entries(themeColors).map(([k, v]) => [k, toColorValue(v)])
+  );
+
+  addUtilities({
+    '.state-layer': {
+      position: 'relative',
+      overflow: 'hidden',
+      '&.fixed': { position: 'fixed' },
+      '&.absolute': { position: 'absolute' },
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        insetBlockStart: '0',
+        insetInlineStart: '0',
+        width: '100%',
+        height: '100%',
+        zIndex: '1',
+        transition: 'background-color 100ms cubic-bezier(0.4, 0, 0.2, 1)',
+      },
+    },
+  });
+  matchUtilities(
+    { 'state-layer': value => ({ '&::after': { backgroundColor: value } }) },
+    { values: colors, type: 'color' }
+  );
+});
 
 const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
@@ -73,7 +106,7 @@ const config: Config = {
       ),
     },
   },
-  plugins: [typography],
+  plugins: [typography, stateLayer],
 };
 
 export default config;
