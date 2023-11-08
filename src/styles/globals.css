@@ -1,36 +1,57 @@
 :root {
-  --color-black: #000000;
-  --color-white: #ffffff;
-  --color-primary-50: #e6e8fd;
-  --color-primary-100: #c0c6f8;
-  --color-primary-200: #94a1f4;
-  --color-primary-300: #607df1;
-  --color-primary-400: #2b5fee;
-  --color-primary-500: #0041e9;
-  --color-primary-600: #0039dd;
-  --color-primary-700: #002ed1;
-  --color-primary-800: #0022c6;
-  --color-primary-900: #0007ae;
-  --color-neutral-50: #e8e9ee;
-  --color-neutral-100: #c4c9d6;
-  --color-neutral-200: #9fa6ba;
-  --color-neutral-300: #7b849d;
-  --color-neutral-400: #606a8a;
-  --color-neutral-500: #415281;
-  --color-neutral-600: #3b4a79;
-  --color-neutral-700: #32416e;
-  --color-neutral-800: #2a3764;
-  --color-neutral-900: #1b2752;
-  --color-danger-50: #feebef;
-  --color-danger-100: #feced4;
-  --color-danger-200: #ee9c9e;
-  --color-danger-300: #e47679;
-  --color-danger-400: #ef5758;
-  --color-danger-500: #f4473f;
-  --color-danger-600: #e53e3e;
-  --color-danger-700: #d33538;
-  --color-danger-800: #c62e31;
-  --color-danger-900: #b62425;
+  /* primary */
+  --color-primary-50: 234 241 255;
+  --color-primary-100: 213 227 255;
+  --color-primary-200: 170 199 255;
+  --color-primary-300: 127 170 255;
+  --color-primary-400: 84 138 255;
+  --color-primary-500: 38 102 255;
+  --color-primary-600: 0 66 235;
+  --color-primary-700: 0 48 179;
+  --color-primary-800: 0 30 125;
+  --color-primary-900: 0 13 69;
+  --color-primary-950: 0 4 37;
+
+  --color-primary-main: var(--color-primary-600);
+  --color-primary-light: var(--color-primary-500);
+  --color-primary-dark: var(--color-primary-700);
+  --color-primary-contrast: var(--color-primary-50);
+
+  /* neutral */
+  --color-neutral-50: 238 241 247;
+  --color-neutral-100: 221 227 238;
+  --color-neutral-200: 187 199 221;
+  --color-neutral-300: 156 172 202;
+  --color-neutral-400: 127 145 180;
+  --color-neutral-500: 101 119 154;
+  --color-neutral-600: 78 94 125;
+  --color-neutral-700: 57 70 95;
+  --color-neutral-800: 37 46 65;
+  --color-neutral-900: 16 22 33;
+  --color-neutral-950: 6 8 15;
+
+  --color-neutral-main: var(--color-neutral-600);
+  --color-neutral-light: var(--color-neutral-500);
+  --color-neutral-dark: var(--color-neutral-700);
+  --color-neutral-contrast: var(--color-neutral-50);
+
+  /* danger */
+  --color-danger-50: 255 236 232;
+  --color-danger-100: 255 216 209;
+  --color-danger-200: 255 175 162;
+  --color-danger-300: 255 129 110;
+  --color-danger-400: 255 61 43;
+  --color-danger-500: 222 16 0;
+  --color-danger-600: 177 10 0;
+  --color-danger-700: 135 5 0;
+  --color-danger-800: 93 2 0;
+  --color-danger-900: 50 1 0;
+  --color-danger-950: 26 0 0;
+
+  --color-danger-main: var(--color-danger-500);
+  --color-danger-light: var(--color-danger-400);
+  --color-danger-dark: var(--color-danger-600);
+  --color-danger-contrast: var(--color-danger-50);
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;

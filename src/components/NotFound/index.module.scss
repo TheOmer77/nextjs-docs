@@ -15,7 +15,7 @@
   }
 
   .code {
-    color: var(--color-danger-800);
+    color: rgb(var(--color-danger-800));
     font-weight: 800;
     font-size: 20rem;
     line-height: 20rem;
@@ -23,6 +23,6 @@
 
   .msg {
     font-size: 1.5rem;
-    color: var(--color-neutral-600);
+    color: rgb(var(--color-neutral-600));
   }
 }
