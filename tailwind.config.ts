@@ -61,6 +61,10 @@ const config: Config = {
             (obj, shade) => ({
               ...obj,
               [shade]: `rgb(var(--color-${colorName}-${shade}) / <alpha-value>)`,
+              main: `rgb(var(--color-${colorName}-main) / <alpha-value>)`,
+              light: `rgb(var(--color-${colorName}-light) / <alpha-value>)`,
+              dark: `rgb(var(--color-${colorName}-dark) / <alpha-value>)`,
+              contrast: `rgb(var(--color-${colorName}-contrast) / <alpha-value>)`,
             }),
             {}
           ),
