@@ -2,10 +2,9 @@ import type { ReactNode } from 'react';
 import { Figtree, Fira_Code } from 'next/font/google';
 import clsx from 'clsx';
 
-import Sidebar from 'components/Sidebar';
+import { Sidebar } from 'components/layout';
 
 import 'styles/index.css';
-import 'styles/globals.css'; // TODO: Remove once not needed
 import 'styles/prism.css';
 
 const font = Figtree({
@@ -29,9 +28,14 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       <head>
         <link rel='icon' type='image/x-icon' href='/favicon.png' />
       </head>
-      <body>
+      <body
+        className='flex flex-row overflow-x-hidden
+bg-white text-neutral-900 selection:bg-primary-500/30
+selection:text-primary-950 dark:bg-neutral-950 dark:text-neutral-100
+dark:selection:text-primary-50 print:text-neutral-900'
+      >
         <Sidebar />
-        <main>{children}</main>
+        <main className='grow'>{children}</main>
       </body>
     </html>
   );

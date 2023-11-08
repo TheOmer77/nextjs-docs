@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import ChevronRightIcon from 'assets/icons/chevron_right.svg';
 
 import { type Doc, allDocs } from 'contentlayer/generated';
-import styles from './index.module.scss';
+import { ListItem, ListItemText } from 'components/general/List';
 
 const SidebarItem = ({ doc }: { doc: Doc }) => {
   const pathname = usePathname();
@@ -26,7 +26,9 @@ const SidebarItem = ({ doc }: { doc: Doc }) => {
       [children, pathname]
     );
 
-  return children.length > 0 ? (
+  // TODO: Categories??
+  /* 
+  children.length > 0 ? (
     // Item is a category
     <li className={styles.category}>
       <details open={isActive || isChildActive}>
@@ -41,17 +43,19 @@ const SidebarItem = ({ doc }: { doc: Doc }) => {
         </ul>
       </details>
     </li>
-  ) : (
-    // Item is a link
-    <li key={doc._id}>
-      <Link
-        href={doc.url}
-        className={clsx(styles.button, isActive && styles.active)}
-        aria-current={isActive ? 'page' : undefined}
-      >
-        {doc.title}
+  )
+  */
+
+  return (
+    <ListItem
+      asChild
+      key={doc._id}
+      aria-current={isActive ? 'page' : undefined}
+    >
+      <Link href={doc.url}>
+        <ListItemText primary={doc.title} />
       </Link>
-    </li>
+    </ListItem>
   );
 };
 
