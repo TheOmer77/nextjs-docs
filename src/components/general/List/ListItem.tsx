@@ -22,7 +22,7 @@ const ListItemButton = forwardRef<
     ref={ref}
     asChild={asChild}
     className={cn(
-      `flex min-h-[2.5rem] w-full cursor-default select-none items-center
+      `flex min-h-[2rem] w-full select-none items-center
 rounded-lg px-4 py-2 text-start text-sm outline-none transition-[background-color]
 state-layer hover:state-layer-neutral-500/20 focus-visible:outline-none
 focus-visible:state-layer-neutral-500/20 active:state-layer-neutral-500/30

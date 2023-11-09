@@ -29,10 +29,10 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         <link rel='icon' type='image/x-icon' href='/favicon.png' />
       </head>
       <body
-        className='flex flex-row overflow-x-hidden
-bg-white text-neutral-900 selection:bg-primary-500/30
-selection:text-primary-950 dark:bg-neutral-950 dark:text-neutral-100
-dark:selection:text-primary-50 print:text-neutral-900'
+        className='mx-auto flex max-w-8xl flex-row overflow-x-hidden bg-white
+px-4 text-neutral-900 selection:bg-primary-500/30 selection:text-primary-950
+dark:bg-neutral-950 dark:text-neutral-100 dark:selection:text-primary-50
+sm:px-6 md:px-8'
       >
         <Sidebar />
         <main className='grow'>{children}</main>
