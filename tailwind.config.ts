@@ -44,6 +44,8 @@ const config: Config = {
         sans: ['var(--font-family)', 'sans-serif'],
         mono: ['var(--font-family-mono)', 'monospace'],
       },
+      maxWidth: { '8xl': '90rem' },
+      spacing: { inherit: 'inherit' },
       typography: () => ({
         DEFAULT: {
           css: {
@@ -84,6 +86,7 @@ const config: Config = {
       }),
     },
     colors: {
+      inherit: 'inherit',
       white: '#fff',
       black: '#000',
       transparent: 'transparent',
