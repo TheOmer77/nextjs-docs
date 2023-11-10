@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: light dark;
+
   /* primary */
   --color-primary-50: 234 241 255;
   --color-primary-100: 213 227 255;
