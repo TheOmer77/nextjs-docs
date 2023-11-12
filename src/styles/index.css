@@ -78,3 +78,9 @@
     --color-danger-contrast: var(--color-danger-950);
   }
 }
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
