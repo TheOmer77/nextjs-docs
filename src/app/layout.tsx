@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { Figtree, Fira_Code } from 'next/font/google';
 import clsx from 'clsx';
 
-import { Sidebar } from 'components/layout';
+import { Nav, Sidebar } from 'components/layout';
 
 import 'styles/index.css';
 import 'styles/prism.css';
@@ -30,12 +30,12 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       </head>
       <body
         className='mx-auto flex max-w-8xl flex-row overflow-x-hidden bg-white
-px-4 text-neutral-900 selection:bg-primary-500/30 selection:text-primary-950
-dark:bg-neutral-950 dark:text-neutral-100 dark:selection:text-primary-50
-sm:px-6 md:px-8'
+text-neutral-900 selection:bg-primary-500/30 selection:text-primary-950
+dark:bg-neutral-950 dark:text-neutral-100 dark:selection:text-primary-50'
       >
+        <Nav />
         <Sidebar />
-        <main className='grow'>{children}</main>
+        <main className='grow pt-16'>{children}</main>
       </body>
     </html>
   );
