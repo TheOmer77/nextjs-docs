@@ -18,6 +18,5 @@ after:w-screen after:bg-inherit dark:bg-neutral-900'
           ))}
       </List>
     </aside>
-    <div className='w-80' />
   </>
 );
