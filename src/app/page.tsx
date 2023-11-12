@@ -11,9 +11,12 @@ const Home = () => (
     <Link
       href='/docs/sample'
       className='flex h-12 items-center justify-center rounded-lg
-bg-primary-main px-6 text-lg font-medium text-primary-contrast'
+bg-primary-main px-6 text-lg font-medium text-primary-contrast
+transition-[background-color] state-layer hover:state-layer-primary-light/50
+focus-visible:outline-none focus-visible:state-layer-primary-light/50
+active:bg-primary-700 dark:active:bg-primary-500 [&>*]:z-[2]'
     >
-      Get started
+      <span>Get started</span>
     </Link>
   </div>
 );
