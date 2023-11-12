@@ -1,4 +1,5 @@
 import { NavHeader } from './NavHeader';
+import Search from '../Search';
 
 export const Nav = () => {
   return (
@@ -7,7 +8,9 @@ export const Nav = () => {
 -translate-x-1/2 flex-row justify-between'
     >
       <NavHeader />
-      <div className='flex grow flex-row items-center justify-end bg-white px-4 dark:bg-neutral-950'></div>
+      <div className='flex grow flex-row items-center justify-end bg-white px-4 dark:bg-neutral-950'>
+        <Search />
+      </div>
     </nav>
   );
 };
