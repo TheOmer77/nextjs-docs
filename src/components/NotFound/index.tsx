@@ -1,5 +1,5 @@
 const NotFound = () => (
-  <div className='flex min-h-screen w-full flex-col items-center justify-center'>
+  <div className='flex min-h-[calc(100dvh-4rem)] w-full flex-col items-center justify-center'>
     <span className='text-[16rem] font-extrabold leading-none text-danger-800 dark:text-danger-200'>
       404
     </span>
