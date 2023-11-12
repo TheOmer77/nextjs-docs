@@ -12,17 +12,17 @@ const webpackConfig = config => {
   );
 
   config.module.rules.push(
-    // Reapply the existing rule, but only for svg imports ending in ?url
+    // Reapply the existing rule, but only for svg imports not ending in ?react
     {
       ...fileLoaderRule,
       test: /\.svg$/i,
-      resourceQuery: /url/, // *.svg?url
+      resourceQuery: { not: /react/ },
     },
-    // Convert all other *.svg imports to React components
+    // Convert *.svg imports ending with ?react to React components
     {
       test: /\.svg$/i,
       issuer: /\.([jt]s|md)x?$/,
-      resourceQuery: { not: /url/ }, // exclude if *.svg?url
+      resourceQuery: /react/, // *.svg?react
       use: [{ loader: '@svgr/webpack', options: { icon: true } }],
     }
   );
