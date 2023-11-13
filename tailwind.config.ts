@@ -37,7 +37,7 @@ const stateLayer = plugin(({ addUtilities, matchUtilities, theme }) => {
 });
 
 const config: Config = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './data/**/*.mdx'],
   theme: {
     extend: {
       fontFamily: {
