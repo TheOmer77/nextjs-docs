@@ -1,4 +1,4 @@
-import SearchIcon from 'assets/icons/search.svg?react';
+import { SearchIcon } from 'assets/icons';
 
 const Search = () => {
   return (
