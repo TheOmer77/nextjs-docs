@@ -31,14 +31,16 @@ pre[class*='language-']::-moz-selection,
 pre[class*='language-'] ::-moz-selection,
 code[class*='language-']::-moz-selection,
 code[class*='language-'] ::-moz-selection {
-  background: #3c526d;
+  background: rgb(var(--color-neutral-700));
+  color: rgb(var(--color-neutral-50));
 }
 
 pre[class*='language-']::selection,
 pre[class*='language-'] ::selection,
 code[class*='language-']::selection,
 code[class*='language-'] ::selection {
-  background: #3c526d;
+  background: rgb(var(--color-neutral-700));
+  color: rgb(var(--color-neutral-50));
 }
 
 /* Code blocks */
@@ -50,7 +52,7 @@ pre[class*='language-'] {
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-  background: #111b27;
+  background: rgb(var(--color-neutral-900));
 }
 
 /* Inline code */
