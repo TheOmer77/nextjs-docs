@@ -1,3 +1,5 @@
+'use client';
+
 import { type Doc } from 'contentlayer/generated';
 import { getMDXComponent } from 'next-contentlayer/hooks';
 
