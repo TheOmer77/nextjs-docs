@@ -2,13 +2,42 @@
 title: Some other page
 ---
 
+import { useState } from 'react';
+
 **Contentlayer makes working with content easy.** It is a content preprocessor that validates and transforms your content into type-safe JSON you can easily import into your application.
 
 ![Photo by Maëva Vigier](https://images.unsplash.com/photo-1699362232821-b2eccfc516e5?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
-## Some React code
+## Testing React in MDX
 
-Here's some random React code, because I couldn't find anything better to put here:
+export const Counter = () => {
+  const [count, setCount] = useState(0);
+
+return (
+
+<div className='flex w-full flex-col items-center gap-2'>
+  <div
+    className='flex h-20 w-20 select-none items-center justify-center
+rounded-lg bg-primary-main text-4xl font-bold text-primary-contrast'
+  >
+    {count}
+  </div>
+  <button
+    onClick={() => setCount(prev => prev + 1)}
+    className='flex h-10 select-none flex-row items-center rounded-lg
+bg-neutral-50 px-4 text-neutral-800 state-layer
+hover:state-layer-neutral-500/20 focus-visible:outline-none
+focus-visible:state-layer-neutral-500/20 active:state-layer-neutral-500/30
+dark:bg-neutral-900 dark:text-neutral-300'
+  >
+    Increment
+  </button>
+</div>
+); };
+
+<Counter />
+
+### Code for this component
 
 ```tsx
 import { useState } from 'react';
@@ -17,10 +46,23 @@ const Counter = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
-      <h1>{count}</h1>
-      <button onClick={() => setCount(prev => prev + 1)}>Increment</button>
-      very long
+    <div className='flex w-full flex-col items-center gap-2'>
+      <div
+        className='bg-primary-main text-primary-contrast flex h-20 w-20
+select-none items-center justify-center rounded-lg text-4xl font-bold'
+      >
+        {count}
+      </div>
+      <button
+        onClick={() => setCount(prev => prev + 1)}
+        className='state-layer hover:state-layer-neutral-500/20
+focus-visible:state-layer-neutral-500/20 active:state-layer-neutral-500/30 flex
+h-10 select-none flex-row items-center rounded-lg bg-neutral-50 px-4
+text-neutral-800 focus-visible:outline-none dark:bg-neutral-900
+dark:text-neutral-300'
+      >
+        Increment
+      </button>
     </div>
   );
 };
