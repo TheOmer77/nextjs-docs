@@ -15,8 +15,8 @@ dark:bg-neutral-950 md:bg-transparent dark:md:bg-transparent'
       </IconButton>
       <NavHeader />
       <div
-        className='flex grow flex-row items-center justify-end bg-white px-4
-dark:bg-neutral-950'
+        className='flex h-full grow flex-row items-center justify-end bg-white
+px-4 dark:bg-neutral-950'
       >
         <Search />
       </div>
