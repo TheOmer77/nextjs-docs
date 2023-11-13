@@ -35,7 +35,7 @@ dark:bg-neutral-950 dark:text-neutral-100 dark:selection:text-primary-50'
       >
         <Nav />
         <Sidebar />
-        <main className='grow ps-80 pt-16'>{children}</main>
+        <main className='grow px-4 pt-16 md:ps-[21rem]'>{children}</main>
       </body>
     </html>
   );

@@ -8,7 +8,10 @@ export const NavHeader = forwardRef<
   <header
     {...props}
     ref={ref}
-    className={cn(`w-80 p-4 text-2xl font-bold text-primary-main`, className)}
+    className={cn(
+      `p-4 text-2xl font-bold text-primary-main md:w-80`,
+      className
+    )}
   >
     Docs site
   </header>

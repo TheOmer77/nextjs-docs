@@ -4,7 +4,10 @@ import { getMDXComponent } from 'next-contentlayer/hooks';
 const Markup = ({ doc }: { doc: Doc }) => {
   const MdxContent = getMDXComponent(doc.body.code);
   return (
-    <div className='prose dark:prose-invert mx-auto max-w-3xl py-8'>
+    <div
+      className='prose mx-auto max-w-[calc(100vw-2rem)] py-8 dark:prose-invert
+md:max-w-[calc(100vw-22rem)] lg:max-w-3xl'
+    >
       <MdxContent />
     </div>
   );
