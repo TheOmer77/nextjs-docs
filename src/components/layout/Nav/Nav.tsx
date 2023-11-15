@@ -10,13 +10,13 @@ export const Nav = () => {
 -translate-x-1/2 flex-row items-center justify-between bg-white
 dark:bg-neutral-950 md:bg-transparent dark:md:bg-transparent'
     >
-      <IconButton aria-label='Open sidebar'>
+      <IconButton aria-label='Open sidebar' className='ms-2'>
         <MenuIcon />
       </IconButton>
       <NavHeader />
       <div
         className='flex h-full grow flex-row items-center justify-end bg-white
-px-4 dark:bg-neutral-950'
+px-2 dark:bg-neutral-950 md:px-4'
       >
         <Search />
       </div>

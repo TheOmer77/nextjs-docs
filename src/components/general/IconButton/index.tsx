@@ -15,7 +15,7 @@ const IconButton = forwardRef<
       ref={ref}
       className={cn(
         `className='ms-4 flex h-10 w-10 select-none items-center justify-center
-rounded-lg text-lg text-neutral-700 state-layer
+rounded-lg text-xl text-neutral-700 state-layer
 hover:state-layer-neutral-500/20 focus-visible:outline-none
 focus-visible:state-layer-neutral-500/20 active:state-layer-neutral-500/30
 dark:text-neutral-300 md:hidden`,
