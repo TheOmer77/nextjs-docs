@@ -84,6 +84,24 @@ const config: Config = {
           },
         },
       }),
+      keyframes: {
+        fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
+        fadeOut: { from: { opacity: '1' }, to: { opacity: '0' } },
+        slideIn: {
+          from: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(0%)' },
+        },
+        slideOut: {
+          from: { transform: 'translateX(0%)' },
+          to: { transform: 'translateX(-100%)' },
+        },
+      },
+    },
+    animation: {
+      fadeIn: 'fadeIn 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+      fadeOut: 'fadeOut 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+      slideIn: 'slideIn 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+      slideOut: 'slideOut 300ms cubic-bezier(0.2, 1, 0.4, 1)',
     },
     colors: {
       inherit: 'inherit',
