@@ -1,7 +1,7 @@
 import { forwardRef, type ComponentPropsWithoutRef } from 'react';
 import { cn } from 'utils';
 
-export const NavHeader = forwardRef<
+export const Header = forwardRef<
   HTMLElement,
   ComponentPropsWithoutRef<'header'>
 >(({ className, ...props }, ref) => (
@@ -16,4 +16,4 @@ export const NavHeader = forwardRef<
     Docs site
   </header>
 ));
-NavHeader.displayName = 'NavHeader';
+Header.displayName = 'Header';
