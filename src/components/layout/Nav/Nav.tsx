@@ -1,6 +1,6 @@
 import { Header } from '../Header';
 import Search from '../Search';
-import IconButton from 'components/general/IconButton';
+import { IconButton } from 'components/general';
 import { MenuIcon } from 'assets/icons';
 
 export interface NavProps {

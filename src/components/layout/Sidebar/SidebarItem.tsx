@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { ChevronRightIcon } from 'assets/icons';
 
 import { type Doc, allDocs } from 'contentlayer/generated';
-import { ListItem, ListItemText } from 'components/general/List';
+import { ListItem, ListItemText } from 'components/general';
 
 const SidebarItem = ({ doc, onClick }: { doc: Doc; onClick?: () => void }) => {
   const pathname = usePathname();

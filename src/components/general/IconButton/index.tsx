@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import { cn } from 'utils';
 
-const IconButton = forwardRef<
+export const IconButton = forwardRef<
   HTMLButtonElement,
   ComponentPropsWithoutRef<'button'>
 >(({ className, children, ...props }, ref) => {
@@ -27,5 +27,3 @@ dark:text-neutral-300 md:hidden`,
   );
 });
 IconButton.displayName = 'IconButton';
-
-export default IconButton;

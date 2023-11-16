@@ -4,9 +4,7 @@ import { allDocs } from 'contentlayer/generated';
 
 import SidebarItem from './SidebarItem';
 import { Header } from '../Header';
-import { List } from 'components/general/List';
-import { ScrollArea } from 'components/general/ScrollArea';
-import { Sheet } from 'components/general/Sheet';
+import { List, ScrollArea, Sheet } from 'components/general';
 
 export interface SidebarProps {
   open?: boolean;
