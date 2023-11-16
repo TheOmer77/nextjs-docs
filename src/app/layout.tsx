@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { Figtree, Fira_Code } from 'next/font/google';
 import clsx from 'clsx';
 
-import { Nav, Sidebar } from 'components/layout';
+import Layout from 'components/layout';
 
 import 'styles/index.css';
 import 'styles/prism.css';
@@ -33,8 +33,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
 text-neutral-900 selection:bg-primary-500/30 selection:text-primary-950
 dark:bg-neutral-950 dark:text-neutral-100 dark:selection:text-primary-50'
       >
-        <Nav />
-        <Sidebar />
+        <Layout />
         <main className='grow px-4 pt-16 md:ps-[21rem]'>{children}</main>
       </body>
     </html>

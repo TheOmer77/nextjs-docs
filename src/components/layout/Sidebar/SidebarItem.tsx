@@ -9,7 +9,7 @@ import { ChevronRightIcon } from 'assets/icons';
 import { type Doc, allDocs } from 'contentlayer/generated';
 import { ListItem, ListItemText } from 'components/general/List';
 
-const SidebarItem = ({ doc }: { doc: Doc }) => {
+const SidebarItem = ({ doc, onClick }: { doc: Doc; onClick?: () => void }) => {
   const pathname = usePathname();
 
   const children = useMemo(
@@ -51,6 +51,7 @@ const SidebarItem = ({ doc }: { doc: Doc }) => {
       asChild
       key={doc._id}
       aria-current={isActive ? 'page' : undefined}
+      onClick={onClick}
     >
       <Link href={doc.url}>
         <ListItemText primary={doc.title} />

@@ -1,9 +1,19 @@
+'use client';
+
 import { allDocs } from 'contentlayer/generated';
 
-import { List } from 'components/general/List';
 import SidebarItem from './SidebarItem';
+import { Header } from '../Header';
+import { List } from 'components/general/List';
+import { ScrollArea } from 'components/general/ScrollArea';
+import { Sheet } from 'components/general/Sheet';
 
-export const Sidebar = () => (
+export interface SidebarProps {
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}
+
+export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => (
   <>
     <aside
       className='fixed hidden h-screen w-80 select-none flex-col bg-neutral-50
@@ -18,5 +28,24 @@ after:w-screen after:bg-inherit dark:bg-neutral-900 md:flex'
           ))}
       </List>
     </aside>
+    <Sheet open={open} onOpenChange={onOpenChange}>
+      <Header />
+      <List className='px-2'>
+        <ScrollArea
+          className='flex max-h-[calc(100vh-4rem)] flex-col gap-px
+overflow-y-auto rounded-lg'
+        >
+          {allDocs
+            .filter(doc => doc._raw.flattenedPath.split('/').length < 2)
+            .map(doc => (
+              <SidebarItem
+                key={doc._id}
+                doc={doc}
+                onClick={() => onOpenChange?.(false)}
+              />
+            ))}
+        </ScrollArea>
+      </List>
+    </Sheet>
   </>
 );
