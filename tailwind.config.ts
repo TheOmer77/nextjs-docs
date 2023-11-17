@@ -97,15 +97,15 @@ const config: Config = {
           to: { transform: 'translateX(-100%)' },
         },
       },
+      animation: {
+        fadeIn: 'fadeIn 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+        fadeOut: 'fadeOut 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+        slideIn: 'slideIn 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+        slideOut: 'slideOut 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+      },
+      transitionTimingFunction: { DEFAULT: 'cubic-bezier(0.2, 1, 0.4, 1)' },
+      transitionDuration: { 50: '50ms' },
     },
-    animation: {
-      fadeIn: 'fadeIn 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-      fadeOut: 'fadeOut 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-      slideIn: 'slideIn 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-      slideOut: 'slideOut 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-    },
-    transitionTimingFunction: { DEFAULT: 'cubic-bezier(0.2, 1, 0.4, 1)' },
-    transitionDuration: { 50: '50ms' },
     colors: {
       inherit: 'inherit',
       white: '#fff',
