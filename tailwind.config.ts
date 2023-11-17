@@ -26,8 +26,9 @@ const stateLayer = plugin(({ addUtilities, matchUtilities, theme }) => {
         width: '100%',
         height: '100%',
         zIndex: '1',
-        transition: 'background-color 100ms cubic-bezier(0.4, 0, 0.2, 1)',
+        transition: 'background-color 150ms cubic-bezier(0.2, 1, 0.4, 1)',
       },
+      '&:active::after': { transitionDuration: '50ms' },
     },
   });
   matchUtilities(
@@ -103,6 +104,8 @@ const config: Config = {
       slideIn: 'slideIn 300ms cubic-bezier(0.2, 1, 0.4, 1)',
       slideOut: 'slideOut 300ms cubic-bezier(0.2, 1, 0.4, 1)',
     },
+    transitionTimingFunction: { DEFAULT: 'cubic-bezier(0.2, 1, 0.4, 1)' },
+    transitionDuration: { 50: '50ms' },
     colors: {
       inherit: 'inherit',
       white: '#fff',

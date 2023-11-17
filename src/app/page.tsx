@@ -13,7 +13,7 @@ const Home = () => (
       className='flex h-12 items-center justify-center rounded-lg
 bg-primary-main px-6 text-lg font-medium text-primary-contrast
 transition-[background-color] hover:bg-primary-light focus-visible:outline-none
-active:bg-primary-dark'
+active:bg-primary-dark active:duration-50'
     >
       Get started
     </Link>
