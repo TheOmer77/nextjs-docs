@@ -1,7 +1,10 @@
 import Link from 'next/link';
 
 const Home = () => (
-  <div className='mx-auto flex min-h-[calc(100dvh-4rem)] w-full max-w-3xl flex-col items-start justify-center gap-4'>
+  <div
+    className='mx-auto flex min-h-[calc(100dvh-4rem)] w-full max-w-3xl flex-col
+items-start justify-center gap-4 px-8'
+  >
     <h1 className='text-7xl font-extrabold tracking-tight'>Hello world!</h1>
     <p className='text-lg text-neutral-700 dark:text-neutral-300'>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit,
