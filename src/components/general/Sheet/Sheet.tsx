@@ -17,7 +17,7 @@ export const Sheet = forwardRef<
   <DialogRoot open={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange}>
     <DialogPortal>
       <DialogOverlay
-        className='fixed inset-0 z-10 bg-black/40
+        className='fixed inset-0 z-10 bg-black/50
 data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in'
       />
       <DialogContent
