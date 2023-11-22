@@ -14,11 +14,11 @@ export const IconButton = forwardRef<
       {...props}
       ref={ref}
       className={cn(
-        `className='ms-4 flex h-10 w-10 select-none items-center justify-center
-rounded-lg text-xl text-neutral-700 state-layer
-hover:state-layer-neutral-500/20 focus-visible:outline-none
-focus-visible:state-layer-neutral-500/20 active:state-layer-neutral-500/30
-dark:text-neutral-300 md:hidden`,
+        `flex h-10 w-10 select-none items-center justify-center rounded-lg
+text-xl text-neutral-700 duration-200 state-layer
+hover:state-layer-neutral-500/10 focus-visible:outline-none
+focus-visible:state-layer-neutral-500/20 active:bg-neutral-500/20
+active:duration-0 dark:text-neutral-300 md:hidden`,
         className
       )}
     >
