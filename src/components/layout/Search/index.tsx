@@ -1,15 +1,20 @@
+import { IconButton } from 'components/general';
 import { SearchIcon } from 'assets/icons';
 
 const Search = () => {
   return (
     <div>
+      <IconButton className='sm:hidden' aria-label='Search docs'>
+        <SearchIcon />
+      </IconButton>
       <button
-        className='flex h-10 w-10 select-none flex-row items-center
-justify-center gap-2 rounded-lg text-sm text-neutral-700 state-layer
-hover:state-layer-neutral-500/20 focus-visible:outline-none
-focus-visible:state-layer-neutral-500/20 active:state-layer-neutral-500/30
-dark:text-neutral-300 sm:h-9 sm:w-64 sm:justify-start sm:bg-neutral-50
-sm:px-4 dark:sm:bg-neutral-900 [&>svg]:text-xl [&>svg]:sm:text-base'
+        className='hidden h-9 w-64 select-none flex-row items-center
+justify-start gap-2 rounded-lg bg-neutral-50 px-2 text-sm text-neutral-600
+transition-colors duration-200 state-layer hover:state-layer-neutral-100/50
+focus-visible:outline-none active:bg-neutral-100 active:duration-0
+dark:bg-neutral-700/20 dark:text-neutral-400
+dark:hover:state-layer-neutral-800/50 dark:active:bg-neutral-800 sm:flex
+[&>*]:z-10 [&>svg:first-child]:ms-1 [&>svg]:text-base'
         aria-label='Search docs'
       >
         <SearchIcon />
