@@ -18,7 +18,7 @@ export const Sheet = forwardRef<
     <DialogPortal>
       <DialogOverlay
         className='fixed inset-0 z-10 bg-black/40
-data-[state=closed]:animate-fadeOut data-[state=open]:animate-fadeIn'
+data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in'
       />
       <DialogContent
         {...props}
@@ -26,8 +26,9 @@ data-[state=closed]:animate-fadeOut data-[state=open]:animate-fadeIn'
         className={cn(
           `fixed start-0 top-0 z-20 h-screen max-h-screen w-80 max-w-md
 rounded-e-lg bg-white shadow-lg shadow-black/10
-focus:outline-none data-[state=closed]:animate-slideOut
-data-[state=open]:animate-slideIn dark:bg-neutral-900`,
+[--slide-translate-origin-x:-100%] focus:outline-none
+data-[state=closed]:animate-slide-out data-[state=open]:animate-slide-in
+rtl:[--slide-translate-origin-x:100%] dark:bg-neutral-900`,
           className
         )}
       >

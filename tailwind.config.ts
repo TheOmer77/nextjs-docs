@@ -86,22 +86,32 @@ const config: Config = {
         },
       }),
       keyframes: {
-        fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
-        fadeOut: { from: { opacity: '1' }, to: { opacity: '0' } },
-        slideIn: {
-          from: { transform: 'translateX(-100%)' },
-          to: { transform: 'translateX(0%)' },
+        'fade-in': { from: { opacity: '0' }, to: { opacity: '1' } },
+        'fade-out': { from: { opacity: '1' }, to: { opacity: '0' } },
+        'slide-in': {
+          from: {
+            transform: `translate(
+  var(--slide-translate-origin-x, 0%),
+  var(--slide-translate-origin-y, 0%)
+)`,
+          },
+          to: { transform: 'translate(0%, 0%)' },
         },
-        slideOut: {
-          from: { transform: 'translateX(0%)' },
-          to: { transform: 'translateX(-100%)' },
+        'slide-out': {
+          from: { transform: 'translate(0%, 0%)' },
+          to: {
+            transform: `translate(
+  var(--slide-translate-origin-x, 0%),
+  var(--slide-translate-origin-y, 0%)
+)`,
+          },
         },
       },
       animation: {
-        fadeIn: 'fadeIn 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-        fadeOut: 'fadeOut 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-        slideIn: 'slideIn 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-        slideOut: 'slideOut 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+        'fade-in': 'fade-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+        'fade-out': 'fade-out 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+        'slide-in': 'slide-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+        'slide-out': 'slide-out 300ms cubic-bezier(0.2, 1, 0.4, 1)',
       },
       transitionTimingFunction: { DEFAULT: 'cubic-bezier(0.2, 1, 0.4, 1)' },
       transitionDuration: { 50: '50ms' },
