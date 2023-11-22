@@ -106,12 +106,46 @@ const config: Config = {
 )`,
           },
         },
+        'zoom-in': {
+          from: {
+            opacity: '0',
+            transform: `translate(
+  var(--zoom-translate-x, 0%),
+  var(--zoom-translate-y, 0%)
+) scale(0.95)`,
+          },
+          to: {
+            opacity: '1',
+            transform: `translate(
+  var(--zoom-translate-x, 0%),
+  var(--zoom-translate-y, 0%)
+) scale(1)`,
+          },
+        },
+        'zoom-out': {
+          from: {
+            opacity: '1',
+            transform: `translate(
+  var(--zoom-translate-x, 0%),
+  var(--zoom-translate-y, 0%)
+) scale(1)`,
+          },
+          to: {
+            opacity: '0',
+            transform: `translate(
+  var(--zoom-translate-x, 0%),
+  var(--zoom-translate-y, 0%)
+) scale(0.95)`,
+          },
+        },
       },
       animation: {
         'fade-in': 'fade-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
         'fade-out': 'fade-out 300ms cubic-bezier(0.2, 1, 0.4, 1)',
         'slide-in': 'slide-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
         'slide-out': 'slide-out 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+        'zoom-in': 'zoom-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+        'zoom-out': 'zoom-out 300ms cubic-bezier(0.2, 1, 0.4, 1)',
       },
       transitionTimingFunction: { DEFAULT: 'cubic-bezier(0.2, 1, 0.4, 1)' },
       transitionDuration: { 50: '50ms' },
