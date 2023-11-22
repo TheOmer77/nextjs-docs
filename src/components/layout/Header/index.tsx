@@ -9,7 +9,7 @@ export const Header = forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      `p-4 text-2xl font-bold text-primary-main md:w-80`,
+      `p-4 text-2xl font-bold tracking-tight text-primary-main md:w-80`,
       className
     )}
   >
