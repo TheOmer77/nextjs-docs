@@ -28,13 +28,11 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       <head>
         <link rel='icon' type='image/x-icon' href='/favicon.png' />
       </head>
-      <body
-        className='mx-auto flex max-w-8xl flex-row overflow-x-hidden bg-white
-text-neutral-900 selection:bg-primary-500/30 selection:text-primary-950
-dark:bg-neutral-950 dark:text-neutral-100 dark:selection:text-primary-50'
-      >
-        <Layout />
-        <main className='grow px-4 pt-16 md:ps-[21rem]'>{children}</main>
+      <body>
+        <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden'>
+          <Layout />
+          <main className='grow px-4 pt-16 md:ps-[21rem]'>{children}</main>
+        </div>
       </body>
     </html>
   );
