@@ -7,6 +7,7 @@ import {
 } from '@radix-ui/react-dialog';
 
 import { cn } from 'utils';
+import { SearchCommand } from './SearchCommand';
 
 const SearchDialog = ({ open, onOpenChange, children }: DialogProps) => {
   return (
@@ -24,10 +25,7 @@ focus-visible:outline-none data-[state=closed]:animate-zoom-out
 data-[state=open]:animate-zoom-in rtl:translate-x-1/2
 rtl:[--zoom-translate-x:50%] dark:bg-neutral-900'
         >
-          <div className='p-4 text-center text-neutral-500'>
-            TODO: Search here
-          </div>
-          {children}
+          <SearchCommand>{children}</SearchCommand>
         </DialogContent>
       </DialogPortal>
     </DialogRoot>
