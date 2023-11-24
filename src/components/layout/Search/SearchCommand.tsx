@@ -40,7 +40,10 @@ dark:text-neutral-200 dark:placeholder:text-neutral-400'
 [direction:inherit]'
     >
       <CommandList className='p-2'>
-        <CommandEmpty className='py-6 text-center text-sm'>
+        <CommandEmpty
+          className='py-6 text-center text-sm text-neutral-600
+dark:text-neutral-400'
+        >
           No results found.
         </CommandEmpty>
         {children}
