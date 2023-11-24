@@ -15,7 +15,7 @@ export const SearchCommand = forwardRef<
   <CommandRoot
     ref={ref}
     className='flex h-full w-full flex-col overflow-hidden rounded-lg bg-white
-text-neutral-900 dark:bg-neutral-900'
+text-neutral-800 dark:bg-neutral-900 dark:text-neutral-200'
     {...props}
   >
     <div

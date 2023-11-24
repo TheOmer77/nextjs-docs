@@ -29,7 +29,7 @@ dark:hover:state-layer-neutral-800/50 dark:active:bg-neutral-800 sm:flex
         <span className='grow text-start sm:inline'>Search docs...</span>
         <kbd
           className='flex h-5 flex-row items-center rounded bg-white/60 px-1.5
-font-mono text-[0.625rem] uppercase dark:bg-neutral-950/50'
+font-mono text-[0.625rem] uppercase dark:bg-neutral-800/50'
         >
           {navigator.userAgent.includes('Macintosh') ? (
             <>
