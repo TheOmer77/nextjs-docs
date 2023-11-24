@@ -1,12 +1,12 @@
 const NotFound = () => (
   <div className='flex min-h-[calc(100dvh-4rem)] w-full flex-col items-center justify-center'>
-    <span className='text-[16rem] font-extrabold leading-none text-danger-800 dark:text-danger-200'>
+    <h1 className='text-9xl font-extrabold leading-none text-danger-800 dark:text-danger-200 sm:text-[16rem] md:text-[12rem] lg:text-[16rem]'>
       404
-    </span>
-    <span className='text-center text-xl text-neutral-700 dark:text-neutral-300'>
+    </h1>
+    <p className='text-center text-xl text-neutral-700 dark:text-neutral-300'>
       I have no idea what it is that you were looking for - but it&apos;s
       definitely not here.
-    </span>
+    </p>
   </div>
 );
 
