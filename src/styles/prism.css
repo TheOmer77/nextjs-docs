@@ -8,8 +8,6 @@
  */
 code[class*='language-'],
 pre[class*='language-'] {
-  color: #e3eaf2;
-  background: none;
   font-family: var(--font-family-mono);
   font-size: 0.875rem;
   text-align: left;
@@ -25,14 +23,6 @@ pre[class*='language-'] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-}
-
-pre[class*='language-']::-moz-selection,
-pre[class*='language-'] ::-moz-selection,
-code[class*='language-']::-moz-selection,
-code[class*='language-'] ::-moz-selection {
-  background: rgb(var(--color-neutral-700));
-  color: rgb(var(--color-neutral-50));
 }
 
 pre[class*='language-']::selection,
