@@ -1,7 +1,7 @@
 const NotFound = () => (
   <div
     className='flex min-h-[calc(100dvh-4rem)] w-full flex-col items-center
-justify-center'
+justify-center pb-16'
   >
     <h1
       className='text-9xl font-extrabold leading-none tracking-tight
@@ -11,8 +11,7 @@ lg:text-[16rem]'
       404
     </h1>
     <p className='text-center text-xl text-neutral-700 dark:text-neutral-300'>
-      I have no idea what it is that you were looking for - but it&apos;s
-      definitely not here.
+      I&apos;m not sure what you were looking for - but it&apos;s not here.
     </p>
   </div>
 );
