@@ -30,28 +30,26 @@ const SidebarItem = ({
   );
 
   return (
-    <>
-      <ListItem
-        asChild
-        key={doc._id}
-        aria-current={active ? 'page' : undefined}
-        onClick={onClick}
-      >
-        <Link href={doc.url}>
-          <ListItemText primary={doc.title} />
-          {children.length > 0 && (
-            <ListItemIcon
-              className={cn(
-                'transition-transform duration-300',
-                (active || childActive) && 'rotate-90'
-              )}
-            >
-              <ChevronRightIcon />
-            </ListItemIcon>
-          )}
-        </Link>
-      </ListItem>
-    </>
+    <ListItem
+      asChild
+      key={doc._id}
+      aria-current={active ? 'page' : undefined}
+      onClick={onClick}
+    >
+      <Link href={doc.url}>
+        <ListItemText primary={doc.title} />
+        {children.length > 0 && (
+          <ListItemIcon
+            className={cn(
+              'transition-transform duration-300',
+              (active || childActive) && 'rotate-90'
+            )}
+          >
+            <ChevronRightIcon />
+          </ListItemIcon>
+        )}
+      </Link>
+    </ListItem>
   );
 };
 
