@@ -38,7 +38,11 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
         {children.length > 0 && (
           <Collapsible open={isActive || isChildActive} className='ps-4'>
             {children.map(childDoc => (
-              <SidebarItem key={childDoc._id} doc={childDoc} />
+              <SidebarItem
+                key={childDoc._id}
+                doc={childDoc}
+                active={childDoc.url === pathname}
+              />
             ))}
           </Collapsible>
         )}
