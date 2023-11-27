@@ -42,6 +42,7 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
                 key={childDoc._id}
                 doc={childDoc}
                 active={childDoc.url === pathname}
+                onClick={() => onOpenChange?.(false)}
               />
             ))}
           </Collapsible>
