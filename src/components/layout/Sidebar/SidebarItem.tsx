@@ -2,21 +2,25 @@
 
 import { useMemo } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { cn } from 'utils';
 
 import { type Doc, allDocs } from 'contentlayer/generated';
-import {
-  Collapsible,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from 'components/general';
+import { ListItem, ListItemIcon, ListItemText } from 'components/general';
 import { ChevronRightIcon } from 'assets/icons';
 
-const SidebarItem = ({ doc, onClick }: { doc: Doc; onClick?: () => void }) => {
-  const pathname = usePathname();
+interface SidebarItemProps {
+  doc: Doc;
+  active?: boolean;
+  childActive?: boolean;
+  onClick?: () => void;
+}
 
+const SidebarItem = ({
+  doc,
+  active = false,
+  childActive = false,
+  onClick,
+}: SidebarItemProps) => {
   const children = useMemo(
     () =>
       allDocs.filter(childDoc =>
@@ -25,18 +29,12 @@ const SidebarItem = ({ doc, onClick }: { doc: Doc; onClick?: () => void }) => {
     [doc._raw.flattenedPath]
   );
 
-  const isActive = useMemo(() => doc.url === pathname, [doc, pathname]),
-    isChildActive = useMemo(
-      () => children.some(childDoc => childDoc.url === pathname),
-      [children, pathname]
-    );
-
   return (
     <>
       <ListItem
         asChild
         key={doc._id}
-        aria-current={isActive ? 'page' : undefined}
+        aria-current={active ? 'page' : undefined}
         onClick={onClick}
       >
         <Link href={doc.url}>
@@ -45,7 +43,7 @@ const SidebarItem = ({ doc, onClick }: { doc: Doc; onClick?: () => void }) => {
             <ListItemIcon
               className={cn(
                 'transition-transform',
-                (isActive || isChildActive) && 'rotate-90'
+                (active || childActive) && 'rotate-90'
               )}
             >
               <ChevronRightIcon />
@@ -53,13 +51,6 @@ const SidebarItem = ({ doc, onClick }: { doc: Doc; onClick?: () => void }) => {
           )}
         </Link>
       </ListItem>
-      {children.length > 0 && (
-        <Collapsible open={isActive || isChildActive} className='ps-4'>
-          {children.map(childDoc => (
-            <SidebarItem key={childDoc._id} doc={childDoc} />
-          ))}
-        </Collapsible>
-      )}
     </>
   );
 };
