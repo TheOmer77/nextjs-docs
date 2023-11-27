@@ -12,8 +12,8 @@ export const ListItemIcon = forwardRef<
       ref={ref}
       asChild
       className={cn(
-        `me-4 text-xl text-neutral-600 dark:text-neutral-400
-print:text-neutral-600`,
+        `me-4 text-xl text-neutral-600 last:me-0 last:ms-auto
+dark:text-neutral-400 print:text-neutral-600`,
         className
       )}
     >

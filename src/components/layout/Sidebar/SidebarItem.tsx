@@ -3,11 +3,16 @@
 import { useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
-import { ChevronRightIcon } from 'assets/icons';
+import { cn } from 'utils';
 
 import { type Doc, allDocs } from 'contentlayer/generated';
-import { ListItem, ListItemText } from 'components/general';
+import {
+  Collapsible,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from 'components/general';
+import { ChevronRightIcon } from 'assets/icons';
 
 const SidebarItem = ({ doc, onClick }: { doc: Doc; onClick?: () => void }) => {
   const pathname = usePathname();
@@ -47,16 +52,35 @@ const SidebarItem = ({ doc, onClick }: { doc: Doc; onClick?: () => void }) => {
   */
 
   return (
-    <ListItem
-      asChild
-      key={doc._id}
-      aria-current={isActive ? 'page' : undefined}
-      onClick={onClick}
-    >
-      <Link href={doc.url}>
-        <ListItemText primary={doc.title} />
-      </Link>
-    </ListItem>
+    <>
+      <ListItem
+        asChild
+        key={doc._id}
+        aria-current={isActive ? 'page' : undefined}
+        onClick={onClick}
+      >
+        <Link href={doc.url}>
+          <ListItemText primary={doc.title} />
+          {children.length > 0 && (
+            <ListItemIcon
+              className={cn(
+                'transition-transform',
+                (isActive || isChildActive) && 'rotate-90'
+              )}
+            >
+              <ChevronRightIcon />
+            </ListItemIcon>
+          )}
+        </Link>
+      </ListItem>
+      {children.length > 0 && (
+        <Collapsible open={isActive || isChildActive} className='ps-4'>
+          {children.map(childDoc => (
+            <SidebarItem key={childDoc._id} doc={childDoc} />
+          ))}
+        </Collapsible>
+      )}
+    </>
   );
 };
 
