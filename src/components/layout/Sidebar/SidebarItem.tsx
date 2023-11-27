@@ -42,7 +42,7 @@ const SidebarItem = ({
           {children.length > 0 && (
             <ListItemIcon
               className={cn(
-                'transition-transform',
+                'transition-transform duration-300',
                 (active || childActive) && 'rotate-90'
               )}
             >
