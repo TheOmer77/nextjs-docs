@@ -31,26 +31,6 @@ const SidebarItem = ({ doc, onClick }: { doc: Doc; onClick?: () => void }) => {
       [children, pathname]
     );
 
-  // TODO: Categories??
-  /* 
-  children.length > 0 ? (
-    // Item is a category
-    <li className={styles.category}>
-      <details open={isActive || isChildActive}>
-        <summary className={styles.button}>
-          {doc.title}
-          <ChevronRightIcon />
-        </summary>
-        <ul className={styles.list}>
-          {children.map(childDoc => (
-            <SidebarItem key={childDoc._id} doc={childDoc} />
-          ))}
-        </ul>
-      </details>
-    </li>
-  )
-  */
-
   return (
     <>
       <ListItem
