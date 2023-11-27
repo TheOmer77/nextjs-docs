@@ -150,7 +150,7 @@ const config: Config = {
       },
       animation: {
         'collapse-in': 'collapse-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-        'collapse-out': 'collapse-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
+        'collapse-out': 'collapse-out 300ms cubic-bezier(0.2, 1, 0.4, 1)',
         'fade-in': 'fade-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
         'fade-out': 'fade-out 300ms cubic-bezier(0.2, 1, 0.4, 1)',
         'slide-in': 'slide-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
