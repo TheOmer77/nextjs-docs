@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import {
   Root,
   CollapsibleContent,
@@ -14,21 +14,32 @@ export interface CollapsibleProps extends CollapsibleContentProps {
 
 export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
   ({ open = false, asChild, className, children, ...props }, ref) => {
-    return (
-      <Root asChild open={open}>
-        <CollapsibleContent
-          {...props}
-          asChild
-          ref={ref}
-          className={cn(
-            `overflow-hidden data-[state=closed]:animate-collapse-out
+    const content = (
+      <Primitive.div
+        asChild={asChild}
+        className={cn(
+          `overflow-hidden data-[state=closed]:animate-collapse-out
 data-[state=open]:animate-collapse-in`,
-            className
-          )}
-        >
-          <Primitive.div asChild={asChild}>{children}</Primitive.div>
+          className
+        )}
+      >
+        {children}
+      </Primitive.div>
+    );
+
+    const [isSSR, setIsSSR] = useState(true);
+    useEffect(() => {
+      setIsSSR(false);
+    }, []);
+
+    return !isSSR ? (
+      <Root asChild open={open}>
+        <CollapsibleContent {...props} asChild ref={ref}>
+          {content}
         </CollapsibleContent>
       </Root>
+    ) : (
+      open && content
     );
   }
 );
