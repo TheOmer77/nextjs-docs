@@ -17,7 +17,7 @@ items-start justify-center gap-4 px-8'
 bg-primary-main px-6 text-lg font-medium text-primary-contrast shadow-md
 shadow-neutral-950/20 transition-[background-color] duration-200 state-layer
 hover:state-layer-primary-light/30 focus-visible:outline-none
-active:bg-primary-dark active:duration-0 [&>*]:z-10'
+active:bg-primary-light active:duration-0 [&>*]:z-10'
     >
       <span>Get started</span>
     </Link>
