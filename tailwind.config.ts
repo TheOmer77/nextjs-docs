@@ -48,6 +48,7 @@ const config: Config = {
       maxWidth: { '8xl': '90rem' },
       spacing: { inherit: 'inherit' },
       height: { screen: '100dvh' },
+      maxHeight: { screen: '100dvh' },
       typography: () => ({
         DEFAULT: {
           css: {
