@@ -10,7 +10,7 @@ export const ListSubheader = forwardRef<
       {...props}
       ref={ref}
       className={cn(
-        `sticky top-0 z-20 inline-block w-full select-none p-2 text-sm
+        `sticky top-0 z-20 inline-block w-full select-none p-2 text-xs
 font-medium text-neutral-600 dark:text-neutral-400`,
         className
       )}
