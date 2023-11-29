@@ -81,7 +81,7 @@ const config: Config = {
             '--tw-prose-invert-captions': 'rgb(var(--color-neutral-400))',
             '--tw-prose-invert-code': 'rgb(var(--color-neutral-50))',
             '--tw-prose-invert-pre-code': 'rgb(var(--color-neutral-300))',
-            '--tw-prose-invert-pre-bg': 'rgb(0 0 0 / 50%)',
+            '--tw-prose-invert-pre-bg': 'rgb(var(--color-neutral-900))',
             '--tw-prose-invert-th-borders': 'rgb(var(--color-neutral-600))',
             '--tw-prose-invert-td-borders': 'rgb(var(--color-neutral-700))',
           },
