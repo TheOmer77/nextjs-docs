@@ -62,14 +62,12 @@ after:w-screen after:bg-inherit dark:bg-neutral-900 md:flex'
       </aside>
       <Sheet open={open} onOpenChange={onOpenChange}>
         <Header />
-        <List className='px-2'>
-          <ScrollArea
-            className='flex max-h-[calc(100vh-4rem)] flex-col gap-px
+        <ScrollArea
+          className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px
 overflow-y-auto rounded-lg'
-          >
-            {listItems}
-          </ScrollArea>
-        </List>
+        >
+          <List className='px-2 pb-2'>{listItems}</List>
+        </ScrollArea>
       </Sheet>
     </>
   );
