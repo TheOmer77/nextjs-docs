@@ -2,11 +2,17 @@
 
 import { Fragment } from 'react';
 import { usePathname } from 'next/navigation';
-import { allDocs } from 'contentlayer/generated';
+import { allDocs, config, type Doc } from 'contentlayer/generated';
 
 import SidebarItem from './SidebarItem';
 import { Header } from '../Header';
-import { Collapsible, List, ScrollArea, Sheet } from 'components/general';
+import {
+  Collapsible,
+  List,
+  ListSubheader,
+  ScrollArea,
+  Sheet,
+} from 'components/general';
 
 export interface SidebarProps {
   open?: boolean;
@@ -14,42 +20,82 @@ export interface SidebarProps {
 }
 
 const filteredDocs = allDocs
-  .filter(doc => doc._raw.flattenedPath.split('/').length < 2)
+  .filter(doc => {
+    if (!doc._raw.flattenedPath.includes('/')) return true;
+
+    const parentFolder = doc._raw.flattenedPath
+      .split('/')
+      .slice(0, -1)
+      .join('/');
+    return !allDocs.some(
+      d =>
+        d._raw.flattenedPath === parentFolder &&
+        d._id.startsWith(`${parentFolder}/index.`)
+    );
+  })
   .sort((a, b) => (a._raw.flattenedPath > b._raw.flattenedPath ? 1 : -1));
+
+const categorizedDocs = filteredDocs.filter(
+    doc => typeof doc.category === 'string'
+  ),
+  uncategorizedDocs = filteredDocs.filter(
+    doc => !categorizedDocs.includes(doc)
+  ),
+  docsByCategory = {
+    ...(uncategorizedDocs.length > 0 ? { _: uncategorizedDocs } : {}),
+    ...categorizedDocs.reduce(
+      (acc, doc) => ({
+        ...acc,
+        [doc.category as string]: [...(acc[doc.category as string] || []), doc],
+      }),
+      {} as { [key: string]: Doc[] }
+    ),
+  };
 
 export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
   const pathname = usePathname();
 
-  const listItems = filteredDocs.map(doc => {
-    const children = allDocs.filter(childDoc =>
-      childDoc._raw.flattenedPath.startsWith(`${doc._raw.flattenedPath}/`)
-    );
-    const isActive = doc.url === pathname,
-      isChildActive = children.some(childDoc => childDoc.url === pathname);
+  const listCategories = Object.keys(docsByCategory).map(category => (
+    <Fragment key={category}>
+      {category !== '_' && (
+        <ListSubheader>{config.categories[category] || category}</ListSubheader>
+      )}
+      {docsByCategory[category as keyof typeof docsByCategory]?.map(doc => {
+        const children = allDocs
+          .filter(childDoc =>
+            childDoc._raw.flattenedPath.startsWith(`${doc._raw.flattenedPath}/`)
+          )
+          .sort((a, b) =>
+            a._raw.flattenedPath > b._raw.flattenedPath ? 1 : -1
+          );
+        const isActive = doc.url === pathname,
+          isChildActive = children.some(childDoc => childDoc.url === pathname);
 
-    return (
-      <Fragment key={doc._id}>
-        <SidebarItem
-          doc={doc}
-          active={isActive}
-          childActive={isChildActive}
-          onClick={() => onOpenChange?.(false)}
-        />
-        {children.length > 0 && (
-          <Collapsible open={isActive || isChildActive} className='ps-4'>
-            {children.map(childDoc => (
-              <SidebarItem
-                key={childDoc._id}
-                doc={childDoc}
-                active={childDoc.url === pathname}
-                onClick={() => onOpenChange?.(false)}
-              />
-            ))}
-          </Collapsible>
-        )}
-      </Fragment>
-    );
-  });
+        return (
+          <Fragment key={doc._id}>
+            <SidebarItem
+              doc={doc}
+              active={isActive}
+              childActive={isChildActive}
+              onClick={() => onOpenChange?.(false)}
+            />
+            {children.length > 0 && (
+              <Collapsible open={isActive || isChildActive} className='ps-4'>
+                {children.map(childDoc => (
+                  <SidebarItem
+                    key={childDoc._id}
+                    doc={childDoc}
+                    active={childDoc.url === pathname}
+                    onClick={() => onOpenChange?.(false)}
+                  />
+                ))}
+              </Collapsible>
+            )}
+          </Fragment>
+        );
+      })}
+    </Fragment>
+  ));
 
   return (
     <>
@@ -58,7 +104,7 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
 pt-16 after:absolute after:end-0 after:top-0 after:-z-10 after:h-inherit
 after:w-screen after:bg-inherit dark:bg-neutral-900 md:flex'
       >
-        <List>{listItems}</List>
+        <List>{listCategories}</List>
       </aside>
       <Sheet open={open} onOpenChange={onOpenChange}>
         <Header />
@@ -66,7 +112,7 @@ after:w-screen after:bg-inherit dark:bg-neutral-900 md:flex'
           className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px
 overflow-y-auto rounded-lg'
         >
-          <List className='px-2 pb-2'>{listItems}</List>
+          <List className='px-2 pb-2'>{listCategories}</List>
         </ScrollArea>
       </Sheet>
     </>

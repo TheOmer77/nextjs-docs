@@ -7,7 +7,11 @@ const Doc = defineDocumentType(() => ({
   filePathPattern: `**/*.mdx`,
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', required: true },
+    title: { type: 'string', description: 'Document title', required: true },
+    category: {
+      type: 'string',
+      description: 'ID of the category this page belongs to',
+    },
   },
   computedFields: {
     url: {
@@ -17,9 +21,24 @@ const Doc = defineDocumentType(() => ({
   },
 }));
 
+const Config = defineDocumentType(() => ({
+  name: 'Config',
+  filePathPattern: 'config.json',
+  contentType: 'data',
+  isSingleton: true,
+  fields: {
+    categories: {
+      type: 'json',
+      default: {},
+      description:
+        'Object where keys are category IDs and values are display names',
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Doc],
+  documentTypes: [Doc, Config],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [[rehypePrism, { ignoreMissing: true }]],
