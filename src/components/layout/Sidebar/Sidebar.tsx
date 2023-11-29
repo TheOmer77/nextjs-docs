@@ -80,7 +80,10 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
               onClick={() => onOpenChange?.(false)}
             />
             {children.length > 0 && (
-              <Collapsible open={isActive || isChildActive} className='ps-4'>
+              <Collapsible
+                open={isActive || isChildActive}
+                className='flex w-full flex-col gap-px ps-4'
+              >
                 {children.map(childDoc => (
                   <SidebarItem
                     key={childDoc._id}
