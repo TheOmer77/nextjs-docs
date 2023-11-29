@@ -1,5 +1,6 @@
 import { forwardRef, type ComponentPropsWithoutRef } from 'react';
 import { cn } from 'utils';
+import { config } from 'contentlayer/generated';
 
 export const Header = forwardRef<
   HTMLElement,
@@ -13,7 +14,7 @@ export const Header = forwardRef<
       className
     )}
   >
-    Docs site
+    {config.title}
   </header>
 ));
 Header.displayName = 'Header';

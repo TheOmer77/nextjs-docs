@@ -1,5 +1,9 @@
 {
+  "title": "Next.js Docs Template",
+  "titleTemplate": "%s – Next.js Docs Template",
   "categories": {
     "category": "This is a category"
-  }
+  },
+  "getStartedUrl": "/docs/sample",
+  "notFoundText": "I'm not sure what you were looking for, but it's not here."
 }

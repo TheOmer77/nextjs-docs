@@ -1,3 +1,4 @@
+import { config } from 'contentlayer/generated';
 import Link from 'next/link';
 
 const Home = () => (
@@ -12,7 +13,7 @@ items-start justify-center gap-4 px-8'
       quasi voluptas.
     </p>
     <Link
-      href='/docs/sample'
+      href={config.getStartedUrl}
       className='flex h-12 items-center justify-center rounded-lg
 bg-primary-main px-6 text-lg font-medium text-primary-contrast shadow-md
 shadow-neutral-950/20 transition-[background-color] duration-200 state-layer

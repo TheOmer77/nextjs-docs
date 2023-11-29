@@ -3,6 +3,7 @@ import { Figtree, Fira_Code } from 'next/font/google';
 import clsx from 'clsx';
 
 import Layout from 'components/layout';
+import { config } from 'contentlayer/generated';
 
 import 'styles/index.css';
 import 'styles/prism.css';
@@ -19,7 +20,7 @@ const fontMono = Fira_Code({
 });
 
 export const metadata = {
-  title: { template: '%s | App', default: 'App' },
+  title: { template: config.titleTemplate, default: config.title },
 };
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
