@@ -35,18 +35,17 @@ const filteredDocs = allDocs
   })
   .sort((a, b) => (a._raw.flattenedPath > b._raw.flattenedPath ? 1 : -1));
 
-const categorizedDocs = filteredDocs.filter(
-    doc => typeof doc.category === 'string'
-  ),
-  uncategorizedDocs = filteredDocs.filter(
-    doc => !categorizedDocs.includes(doc)
+const uncategorizedDocs = filteredDocs.filter(
+    doc =>
+      typeof doc.category !== 'string' ||
+      !Object.keys(config.categories).includes(doc.category)
   ),
   docsByCategory = {
     ...(uncategorizedDocs.length > 0 ? { _: uncategorizedDocs } : {}),
-    ...categorizedDocs.reduce(
-      (acc, doc) => ({
-        ...acc,
-        [doc.category as string]: [...(acc[doc.category as string] || []), doc],
+    ...Object.keys(config.categories).reduce(
+      (obj, category) => ({
+        ...obj,
+        [category]: filteredDocs.filter(doc => doc.category === category),
       }),
       {} as { [key: string]: Doc[] }
     ),
