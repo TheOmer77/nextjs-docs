@@ -1,11 +1,12 @@
 {
-  "title": "Next.js Docs Template",
-  "titleTemplate": "%s – Next.js Docs Template",
+  "title": "Docs Template",
+  "titleTemplate": "%s – Docs Template",
   "categories": {
     "usage": "Usage",
     "sample": "Sample pages"
   },
   "homePage": {
+    "title": "Next.js Docs Template",
     "tagline": "A simple docs site powered by Next.js and ContentLayer.",
     "actions": [
       { "text": "Get started", "url": "/sample/1-sample", "primary": true },
