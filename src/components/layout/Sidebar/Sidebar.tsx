@@ -54,50 +54,63 @@ const uncategorizedDocs = filteredDocs.filter(
 export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
   const pathname = usePathname();
 
-  const listCategories = Object.keys(docsByCategory).map(category => (
-    <Fragment key={category}>
-      {category !== '_' && (
-        <ListSubheader>{config.categories[category] || category}</ListSubheader>
-      )}
-      {docsByCategory[category as keyof typeof docsByCategory]?.map(doc => {
-        const children = allDocs
-          .filter(childDoc =>
-            childDoc._raw.flattenedPath.startsWith(`${doc._raw.flattenedPath}/`)
-          )
-          .sort((a, b) =>
-            a._raw.flattenedPath > b._raw.flattenedPath ? 1 : -1
-          );
-        const isActive = doc.url === pathname,
-          isChildActive = children.some(childDoc => childDoc.url === pathname);
+  const listCategories = Object.keys(docsByCategory).map(category => {
+    const categoryDocs =
+      docsByCategory[category as keyof typeof docsByCategory];
+    return (
+      Array.isArray(categoryDocs) &&
+      categoryDocs.length > 0 && (
+        <Fragment key={category}>
+          {category !== '_' && (
+            <ListSubheader>
+              {config.categories[category] || category}
+            </ListSubheader>
+          )}
+          {docsByCategory[category as keyof typeof docsByCategory]?.map(doc => {
+            const children = allDocs
+              .filter(childDoc =>
+                childDoc._raw.flattenedPath.startsWith(
+                  `${doc._raw.flattenedPath}/`
+                )
+              )
+              .sort((a, b) =>
+                a._raw.flattenedPath > b._raw.flattenedPath ? 1 : -1
+              );
+            const isActive = doc.url === pathname,
+              isChildActive = children.some(
+                childDoc => childDoc.url === pathname
+              );
 
-        return (
-          <Fragment key={doc._id}>
-            <SidebarItem
-              doc={doc}
-              active={isActive}
-              childActive={isChildActive}
-              onClick={() => onOpenChange?.(false)}
-            />
-            {children.length > 0 && (
-              <Collapsible
-                open={isActive || isChildActive}
-                className='flex w-full flex-col gap-px ps-4'
-              >
-                {children.map(childDoc => (
-                  <SidebarItem
-                    key={childDoc._id}
-                    doc={childDoc}
-                    active={childDoc.url === pathname}
-                    onClick={() => onOpenChange?.(false)}
-                  />
-                ))}
-              </Collapsible>
-            )}
-          </Fragment>
-        );
-      })}
-    </Fragment>
-  ));
+            return (
+              <Fragment key={doc._id}>
+                <SidebarItem
+                  doc={doc}
+                  active={isActive}
+                  childActive={isChildActive}
+                  onClick={() => onOpenChange?.(false)}
+                />
+                {children.length > 0 && (
+                  <Collapsible
+                    open={isActive || isChildActive}
+                    className='flex w-full flex-col gap-px ps-4'
+                  >
+                    {children.map(childDoc => (
+                      <SidebarItem
+                        key={childDoc._id}
+                        doc={childDoc}
+                        active={childDoc.url === pathname}
+                        onClick={() => onOpenChange?.(false)}
+                      />
+                    ))}
+                  </Collapsible>
+                )}
+              </Fragment>
+            );
+          })}
+        </Fragment>
+      )
+    );
+  });
 
   return (
     <>
