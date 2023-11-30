@@ -40,48 +40,6 @@ const Doc = defineDocumentType(() => ({
   },
 }));
 
-const HomeAction = defineNestedType(() => ({
-  name: 'HomeAction',
-  fields: {
-    text: {
-      type: 'string',
-      required: true,
-      description: 'Text for this action button.',
-    },
-    url: {
-      type: 'string',
-      required: true,
-      description: 'URL opened by clicking on this action button.',
-    },
-    primary: {
-      type: 'boolean',
-      default: false,
-      description:
-        "Whether or not this is the primary action, which uses the theme's primary color.",
-    },
-  },
-}));
-
-const HomePageConfig = defineNestedType(() => ({
-  name: 'HomePageConfig',
-  fields: {
-    title: { type: 'string', description: 'Home page main title.' },
-    tagline: {
-      type: 'string',
-      description: 'Short text that appears on the home page below the title.',
-    },
-    actions: {
-      type: 'list',
-      of: HomeAction,
-      description:
-        'Action buttons appearing below the tagline on the home page.',
-      default: [
-        { text: 'Get started', url: '/docs/get-started', primary: true },
-      ],
-    },
-  },
-}));
-
 const Config = defineDocumentType(() => ({
   name: 'Config',
   filePathPattern: 'config.json',
@@ -105,11 +63,6 @@ const Config = defineDocumentType(() => ({
       default: {},
       description:
         'Object where keys are category IDs and values are display names.',
-    },
-    homePage: {
-      type: 'nested',
-      of: HomePageConfig,
-      default: {},
     },
     notFoundText: {
       type: 'string',
