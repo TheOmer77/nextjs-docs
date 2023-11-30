@@ -121,7 +121,7 @@ after:w-screen after:bg-inherit dark:bg-neutral-900 md:flex'
         <List>{listCategories}</List>
       </aside>
       <Sheet open={open} onOpenChange={onOpenChange}>
-        <Header />
+        <Header onClick={() => onOpenChange?.(false)} />
         <ScrollArea
           className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px
 overflow-y-auto rounded-lg'
