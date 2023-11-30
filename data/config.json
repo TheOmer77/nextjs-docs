@@ -5,6 +5,7 @@
     "category": "This is a category"
   },
   "homePage": {
+    "tagline": "A simple docs site powered by Next.js and ContentLayer.",
     "actions": [
       { "text": "Get started", "url": "/docs/sample", "primary": true },
       { "text": "Some other thing", "url": "/docs/testing-mdx" }
