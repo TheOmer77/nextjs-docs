@@ -11,7 +11,11 @@ const Doc = defineDocumentType(() => ({
   filePathPattern: `**/*.md?(x)`,
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', description: 'Document title', required: true },
+    title: {
+      type: 'string',
+      description: 'Title of this page.',
+      required: true,
+    },
     category: {
       type: 'string',
       description: 'ID of the category this page belongs to',
@@ -23,7 +27,8 @@ const Doc = defineDocumentType(() => ({
     },
     showInSidebar: {
       type: 'boolean',
-      description: 'Whether or not to show this page as a sidebar item.',
+      description:
+        'Whether or not to show this page as an item in the sidebar.',
       default: true,
     },
   },
@@ -87,12 +92,13 @@ const Config = defineDocumentType(() => ({
       type: 'string',
       default: 'Docs',
       description:
-        "Site title, appearing by default as the home page `<title>` as well as in the Nav's header.",
+        "Site title, appearing by default as the home page's `<title>`, as well as in the Nav's header.",
     },
     titleTemplate: {
       type: 'string',
       default: '%s – Docs',
-      description: 'Template for pages `<title>`.',
+      description:
+        'Template for the `<title>` of pages other than the home page.',
     },
     categories: {
       type: 'json',
