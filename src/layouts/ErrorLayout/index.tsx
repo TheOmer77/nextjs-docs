@@ -1,6 +1,11 @@
-import { config } from 'contentlayer/generated';
+import type { PropsWithChildren } from 'react';
 
-const NotFound = () => (
+export type ErrorLayoutProps = PropsWithChildren<{
+  code: number;
+  text: string;
+}>;
+
+export const ErrorLayout = ({ code, text, children }: ErrorLayoutProps) => (
   <div
     className='flex min-h-[calc(100dvh-4rem)] w-full flex-col items-center
 justify-center pb-16'
@@ -10,12 +15,11 @@ justify-center pb-16'
 text-danger-800 dark:text-danger-200 sm:text-[16rem] md:text-[12rem]
 lg:text-[16rem]'
     >
-      404
+      {code}
     </h1>
     <p className='text-center text-xl text-neutral-700 dark:text-neutral-300'>
-      {config.notFoundText}
+      {text}
     </p>
+    {children}
   </div>
 );
-
-export default NotFound;

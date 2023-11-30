@@ -1,5 +1,8 @@
-import NotFound from 'components/NotFound';
+import { ErrorLayout } from 'layouts';
+import { config } from 'contentlayer/generated';
 
-const NotFoundPage = () => <NotFound />;
+const NotFoundPage = () => (
+  <ErrorLayout code={404} text={config.notFoundText} />
+);
 
 export default NotFoundPage;
