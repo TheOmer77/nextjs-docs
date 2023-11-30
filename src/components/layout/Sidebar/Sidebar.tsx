@@ -21,8 +21,7 @@ export interface SidebarProps {
 
 const filteredDocs = allDocs
   .filter(doc => {
-    if (!doc._raw.flattenedPath.includes('/')) return true;
-
+    if (!doc.showInSidebar) return false;
     const parentFolder = doc._raw.flattenedPath
       .split('/')
       .slice(0, -1)

@@ -23,14 +23,7 @@ const DocLayout = ({ params }: { params: { slug: string[] } }) => {
   );
   if (!doc) return notFound();
 
-  return (
-    <>
-      <header className='prose prose-xl mx-auto max-w-3xl pt-8 dark:prose-invert'>
-        <h1 className='tracking-tight'>{doc.title}</h1>
-      </header>
-      <Markup doc={doc} />
-    </>
-  );
+  return <Markup doc={doc} />;
 };
 
 export default DocLayout;

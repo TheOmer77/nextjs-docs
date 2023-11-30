@@ -16,6 +16,16 @@ const Doc = defineDocumentType(() => ({
       type: 'string',
       description: 'ID of the category this page belongs to',
     },
+    showTitle: {
+      type: 'boolean',
+      description: "Whether or not to show the page's title at its top.",
+      default: true,
+    },
+    showInSidebar: {
+      type: 'boolean',
+      description: 'Whether or not to show this page as a sidebar item.',
+      default: true,
+    },
   },
   computedFields: {
     url: {
