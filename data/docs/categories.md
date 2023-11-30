@@ -1,6 +1,6 @@
 ---
 title: Categories
-category: category
+category: usage
 ---
 
 Categories are labels that can be used as a way to group and organize pages based on their content or purpose.

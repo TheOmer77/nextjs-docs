@@ -1,6 +1,6 @@
 ---
 title: Nested pages
-category: category
+category: usage
 ---
 
 Pages can be nested under other pages (or "folders"), similar to a file structure, for a more organized and intuitive structure of content.

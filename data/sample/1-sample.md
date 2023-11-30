@@ -1,5 +1,6 @@
 ---
-title: 'Sample Doc'
+title: Sample Doc
+category: sample
 ---
 
 Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.
