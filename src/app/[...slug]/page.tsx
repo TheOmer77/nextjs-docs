@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { allDocs } from 'contentlayer/generated';
 
-import { Markup } from 'components/layout/Markup';
+import { Mdx } from 'components/layout/Mdx';
 
 export const generateStaticParams = async () =>
   allDocs.map(doc => ({ slug: doc._raw.flattenedPath.split('/') }));
@@ -23,7 +23,7 @@ const DocLayout = ({ params }: { params: { slug: string[] } }) => {
   );
   if (!doc) return notFound();
 
-  return <Markup doc={doc} />;
+  return <Mdx doc={doc} />;
 };
 
 export default DocLayout;

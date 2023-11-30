@@ -1,11 +1,16 @@
 'use client';
 
 import { getMDXComponent } from 'next-contentlayer/hooks';
+import type { MDXComponents } from 'mdx/types';
 
 import { type Doc } from 'contentlayer/generated';
-import { MarkupLink } from './MarkupLink';
+import { MdxLink } from './MdxLink';
 
-export const Markup = ({ doc }: { doc: Doc }) => {
+export const mdxComponents: MDXComponents = {
+  a: MdxLink,
+};
+
+export const Mdx = ({ doc }: { doc: Doc }) => {
   const MdxContent = getMDXComponent(doc.body.code);
   return (
     <div
@@ -17,9 +22,9 @@ md:max-w-[calc(100vw-22rem)] lg:max-w-3xl'
           {doc.title}
         </h1>
       )}
-      <MdxContent components={{ a: MarkupLink }} />
+      <MdxContent components={mdxComponents} />
     </div>
   );
 };
 
-export default Markup;
+export default Mdx;
