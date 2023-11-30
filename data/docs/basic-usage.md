@@ -8,7 +8,7 @@ Pages in this docs site are located in the `data/` directory, and can be either 
 Each page has some frontmatter metadata at the top, which includes information about the page. The following properties can be included:
 
 - `title` - The title of the page. **This property is required**.
-- `category` - optional ID of the category this page belongs to. If not defined, the page is uncategorized. [More info](/docs/categories)
+- `category` - Optional ID of the category this page belongs to. If not defined, the page is uncategorized. [More info](/docs/categories)
 - `showTitle` - Whether or not to show the page's title at its top. By default it's `true`.
 - `showInSidebar` - Whether or not to show this page as an item in the sidebar. By default it's `true`.
 
