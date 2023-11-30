@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { allDocs } from 'contentlayer/generated';
 
-import Markup from 'components/Markup';
+import Markup from 'components/layout/Markup';
 
 export const generateStaticParams = async () =>
   allDocs.map(doc => ({ slug: doc._raw.flattenedPath.split('/') }));
