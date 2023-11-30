@@ -8,8 +8,8 @@
   "homePage": {
     "tagline": "A simple docs site powered by Next.js and ContentLayer.",
     "actions": [
-      { "text": "Get started", "url": "/docs/sample", "primary": true },
-      { "text": "Some other thing", "url": "/docs/testing-mdx" }
+      { "text": "Get started", "url": "/sample/1-sample", "primary": true },
+      { "text": "Sample pages", "url": "/sample/1-sample" }
     ]
   },
   "notFoundText": "I'm not sure what you were looking for, but it's not here."
