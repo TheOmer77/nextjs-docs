@@ -21,7 +21,7 @@ dark:md:bg-transparent'
     >
       <MenuIcon />
     </IconButton>
-    <Header />
+    <Header linkToHome />
     <div
       className='flex h-full grow flex-row items-center justify-end bg-white
 px-2 dark:bg-neutral-950 md:px-4'
