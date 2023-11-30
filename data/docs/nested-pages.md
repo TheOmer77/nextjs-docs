@@ -9,7 +9,7 @@ A page is considered nested if it's in a directory which also has an index page 
 
 However, if a page is in a folder which does not have an index page, there is nothing to nest it under - and is therefore treated like all other pages, and just displayed at the top level on the sidebar. This can be useful for just having an organized file structure.
 
-For example, the folder `nested` where this page is located is structured as shown below. `nested/index.mdx` (this file) serves as the main page for its directory, while the other pages are displayed under it.
+For example, in a folder called `nested` which is structured as shown below, `nested/index.mdx` serves as the main page for its directory, while the other pages are displayed under it.
 
 ```
 nested
