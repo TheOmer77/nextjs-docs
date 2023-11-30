@@ -1,4 +1,8 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import {
+  defineDocumentType,
+  defineNestedType,
+  makeSource,
+} from 'contentlayer/source-files';
 import rehypePrism from 'rehype-prism-plus';
 import remarkGfm from 'remark-gfm';
 
@@ -17,6 +21,28 @@ const Doc = defineDocumentType(() => ({
     url: {
       type: 'string',
       resolve: doc => `/docs/${doc._raw.flattenedPath}`,
+    },
+  },
+}));
+
+const HomePageConfig = defineNestedType(() => ({
+  name: 'HomePageConfig',
+  fields: {
+    title: { type: 'string', description: 'Home page main title.' },
+    tagline: {
+      type: 'string',
+      description: 'Short text that appears on the home page below the title.',
+    },
+    mainBtnText: {
+      type: 'string',
+      description: 'Text for the main button on the home page.',
+      default: 'Get started',
+    },
+    mainBtnUrl: {
+      type: 'string',
+      default: '/docs/get-started',
+      description:
+        'URL of the page opened when clicking on the main button on the home page.',
     },
   },
 }));
@@ -44,11 +70,10 @@ const Config = defineDocumentType(() => ({
       description:
         'Object where keys are category IDs and values are display names.',
     },
-    getStartedUrl: {
-      type: 'string',
-      default: '/docs/get-started',
-      description:
-        "URL of the page opened when clicking on the 'Get started' button on the home page.",
+    homePage: {
+      type: 'nested',
+      of: HomePageConfig,
+      default: {},
     },
     notFoundText: {
       type: 'string',
