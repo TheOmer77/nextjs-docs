@@ -84,6 +84,24 @@ const config: Config = {
             '--tw-prose-invert-pre-bg': 'rgb(var(--color-neutral-900))',
             '--tw-prose-invert-th-borders': 'rgb(var(--color-neutral-600))',
             '--tw-prose-invert-td-borders': 'rgb(var(--color-neutral-700))',
+
+            code: {
+              fontWeight: 'inherit',
+              padding: '0.125rem 0.25rem',
+              borderRadius: '0.25rem',
+              backgroundColor: 'rgb(var(--color-neutral-100))',
+              color: 'rgb(var(--color-neutral-800))',
+              '@media (prefers-color-scheme: dark)': {
+                backgroundColor: 'rgb(var(--color-neutral-800))',
+                color: 'rgb(var(--color-neutral-200))',
+              },
+            },
+            'code::before': {
+              content: 'none',
+            },
+            'code::after': {
+              content: 'none',
+            },
           },
         },
       }),
