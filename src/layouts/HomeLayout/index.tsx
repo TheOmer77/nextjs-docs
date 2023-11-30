@@ -28,7 +28,7 @@ export const HomeLayout = ({
 }: HomeLayoutProps) => (
   <div
     className='mx-auto flex min-h-[calc(100dvh-4rem)] w-full max-w-3xl flex-col
-items-start justify-center gap-4 px-8 pb-16'
+items-start justify-center gap-4 px-8'
   >
     <h1 className='text-5xl font-extrabold tracking-tight sm:text-7xl'>
       {title || config.title}
@@ -38,7 +38,7 @@ items-start justify-center gap-4 px-8 pb-16'
         {tagline}
       </p>
     )}
-    <div className='flex flex-row flex-wrap gap-2'>
+    <div className='mb-16 flex flex-row flex-wrap gap-2'>
       {actions.map(({ text, url, primary }, index) => (
         <Link
           key={`home-action-${index}`}
