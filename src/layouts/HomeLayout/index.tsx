@@ -34,7 +34,7 @@ items-start justify-center gap-4 px-8 pb-16'
       {title || config.title}
     </h1>
     {tagline && (
-      <p className='m-0 text-lg text-neutral-700 dark:text-neutral-300'>
+      <p className='m-0 text-lg text-neutral-700 dark:text-neutral-300 sm:text-xl'>
         {tagline}
       </p>
     )}
