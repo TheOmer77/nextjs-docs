@@ -4,10 +4,12 @@ import { getMDXComponent } from 'next-contentlayer/hooks';
 import type { MDXComponents } from 'mdx/types';
 
 import { type Doc } from 'contentlayer/generated';
+import { HomeLayout } from 'layouts';
 import { MdxLink } from './MdxLink';
 
 export const mdxComponents: MDXComponents = {
   a: MdxLink,
+  HomeLayout,
 };
 
 export const Mdx = ({ doc }: { doc: Doc }) => {
