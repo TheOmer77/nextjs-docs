@@ -30,7 +30,7 @@ export const HomeLayout = ({
     className='mx-auto flex min-h-[calc(100dvh-4rem)] w-full max-w-3xl flex-col
 items-start justify-center gap-4 px-8 pb-16'
   >
-    <h1 className='text-7xl font-extrabold tracking-tight'>
+    <h1 className='text-5xl font-extrabold tracking-tight sm:text-7xl'>
       {title || config.title}
     </h1>
     {tagline && (
