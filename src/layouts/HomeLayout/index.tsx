@@ -28,7 +28,7 @@ export const HomeLayout = ({
 }: HomeLayoutProps) => (
   <div
     className='mx-auto flex min-h-[calc(100dvh-8rem)] w-full max-w-3xl flex-col
-items-start justify-center gap-4 px-8 pb-16'
+items-start justify-center gap-4 px-4 pb-16 sm:px-8'
   >
     <h1 className='m-0 text-5xl font-extrabold tracking-tight sm:text-7xl'>
       {title || config.title}
