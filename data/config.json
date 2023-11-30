@@ -5,7 +5,10 @@
     "category": "This is a category"
   },
   "homePage": {
-    "mainBtnUrl": "/docs/sample"
+    "actions": [
+      { "text": "Get started", "url": "/docs/sample", "primary": true },
+      { "text": "Some other thing", "url": "/docs/testing-mdx" }
+    ]
   },
   "notFoundText": "I'm not sure what you were looking for, but it's not here."
 }

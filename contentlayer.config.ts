@@ -25,6 +25,28 @@ const Doc = defineDocumentType(() => ({
   },
 }));
 
+const HomeAction = defineNestedType(() => ({
+  name: 'HomeAction',
+  fields: {
+    text: {
+      type: 'string',
+      required: true,
+      description: 'Text for this action button.',
+    },
+    url: {
+      type: 'string',
+      required: true,
+      description: 'URL opened by clicking on this action button.',
+    },
+    primary: {
+      type: 'boolean',
+      default: false,
+      description:
+        "Whether or not this is the primary action, which uses the theme's primary color.",
+    },
+  },
+}));
+
 const HomePageConfig = defineNestedType(() => ({
   name: 'HomePageConfig',
   fields: {
@@ -33,16 +55,14 @@ const HomePageConfig = defineNestedType(() => ({
       type: 'string',
       description: 'Short text that appears on the home page below the title.',
     },
-    mainBtnText: {
-      type: 'string',
-      description: 'Text for the main button on the home page.',
-      default: 'Get started',
-    },
-    mainBtnUrl: {
-      type: 'string',
-      default: '/docs/get-started',
+    actions: {
+      type: 'list',
+      of: HomeAction,
       description:
-        'URL of the page opened when clicking on the main button on the home page.',
+        'Action buttons appearing below the tagline on the home page.',
+      default: [
+        { text: 'Get started', url: '/docs/get-started', primary: true },
+      ],
     },
   },
 }));
