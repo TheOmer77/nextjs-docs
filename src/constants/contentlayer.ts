@@ -1,9 +1,16 @@
 import { allDocs } from 'contentlayer/generated';
 export { allDocs, config } from 'contentlayer/generated';
 
+export const specialPageNames = ['_not-found'];
+
 export const filteredDocs = allDocs
   .filter(doc => {
-    if (!doc.title || !doc.showInSidebar) return false;
+    if (
+      !doc.title ||
+      !doc.showInSidebar ||
+      specialPageNames.includes(doc._raw.flattenedPath)
+    )
+      return false;
     const parentFolder = doc._raw.flattenedPath
       .split('/')
       .slice(0, -1)
