@@ -11,9 +11,10 @@ import { allDocs, notFoundPageName } from 'constants/contentlayer';
 const Layout = ({ children }: PropsWithChildren) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
-  const currentDoc = allDocs.find(
-    doc => doc.url === pathname || doc._raw.flattenedPath === notFoundPageName
-  );
+  const currentDoc = allDocs.find(doc => doc.url === pathname),
+    notFoundDoc = allDocs.find(
+      doc => doc._raw.flattenedPath === notFoundPageName
+    );
 
   return (
     <>
@@ -23,7 +24,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       <main
         className={cn(
           'grow px-4 pt-16',
-          currentDoc?.displaySidebar && 'md:ps-[21rem]'
+          (currentDoc || notFoundDoc)?.displaySidebar && 'md:ps-[21rem]'
         )}
       >
         {children}
