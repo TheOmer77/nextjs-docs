@@ -53,6 +53,7 @@ const uncategorizedDocs = filteredDocs.filter(
 export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
   const pathname = usePathname();
 
+  const currentDoc = allDocs.find(doc => doc.url === pathname);
   const listCategories = Object.keys(docsByCategory).map(category => {
     const categoryDocs =
       docsByCategory[category as keyof typeof docsByCategory];
@@ -113,13 +114,15 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
 
   return (
     <>
-      <aside
-        className='fixed hidden h-screen w-80 select-none flex-col bg-neutral-50
+      {currentDoc?.displaySidebar && (
+        <aside
+          className='fixed hidden h-screen w-80 select-none flex-col bg-neutral-50
 pt-16 after:absolute after:end-0 after:top-0 after:-z-10 after:h-inherit
 after:w-screen after:bg-inherit dark:bg-neutral-900 md:flex'
-      >
-        <List>{listCategories}</List>
-      </aside>
+        >
+          <List>{listCategories}</List>
+        </aside>
+      )}
       <Sheet open={open} onOpenChange={onOpenChange}>
         <Header onClick={() => onOpenChange?.(false)} />
         <ScrollArea

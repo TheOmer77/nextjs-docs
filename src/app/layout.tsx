@@ -31,8 +31,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       </head>
       <body>
         <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden'>
-          <Layout />
-          <main className='grow px-4 pt-16 md:ps-[21rem]'>{children}</main>
+          <Layout>{children}</Layout>
         </div>
       </body>
     </html>

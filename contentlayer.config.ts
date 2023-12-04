@@ -27,6 +27,12 @@ const Doc = defineDocumentType(() => ({
         'Whether or not to show this page as an item in the sidebar.',
       default: true,
     },
+    displaySidebar: {
+      type: 'boolean',
+      description:
+        'Whether or not to display the sidebar while this page is viewed.',
+      default: true,
+    },
   },
   computedFields: {
     url: {
