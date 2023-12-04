@@ -1,7 +1,8 @@
 import { allDocs } from 'contentlayer/generated';
 export { allDocs, config } from 'contentlayer/generated';
 
-export const specialPageNames = ['_not-found'];
+export const notFoundPageName = '_not-found';
+export const specialPageNames = [notFoundPageName];
 
 export const filteredDocs = allDocs
   .filter(doc => {

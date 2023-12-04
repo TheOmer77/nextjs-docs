@@ -1,9 +1,9 @@
 import { ErrorLayout } from 'layouts';
-import { allDocs, config } from 'constants/contentlayer';
+import { allDocs, config, notFoundPageName } from 'constants/contentlayer';
 import { Mdx } from 'components/layout/Mdx';
 
 export const generateMetadata = () => {
-  const doc = allDocs.find(doc => doc._raw.flattenedPath === '_not-found');
+  const doc = allDocs.find(doc => doc._raw.flattenedPath === notFoundPageName);
   return {
     title: doc?.title
       ? config.titleTemplate.replace('%s', doc.title)
@@ -12,7 +12,7 @@ export const generateMetadata = () => {
 };
 
 const NotFoundPage = () => {
-  const doc = allDocs.find(doc => doc._raw.flattenedPath === '_not-found');
+  const doc = allDocs.find(doc => doc._raw.flattenedPath === notFoundPageName);
 
   return doc ? (
     <Mdx doc={doc} />
