@@ -1,10 +1,10 @@
-import type { PropsWithChildren } from 'react';
+import { type ComponentPropsWithoutRef } from 'react';
 import Link from 'next/link';
 
 import { config } from 'contentlayer/generated';
 import { cn } from 'utils';
 
-export type HomeLayoutProps = PropsWithChildren<{
+export type HomeLayoutProps = ComponentPropsWithoutRef<'div'> & {
   /** Home page main title. */
   title?: string | undefined;
   /** Short text that appears on the home page below the title. */
@@ -18,17 +18,23 @@ export type HomeLayoutProps = PropsWithChildren<{
     /** Whether or not this is the primary action, which uses the theme's primary color. */
     primary: boolean;
   }[];
-}>;
+};
 
 export const HomeLayout = ({
   title,
   tagline,
   actions,
   children,
+  className,
+  ...props
 }: HomeLayoutProps) => (
   <div
-    className='relative mx-auto flex min-h-[calc(100dvh-8rem)] w-full max-w-3xl
-flex-col items-start justify-center gap-4 px-4 pb-16 sm:px-8'
+    {...props}
+    className={cn(
+      `relative mx-auto flex min-h-[calc(100dvh-8rem)] w-full flex-col
+items-start justify-center gap-4 px-4 pb-16 sm:px-8`,
+      className
+    )}
   >
     <h1 className='m-0 text-5xl font-extrabold tracking-tight sm:text-7xl'>
       {title || config.title}
