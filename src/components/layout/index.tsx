@@ -6,12 +6,14 @@ import { usePathname } from 'next/navigation';
 import { Nav } from './Nav';
 import { Sidebar } from './Sidebar';
 import { cn } from 'utils';
-import { allDocs } from 'constants/contentlayer';
+import { allDocs, notFoundPageName } from 'constants/contentlayer';
 
 const Layout = ({ children }: PropsWithChildren) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
-  const currentDoc = allDocs.find(doc => doc.url === pathname);
+  const currentDoc = allDocs.find(
+    doc => doc.url === pathname || doc._raw.flattenedPath === notFoundPageName
+  );
 
   return (
     <>

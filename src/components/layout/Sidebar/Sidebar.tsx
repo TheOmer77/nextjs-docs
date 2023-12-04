@@ -12,7 +12,12 @@ import {
   ScrollArea,
   Sheet,
 } from 'components/general';
-import { allDocs, config, filteredDocs } from 'constants/contentlayer';
+import {
+  allDocs,
+  config,
+  filteredDocs,
+  notFoundPageName,
+} from 'constants/contentlayer';
 import type { Doc } from 'types';
 
 export interface SidebarProps {
@@ -39,7 +44,9 @@ const uncategorizedDocs = filteredDocs.filter(
 export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
   const pathname = usePathname();
 
-  const currentDoc = allDocs.find(doc => doc.url === pathname);
+  const currentDoc = allDocs.find(
+    doc => doc.url === pathname || doc._raw.flattenedPath === notFoundPageName
+  );
   const listCategories = Object.keys(docsByCategory).map(category => {
     const categoryDocs =
       docsByCategory[category as keyof typeof docsByCategory];
