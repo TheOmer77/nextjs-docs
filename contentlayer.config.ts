@@ -10,7 +10,6 @@ const Doc = defineDocumentType(() => ({
     title: {
       type: 'string',
       description: 'Title of this page.',
-      required: true,
     },
     category: {
       type: 'string',

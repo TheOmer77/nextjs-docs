@@ -23,7 +23,7 @@ dark:prose-invert`,
         doc.displaySidebar && 'md:max-w-[calc(100vw-22rem)] lg:max-w-3xl'
       )}
     >
-      {doc.showTitle && (
+      {doc.title && doc.showTitle && (
         <h1 className='text-5xl font-extrabold tracking-tight sm:text-[3.5rem] '>
           {doc.title}
         </h1>

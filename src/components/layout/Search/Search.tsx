@@ -10,7 +10,7 @@ import { SearchGroup } from './SearchGroup';
 
 const filteredDocs = allDocs
   .filter(doc => {
-    if (!doc.showInSidebar) return false;
+    if (!doc.title || !doc.showInSidebar) return false;
     const parentFolder = doc._raw.flattenedPath
       .split('/')
       .slice(0, -1)
