@@ -30,7 +30,7 @@ const Doc = defineDocumentType(() => ({
     displaySidebar: {
       type: 'boolean',
       description:
-        'Whether or not to display the sidebar while this page is viewed.',
+        'Whether or not to display the sidebar when this page is viewed.',
       default: true,
     },
   },

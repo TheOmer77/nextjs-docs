@@ -11,6 +11,7 @@ Each page has some frontmatter metadata at the top, which includes information a
 - `category` - Optional ID of the category this page belongs to. If not defined, the page is uncategorized. [More info](/docs/categories)
 - `showTitle` - Whether or not to show the page's title at its top. By default it's `true`.
 - `showInSidebar` - Whether or not to show this page as an item in the sidebar. By default it's `true`.
+- `displaySidebar` - Whether or not to display the sidebar when this page is viewed. By default it's `true`.
 
 ## Example page metadata
 
