@@ -65,11 +65,6 @@ const Config = defineDocumentType(() => ({
       description:
         'Object where keys are category IDs and values are display names.',
     },
-    notFoundText: {
-      type: 'string',
-      default: 'Not found.',
-      description: 'Text which will appear on the 404 not found page.',
-    },
   },
 }));
 
