@@ -5,23 +5,8 @@ import { SearchButton } from './SearchButton';
 import SearchDialog from './SearchDialog';
 import { SearchItem } from './SearchItem';
 import { SearchGroup } from './SearchGroup';
-import { allDocs, config } from 'constants/contentlayer';
+import { allDocs, config, filteredDocs } from 'constants/contentlayer';
 import type { Doc } from 'types';
-
-const filteredDocs = allDocs
-  .filter(doc => {
-    if (!doc.title || !doc.showInSidebar) return false;
-    const parentFolder = doc._raw.flattenedPath
-      .split('/')
-      .slice(0, -1)
-      .join('/');
-    return !allDocs.some(
-      d =>
-        d._raw.flattenedPath === parentFolder &&
-        d._id.startsWith(`${parentFolder}/index.`)
-    );
-  })
-  .sort((a, b) => (a._raw.flattenedPath > b._raw.flattenedPath ? 1 : -1));
 
 const uncategorizedDocs = filteredDocs.filter(
     doc =>
