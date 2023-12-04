@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
-import { allDocs } from 'contentlayer/generated';
 
 import { Mdx } from 'components/layout/Mdx';
+import { allDocs } from 'constants/contentlayer';
 
 export const generateStaticParams = async () =>
   allDocs.map(doc => ({ slug: doc._raw.flattenedPath.split('/') }));

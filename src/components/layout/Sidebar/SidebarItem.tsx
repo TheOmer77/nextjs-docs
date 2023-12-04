@@ -4,9 +4,10 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import { cn } from 'utils';
 
-import { type Doc, allDocs } from 'contentlayer/generated';
 import { ListItem, ListItemIcon, ListItemText } from 'components/general';
 import { ChevronRightIcon } from 'assets/icons';
+import { allDocs } from 'constants/contentlayer';
+import type { Doc } from 'types';
 
 interface SidebarItemProps {
   doc: Doc;

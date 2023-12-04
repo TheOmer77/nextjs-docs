@@ -1,12 +1,12 @@
 import { Fragment, useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { allDocs, config, type Doc } from 'contentlayer/generated';
-
 import { SearchButton } from './SearchButton';
 import SearchDialog from './SearchDialog';
 import { SearchItem } from './SearchItem';
 import { SearchGroup } from './SearchGroup';
+import { allDocs, config } from 'constants/contentlayer';
+import type { Doc } from 'types';
 
 const filteredDocs = allDocs
   .filter(doc => {

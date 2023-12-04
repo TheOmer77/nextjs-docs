@@ -2,7 +2,7 @@ import { forwardRef, type ComponentPropsWithoutRef } from 'react';
 import Link from 'next/link';
 
 import { cn } from 'utils';
-import { config } from 'contentlayer/generated';
+import { config } from 'constants/contentlayer';
 
 export const Header = forwardRef<
   HTMLElement,

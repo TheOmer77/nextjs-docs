@@ -1,8 +1,8 @@
 import { type ComponentPropsWithoutRef } from 'react';
 import Link from 'next/link';
 
-import { config } from 'contentlayer/generated';
 import { cn } from 'utils';
+import { config } from 'constants/contentlayer';
 
 export type HomeLayoutProps = ComponentPropsWithoutRef<'div'> & {
   /** Home page main title. */

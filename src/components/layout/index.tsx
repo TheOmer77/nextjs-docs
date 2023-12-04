@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Nav } from './Nav';
 import { Sidebar } from './Sidebar';
 import { cn } from 'utils';
-import { allDocs } from 'contentlayer/generated';
+import { allDocs } from 'constants/contentlayer';
 
 const Layout = ({ children }: PropsWithChildren) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

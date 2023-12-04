@@ -2,7 +2,6 @@
 
 import { Fragment } from 'react';
 import { usePathname } from 'next/navigation';
-import { allDocs, config, type Doc } from 'contentlayer/generated';
 
 import SidebarItem from './SidebarItem';
 import { Header } from '../Header';
@@ -13,6 +12,8 @@ import {
   ScrollArea,
   Sheet,
 } from 'components/general';
+import { allDocs, config } from 'constants/contentlayer';
+import type { Doc } from 'types';
 
 export interface SidebarProps {
   open?: boolean;
