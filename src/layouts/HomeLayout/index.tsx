@@ -1,18 +1,18 @@
-import { type ComponentPropsWithoutRef } from 'react';
+import { type ComponentPropsWithoutRef, type ReactNode } from 'react';
 import Link from 'next/link';
 
 import { cn } from 'utils';
 import { config } from 'constants/contentlayer';
 
-export type HomeLayoutProps = ComponentPropsWithoutRef<'div'> & {
+export type HomeLayoutProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
   /** Home page main title. */
-  title?: string | undefined;
+  title?: ReactNode;
   /** Short text that appears on the home page below the title. */
-  tagline?: string | undefined;
+  tagline?: ReactNode;
   /** Action buttons appearing below the tagline on the home page. */
   actions: {
     /** Text for this action button. */
-    text: string;
+    text: ReactNode;
     /** URL opened by clicking on this action button. */
     url: string;
     /** Whether or not this is the primary action, which uses the theme's primary color. */
