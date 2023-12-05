@@ -17,7 +17,7 @@ import {
   config,
   filteredDocs,
   notFoundPageName,
-  specialPageNames,
+  specialFileNames,
 } from 'constants/contentlayer';
 import type { Doc } from 'types';
 
@@ -46,7 +46,7 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
   const pathname = usePathname();
 
   const currentDoc = allDocs
-      .filter(doc => !specialPageNames.includes(doc._raw.flattenedPath))
+      .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
       .find(doc => doc.url === pathname),
     notFoundDoc = allDocs.find(
       doc => doc._raw.flattenedPath === notFoundPageName

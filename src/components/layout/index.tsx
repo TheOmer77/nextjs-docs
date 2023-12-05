@@ -9,14 +9,14 @@ import { cn } from 'utils';
 import {
   allDocs,
   notFoundPageName,
-  specialPageNames,
+  specialFileNames,
 } from 'constants/contentlayer';
 
 const Layout = ({ children }: PropsWithChildren) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
   const currentDoc = allDocs
-      .filter(doc => !specialPageNames.includes(doc._raw.flattenedPath))
+      .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
       .find(doc => doc.url === pathname),
     notFoundDoc = allDocs.find(
       doc => doc._raw.flattenedPath === notFoundPageName

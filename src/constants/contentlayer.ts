@@ -2,14 +2,15 @@ import { allDocs } from 'contentlayer/generated';
 export { allDocs, config } from 'contentlayer/generated';
 
 export const notFoundPageName = '_not-found';
-export const specialPageNames = [notFoundPageName];
+export const navLogoName = '_nav-logo';
+export const specialFileNames = [notFoundPageName, navLogoName];
 
 export const filteredDocs = allDocs
   .filter(doc => {
     if (
       !doc.title ||
       !doc.showInSidebar ||
-      specialPageNames.includes(doc._raw.flattenedPath)
+      specialFileNames.includes(doc._raw.flattenedPath)
     )
       return false;
     const parentFolder = doc._raw.flattenedPath

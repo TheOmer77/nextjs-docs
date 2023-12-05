@@ -21,7 +21,11 @@ dark:md:bg-transparent'
     >
       <MenuIcon />
     </IconButton>
-    <Header className='hidden md:block' />
+    <Header
+      /* Setting `display: none` breaks SVG gradients, so using other method
+      for hiding on mobile */
+      className='invisible absolute h-0 w-0 md:visible md:relative md:h-16'
+    />
     <div
       className='flex h-full grow flex-row items-center justify-end bg-white
 px-2 dark:bg-neutral-950 md:px-4'
