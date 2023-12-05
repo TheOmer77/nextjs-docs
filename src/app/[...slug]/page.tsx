@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 
 import { Mdx } from 'components/layout/Mdx';
-import { allDocs } from 'constants/contentlayer';
+import { allDocs, specialPageNames } from 'constants/contentlayer';
 
 export const generateStaticParams = async () =>
   allDocs.map(doc => ({ slug: doc._raw.flattenedPath.split('/') }));
@@ -11,16 +11,16 @@ export const generateMetadata = ({
 }: {
   params: { slug: string[] };
 }) => {
-  const doc = allDocs.find(
-    doc => doc._raw.flattenedPath === params.slug.join('/')
-  );
+  const doc = allDocs
+    .filter(doc => !specialPageNames.includes(doc._raw.flattenedPath))
+    .find(doc => doc._raw.flattenedPath === params.slug.join('/'));
   return { title: doc?.title };
 };
 
 const DocLayout = ({ params }: { params: { slug: string[] } }) => {
-  const doc = allDocs.find(
-    doc => doc._raw.flattenedPath === params.slug.join('/')
-  );
+  const doc = allDocs
+    .filter(doc => !specialPageNames.includes(doc._raw.flattenedPath))
+    .find(doc => doc._raw.flattenedPath === params.slug.join('/'));
   if (!doc) return notFound();
 
   return <Mdx doc={doc} />;

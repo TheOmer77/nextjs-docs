@@ -17,6 +17,7 @@ import {
   config,
   filteredDocs,
   notFoundPageName,
+  specialPageNames,
 } from 'constants/contentlayer';
 import type { Doc } from 'types';
 
@@ -44,10 +45,13 @@ const uncategorizedDocs = filteredDocs.filter(
 export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
   const pathname = usePathname();
 
-  const currentDoc = allDocs.find(doc => doc.url === pathname),
+  const currentDoc = allDocs
+      .filter(doc => !specialPageNames.includes(doc._raw.flattenedPath))
+      .find(doc => doc.url === pathname),
     notFoundDoc = allDocs.find(
       doc => doc._raw.flattenedPath === notFoundPageName
     );
+
   const listCategories = Object.keys(docsByCategory).map(category => {
     const categoryDocs =
       docsByCategory[category as keyof typeof docsByCategory];
