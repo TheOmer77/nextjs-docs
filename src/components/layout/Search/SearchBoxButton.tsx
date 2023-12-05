@@ -1,4 +1,5 @@
 import { forwardRef, type ComponentPropsWithoutRef } from 'react';
+
 import { SearchIcon } from 'assets/icons';
 import { cn } from 'utils';
 
