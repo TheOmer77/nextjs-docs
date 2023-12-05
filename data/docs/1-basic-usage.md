@@ -23,10 +23,3 @@ category: category1
 ```
 
 More example pages can be found in the `data/sample/` directory of this site.
-
-## Site configuration
-
-The `config.json` file in the `data/` directory defines various site-wide properties. In addition to [categories](/docs/categories), the following properties can be defined:
-
-- `title` - Site title, appearing by default as the home page's `<title>`, as well as in the Nav's header.
-- `titleTemplate` - Template for the `<title>` of pages other than the home page.
