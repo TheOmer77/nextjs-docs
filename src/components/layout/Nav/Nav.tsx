@@ -1,4 +1,4 @@
-import { Header } from '../Header';
+import { Logo } from '../Logo';
 import { Search } from '../Search';
 import { IconButton } from 'components/general';
 import { MenuIcon } from 'assets/icons';
@@ -21,7 +21,7 @@ dark:md:bg-transparent'
     >
       <MenuIcon />
     </IconButton>
-    <Header
+    <Logo
       /* Setting `display: none` breaks SVG gradients, so using other method
       for hiding on mobile */
       className='invisible absolute h-0 w-0 md:visible md:relative md:h-16'

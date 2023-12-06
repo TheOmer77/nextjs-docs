@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 import { usePathname } from 'next/navigation';
 
 import SidebarItem from './SidebarItem';
-import { Header } from '../Header';
+import { Logo } from '../Logo';
 import {
   Collapsible,
   List,
@@ -122,7 +122,7 @@ after:w-screen after:bg-inherit dark:bg-neutral-900 md:flex'
         </aside>
       )}
       <Sheet open={open} onOpenChange={onOpenChange}>
-        <Header onClick={() => onOpenChange?.(false)} />
+        <Logo onClick={() => onOpenChange?.(false)} />
         <ScrollArea
           className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px
 overflow-y-auto rounded-lg'
