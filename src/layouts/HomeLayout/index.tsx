@@ -7,9 +7,9 @@ import { config } from 'constants/contentlayer';
 export type HomeLayoutProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
   /** Home page main title. */
   title?: ReactNode;
-  /** Short text that appears on the home page below the title. */
+  /** Short text that appears below the title. */
   tagline?: ReactNode;
-  /** Action buttons appearing below the tagline on the home page. */
+  /** Action buttons appearing below the tagline. */
   actions: {
     /** Text for this action button. */
     text: ReactNode;
