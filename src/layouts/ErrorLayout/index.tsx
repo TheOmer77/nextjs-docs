@@ -1,7 +1,9 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 
 export type ErrorLayoutProps = PropsWithChildren<{
+  /** The error code, or main title. */
   code: ReactNode;
+  /** A short description of the error. */
   text: ReactNode;
 }>;
 
