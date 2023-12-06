@@ -3,7 +3,8 @@ export { allDocs, config } from 'contentlayer/generated';
 
 export const notFoundPageName = '_not-found';
 export const navLogoName = '_nav-logo';
-export const specialFileNames = [notFoundPageName, navLogoName];
+export const navLinksName = '_nav-links';
+export const specialFileNames = [notFoundPageName, navLogoName, navLinksName];
 
 export const filteredDocs = allDocs
   .filter(doc => {

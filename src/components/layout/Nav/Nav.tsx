@@ -1,3 +1,4 @@
+import { NavLinks } from './NavLinks';
 import { Logo } from '../Logo';
 import { Search } from '../Search';
 import { IconButton } from 'components/general';
@@ -27,10 +28,11 @@ dark:md:bg-transparent'
       className='invisible absolute h-0 w-0 md:visible md:relative md:h-16'
     />
     <div
-      className='flex h-full grow flex-row items-center justify-end bg-white
-px-2 dark:bg-neutral-950 md:px-4'
+      className='flex h-full grow flex-row items-center justify-end gap-2
+bg-white px-2 dark:bg-neutral-950 md:px-4'
     >
       <Search />
+      <NavLinks />
     </div>
   </nav>
 );
