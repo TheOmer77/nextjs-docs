@@ -16,7 +16,7 @@ dark:md:bg-transparent'
   >
     <IconButton
       aria-label='Open sidebar'
-      className='ms-2'
+      className='ms-2 md:hidden'
       onClick={onMenuClick}
     >
       <MenuIcon />

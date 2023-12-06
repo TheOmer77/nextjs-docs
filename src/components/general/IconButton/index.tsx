@@ -18,7 +18,7 @@ export const IconButton = forwardRef<
 text-xl text-neutral-700 duration-200 state-layer
 hover:state-layer-neutral-500/10 focus-visible:outline-none
 focus-visible:state-layer-neutral-500/20 active:bg-neutral-500/20
-active:duration-0 dark:text-neutral-300 md:hidden`,
+active:duration-0 dark:text-neutral-300`,
         className
       )}
     >
