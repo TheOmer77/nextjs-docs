@@ -36,7 +36,21 @@ const Doc = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: doc => `/${doc._raw.flattenedPath}`,
+      resolve: doc => {
+        const filenameParts = doc._raw.sourceFileName
+          .split('.')
+          .slice(0, -1)
+          .join('.')
+          .split('-');
+        return `/${
+          isNaN(Number(filenameParts[0]))
+            ? doc._raw.flattenedPath
+            : [
+                ...doc._raw.flattenedPath.split('/').slice(0, -1),
+                filenameParts.slice(1).join('-'),
+              ].join('/')
+        }`;
+      },
     },
   },
 }));

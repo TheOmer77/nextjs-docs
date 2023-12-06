@@ -24,4 +24,14 @@ export const filteredDocs = allDocs
         d._id.startsWith(`${parentFolder}/index.`)
     );
   })
-  .sort((a, b) => (a._raw.flattenedPath > b._raw.flattenedPath ? 1 : -1));
+  .sort((a, b) => {
+    const aFilenameStart = a._raw.sourceFileName.split('-')[0],
+      bFilenameStart = b._raw.sourceFileName.split('-')[0];
+    return !(isNaN(Number(aFilenameStart)) || isNaN(Number(aFilenameStart)))
+      ? Number(aFilenameStart) > Number(bFilenameStart)
+        ? 1
+        : -1
+      : a.url > b.url
+        ? 1
+        : -1;
+  });

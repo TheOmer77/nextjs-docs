@@ -13,14 +13,14 @@ export const generateMetadata = ({
 }) => {
   const doc = allDocs
     .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
-    .find(doc => doc._raw.flattenedPath === params.slug.join('/'));
+    .find(doc => doc.url === `/${params.slug.join('/')}`);
   return { title: doc?.title };
 };
 
 const DocLayout = ({ params }: { params: { slug: string[] } }) => {
   const doc = allDocs
     .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
-    .find(doc => doc._raw.flattenedPath === params.slug.join('/'));
+    .find(doc => doc.url === `/${params.slug.join('/')}`);
   if (!doc) return notFound();
 
   return <Mdx doc={doc} />;
