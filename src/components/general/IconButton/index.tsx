@@ -3,14 +3,16 @@ import React, {
   forwardRef,
   type ComponentPropsWithoutRef,
 } from 'react';
+import { Primitive } from '@radix-ui/react-primitive';
+
 import { cn } from 'utils';
 
 export const IconButton = forwardRef<
   HTMLButtonElement,
-  ComponentPropsWithoutRef<'button'>
+  ComponentPropsWithoutRef<typeof Primitive.button>
 >(({ className, children, ...props }, ref) => {
   return (
-    <button
+    <Primitive.button
       {...props}
       ref={ref}
       className={cn(
@@ -23,7 +25,7 @@ active:duration-0 dark:text-neutral-300`,
       )}
     >
       {Children.only(children)}
-    </button>
+    </Primitive.button>
   );
 });
 IconButton.displayName = 'IconButton';
