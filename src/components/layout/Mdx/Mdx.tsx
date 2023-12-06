@@ -4,15 +4,11 @@ import { getMDXComponent } from 'next-contentlayer/hooks';
 import type { MDXComponents } from 'mdx/types';
 
 import { MdxLink } from './MdxLink';
-import { ErrorLayout, HomeLayout } from 'layouts';
+import * as layouts from 'layouts';
 import { cn } from 'utils';
 import type { Doc } from 'types';
 
-export const mdxComponents: MDXComponents = {
-  a: MdxLink,
-  HomeLayout,
-  ErrorLayout,
-};
+export const mdxComponents: MDXComponents = { a: MdxLink };
 
 export type MdxProps = { doc: Doc; prose?: boolean };
 
@@ -31,10 +27,10 @@ dark:prose-invert`,
           {doc.title}
         </h1>
       )}
-      <MdxContent components={mdxComponents} />
+      <MdxContent components={{ ...mdxComponents, ...layouts }} />
     </div>
   ) : (
-    <MdxContent components={mdxComponents} />
+    <MdxContent components={{ ...mdxComponents, ...layouts }} />
   );
 };
 
