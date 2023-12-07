@@ -15,8 +15,8 @@ import {
 import {
   allDocs,
   config,
-  filteredDocs,
   notFoundPageName,
+  sidebarDocs,
   specialFileNames,
 } from 'constants/contentlayer';
 import type { Doc } from 'types';
@@ -26,7 +26,7 @@ export interface SidebarProps {
   onOpenChange?: (open: boolean) => void;
 }
 
-const uncategorizedDocs = filteredDocs.filter(
+const uncategorizedDocs = sidebarDocs.filter(
     doc =>
       typeof doc.category !== 'string' ||
       !Object.keys(config.categories).includes(doc.category)
@@ -36,7 +36,7 @@ const uncategorizedDocs = filteredDocs.filter(
     ...Object.keys(config.categories).reduce(
       (obj, category) => ({
         ...obj,
-        [category]: filteredDocs.filter(doc => doc.category === category),
+        [category]: sidebarDocs.filter(doc => doc.category === category),
       }),
       {} as { [key: string]: Doc[] }
     ),
