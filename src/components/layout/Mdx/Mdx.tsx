@@ -3,12 +3,18 @@
 import { getMDXComponent } from 'next-contentlayer/hooks';
 import type { MDXComponents } from 'mdx/types';
 
+import { Alert } from './Alert';
+import { MdxBlockquote } from './MdxBlockquote';
 import { MdxLink } from './MdxLink';
 import * as layouts from 'layouts';
 import { cn } from 'utils';
 import type { Doc } from 'types';
 
-export const mdxComponents: MDXComponents = { a: MdxLink };
+export const mdxComponents: MDXComponents = {
+  a: MdxLink,
+  blockquote: MdxBlockquote,
+  Alert,
+};
 
 export type MdxProps = { doc: Doc; prose?: boolean };
 
