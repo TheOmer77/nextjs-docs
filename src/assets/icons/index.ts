@@ -1,3 +1,5 @@
-export { default as ChevronRightIcon } from 'assets/icons/chevron_right.svg?react';
-export { default as MenuIcon } from 'assets/icons/menu.svg?react';
-export { default as SearchIcon } from 'assets/icons/search.svg?react';
+export { default as AlertOctagonIcon } from './alert-octagon.svg?react';
+export { default as ChevronRightIcon } from './chevron-right.svg?react';
+export { default as InfoIcon } from './info.svg?react';
+export { default as MenuIcon } from './menu.svg?react';
+export { default as SearchIcon } from './search.svg?react';
