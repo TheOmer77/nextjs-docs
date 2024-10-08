@@ -1,4 +1,4 @@
-import { ErrorLayout } from '@/layouts';
+import { ErrorLayout } from '@/components/layout/error';
 import { allDocs, config, notFoundPageName } from '@/constants/contentlayer';
 import { Mdx } from '@/components/layout/mdx';
 

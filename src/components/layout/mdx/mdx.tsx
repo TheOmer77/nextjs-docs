@@ -6,7 +6,8 @@ import type { MDXComponents } from 'mdx/types';
 import { Alert } from './alert';
 import { MdxBlockquote } from './mdx-blockquote';
 import { MdxLink } from './mdx-link';
-import * as layouts from '@/layouts';
+import { HomeLayout } from '@/components/layout/home';
+import { ErrorLayout } from '@/components/layout/error';
 import { cn } from '@/lib/cn';
 import type { Doc } from '@/types';
 
@@ -14,14 +15,16 @@ export const mdxComponents: MDXComponents = {
   a: MdxLink,
   blockquote: MdxBlockquote,
   Alert,
+
+  HomeLayout,
+  ErrorLayout,
 };
 
 export type MdxProps = { doc: Doc; prose?: boolean };
 
 export const Mdx = ({ doc, prose = true }: MdxProps) => {
   const MdxContent = getMDXComponent(doc.body.code);
-  if (!prose)
-    return <MdxContent components={{ ...mdxComponents, ...layouts }} />;
+  if (!prose) return <MdxContent components={mdxComponents} />;
   return (
     <div
       className={cn(
@@ -35,7 +38,7 @@ dark:prose-invert`,
           {doc.title}
         </h1>
       )}
-      <MdxContent components={{ ...mdxComponents, ...layouts }} />
+      <MdxContent components={mdxComponents} />
     </div>
   );
 };
