@@ -20,6 +20,7 @@ export const stateLayer = plugin(({ addUtilities, matchUtilities, theme }) => {
         zIndex: '1',
         transition: 'background-color 75ms cubic-bezier(0.2, 1, 0.4, 1)',
       },
+      '&:active::after': { transitionDuration: '0s' },
     },
   });
   matchUtilities(
