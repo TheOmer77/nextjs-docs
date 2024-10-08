@@ -16,7 +16,7 @@ interface SidebarItemProps {
   onClick?: () => void;
 }
 
-const SidebarItem = ({
+export const SidebarItem = ({
   doc,
   active = false,
   childActive = false,
@@ -53,5 +53,3 @@ const SidebarItem = ({
     </ListItem>
   );
 };
-
-export default SidebarItem;

@@ -3,7 +3,7 @@
 import { Fragment } from 'react';
 import { usePathname } from 'next/navigation';
 
-import SidebarItem from './sidebar-item';
+import { SidebarItem } from './sidebar-item';
 import { Logo } from '../logo';
 import {
   Collapsible,
