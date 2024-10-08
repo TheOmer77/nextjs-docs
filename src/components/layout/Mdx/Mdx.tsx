@@ -20,7 +20,9 @@ export type MdxProps = { doc: Doc; prose?: boolean };
 
 export const Mdx = ({ doc, prose = true }: MdxProps) => {
   const MdxContent = getMDXComponent(doc.body.code);
-  return prose ? (
+  if (!prose)
+    return <MdxContent components={{ ...mdxComponents, ...layouts }} />;
+  return (
     <div
       className={cn(
         `prose mx-auto max-w-[calc(100vw-2rem)] py-8
@@ -35,8 +37,6 @@ dark:prose-invert`,
       )}
       <MdxContent components={{ ...mdxComponents, ...layouts }} />
     </div>
-  ) : (
-    <MdxContent components={{ ...mdxComponents, ...layouts }} />
   );
 };
 
