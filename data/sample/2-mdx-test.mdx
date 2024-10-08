@@ -22,7 +22,7 @@ return (
   </div>
   <button
     onClick={() => setCount(prev => prev + 1)}
-    className='flex h-9 cursor-default select-none flex-row items-center rounded-lg bg-white px-4 text-sm font-medium text-neutral-800 shadow-sm shadow-neutral-950/20 transition-colors duration-200 state-layer hover:state-layer-neutral-500/10 focus-visible:outline-none focus-visible:state-layer-neutral-500/10 active:bg-neutral-50 active:duration-0 dark:bg-neutral-900 dark:text-neutral-300 dark:active:bg-neutral-800'
+    className='inline-flex h-10 cursor-default items-center justify-center whitespace-nowrap rounded-md border border-input/50 bg-background px-4 text-sm font-medium shadow-sm shadow-neutral-950/10 ring-offset-background transition-[background-color,opacity] state-layer hover:state-layer-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:duration-0 active:state-layer-foreground/10 dark:bg-neutral-800 [&>*]:z-10'
   >
     Increment
   </button>
@@ -46,7 +46,7 @@ const Counter = () => {
       </div>
       <button
         onClick={() => setCount(prev => prev + 1)}
-        className='state-layer hover:state-layer-neutral-500/10 focus-visible:state-layer-neutral-500/10 flex h-9 cursor-default select-none flex-row items-center rounded-lg bg-white px-4 text-sm font-medium text-neutral-800 shadow-sm shadow-neutral-950/20 transition-colors duration-200 focus-visible:outline-none active:bg-neutral-50 active:duration-0 dark:bg-neutral-900 dark:text-neutral-300 dark:active:bg-neutral-800'
+        className='border-input/50 bg-background ring-offset-background state-layer hover:state-layer-foreground/5 focus-visible:ring-ring active:state-layer-foreground/10 inline-flex h-10 cursor-default items-center justify-center whitespace-nowrap rounded-md border px-4 text-sm font-medium shadow-sm shadow-neutral-950/10 transition-[background-color,opacity] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:duration-0 dark:bg-neutral-800 [&>*]:z-10'
       >
         Increment
       </button>
