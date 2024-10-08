@@ -11,7 +11,7 @@ import {
   ListSubheader,
   ScrollArea,
   Sheet,
-} from '@/components/general';
+} from '@/components/ui';
 import {
   allDocs,
   config,

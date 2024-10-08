@@ -1,7 +1,7 @@
 import { NavLinks } from './nav-links';
 import { Logo } from '../logo';
 import { Search } from '../search';
-import { IconButton } from '@/components/general';
+import { IconButton } from '@/components/ui';
 import { MenuIcon } from '@/assets/icons';
 
 export interface NavProps {

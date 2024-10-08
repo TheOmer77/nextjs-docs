@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
 
-import { ListItem, ListItemIcon, ListItemText } from '@/components/general';
+import { ListItem, ListItemIcon, ListItemText } from '@/components/ui';
 import { ChevronRightIcon } from '@/assets/icons';
 import { allDocs } from '@/constants/contentlayer';
 import type { Doc } from '@/types';
