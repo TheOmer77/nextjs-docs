@@ -1,9 +1,8 @@
-import plugin from 'tailwindcss/plugin';
-
 //@ts-expect-error No type decleration
 import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
 //@ts-expect-error No type decleration
 import toColorValue from 'tailwindcss/lib/util/toColorValue';
+import plugin from 'tailwindcss/plugin';
 
 export const autofillOverride = plugin(({ matchUtilities, theme }) => {
   const themeColors = flattenColorPalette(theme('colors'));
