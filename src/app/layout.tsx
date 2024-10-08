@@ -24,7 +24,7 @@ export const metadata = {
 };
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
-  <html className={clsx(font.variable, fontMono.variable)}>
+  <html lang='en' className={clsx(font.variable, fontMono.variable)}>
     <head>
       <link rel='icon' type='image/x-icon' href='/favicon.png' />
     </head>
