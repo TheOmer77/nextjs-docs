@@ -10,7 +10,6 @@
     "prettier"
   ],
   "plugins": ["check-file", "prefer-arrow-functions"],
-  "settings": { "import-x/resolver": { "typescript": true, "node": true } },
   "rules": {
     "check-file/filename-naming-convention": [
       "warn",
@@ -19,9 +18,47 @@
     ],
     "check-file/folder-naming-convention": [
       "warn",
+      { "src/!(app)/**": "KEBAB_CASE", "src/app/**": "NEXT_JS_APP_ROUTER_CASE" }
+    ],
+    "import-x/order": [
+      "warn",
       {
-        "src/app/**": "NEXT_JS_APP_ROUTER_CASE",
-        "src/!(app)/**": "KEBAB_CASE"
+        "alphabetize": { "order": "asc", "orderImportKind": "asc" },
+        "distinctGroup": false,
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"],
+          "type"
+        ],
+        "newlines-between": "always",
+        "pathGroups": [
+          { "group": "internal", "pattern": "@/components/ui/**" },
+          {
+            "group": "internal",
+            "pattern": "@/components/**",
+            "position": "after"
+          },
+          { "group": "internal", "pattern": "@/hooks/**", "position": "after" },
+          { "group": "internal", "pattern": "@/lib/**", "position": "after" },
+          {
+            "group": "internal",
+            "pattern": "@/config/**",
+            "position": "after"
+          },
+          {
+            "group": "internal",
+            "pattern": "@/constants/**",
+            "position": "after"
+          },
+          {
+            "group": "internal",
+            "pattern": "@/styles/**",
+            "position": "after"
+          },
+          { "group": "internal", "pattern": "@/types/**", "position": "after" }
+        ],
+        "warnOnUnassignedImports": true
       }
     ],
     "prefer-arrow-callback": ["warn"],
@@ -36,5 +73,6 @@
       }
     ],
     "prefer-template": ["warn"]
-  }
+  },
+  "settings": { "import-x/resolver": { "node": true, "typescript": true } }
 }
