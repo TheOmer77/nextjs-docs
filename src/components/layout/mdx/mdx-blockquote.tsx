@@ -6,7 +6,7 @@ import {
   type PropsWithChildren,
 } from 'react';
 
-import { Alert } from './Alert';
+import { Alert } from './alert';
 
 const infoPrefix = '[!info]',
   dangerPrefix = '[!danger]';

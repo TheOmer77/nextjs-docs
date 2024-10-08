@@ -3,9 +3,9 @@
 import { getMDXComponent } from 'next-contentlayer2/hooks';
 import type { MDXComponents } from 'mdx/types';
 
-import { Alert } from './Alert';
-import { MdxBlockquote } from './MdxBlockquote';
-import { MdxLink } from './MdxLink';
+import { Alert } from './alert';
+import { MdxBlockquote } from './mdx-blockquote';
+import { MdxLink } from './mdx-link';
 import * as layouts from '@/layouts';
 import { cn } from '@/lib/cn';
 import type { Doc } from '@/types';

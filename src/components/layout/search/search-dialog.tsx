@@ -6,8 +6,7 @@ import {
   type DialogProps,
 } from '@radix-ui/react-dialog';
 
-import { cn } from '@/lib/cn';
-import { SearchCommand } from './SearchCommand';
+import { SearchCommand } from './search-command';
 
 const SearchDialog = ({ open, onOpenChange, children }: DialogProps) => {
   return (

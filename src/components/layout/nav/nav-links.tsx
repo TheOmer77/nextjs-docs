@@ -1,7 +1,7 @@
 import { getMDXComponent } from 'next-contentlayer2/hooks';
 
-import { NavLink } from './NavLink';
-import { mdxComponents } from '../Mdx';
+import { NavLink } from './nav-link';
+import { mdxComponents } from '../mdx';
 import { allDocs, navLinksName } from '@/constants/contentlayer';
 
 export const NavLinks = () => {

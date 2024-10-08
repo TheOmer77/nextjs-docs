@@ -1,2 +1,2 @@
-export * from './ErrorLayout';
-export * from './HomeLayout';
+export * from './error';
+export * from './home';

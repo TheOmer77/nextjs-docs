@@ -3,8 +3,8 @@
 import { useState, type PropsWithChildren } from 'react';
 import { usePathname } from 'next/navigation';
 
-import { Nav } from './Nav';
-import { Sidebar } from './Sidebar';
+import { Nav } from './nav';
+import { Sidebar } from './sidebar';
 import { cn } from '@/lib/cn';
 import {
   allDocs,

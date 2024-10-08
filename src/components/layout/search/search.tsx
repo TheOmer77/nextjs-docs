@@ -1,10 +1,10 @@
 import { Fragment, useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { SearchButton } from './SearchButton';
-import SearchDialog from './SearchDialog';
-import { SearchItem } from './SearchItem';
-import { SearchGroup } from './SearchGroup';
+import { SearchButton } from './search-button';
+import SearchDialog from './search-dialog';
+import { SearchItem } from './search-item';
+import { SearchGroup } from './search-group';
 import { allDocs, config, sidebarDocs } from '@/constants/contentlayer';
 import type { Doc } from '@/types';
 

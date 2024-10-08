@@ -12,7 +12,7 @@ import {
 } from '@radix-ui/react-scroll-area';
 
 import { cn } from '@/lib/cn';
-import { ScrollBar } from './ScrollBar';
+import { ScrollBar } from './scroll-bar';
 
 export const ScrollArea = forwardRef<
   ElementRef<typeof ScrollAreaRoot>,

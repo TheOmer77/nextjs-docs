@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react';
 
-import { SearchBoxButton } from './SearchBoxButton';
+import { SearchBoxButton } from './search-box-button';
 import { IconButton } from '@/components/general';
 import { SearchIcon } from '@/assets/icons';
 

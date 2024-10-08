@@ -3,8 +3,8 @@
 import { Fragment } from 'react';
 import { usePathname } from 'next/navigation';
 
-import SidebarItem from './SidebarItem';
-import { Logo } from '../Logo';
+import SidebarItem from './sidebar-item';
+import { Logo } from '../logo';
 import {
   Collapsible,
   List,

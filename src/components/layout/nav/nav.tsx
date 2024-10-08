@@ -1,6 +1,6 @@
-import { NavLinks } from './NavLinks';
-import { Logo } from '../Logo';
-import { Search } from '../Search';
+import { NavLinks } from './nav-links';
+import { Logo } from '../logo';
+import { Search } from '../search';
 import { IconButton } from '@/components/general';
 import { MenuIcon } from '@/assets/icons';
 
