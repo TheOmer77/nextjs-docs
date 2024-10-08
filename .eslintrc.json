@@ -33,6 +33,11 @@
         ],
         "newlines-between": "always",
         "pathGroups": [
+          { "group": "external", "pattern": "react", "position": "before" },
+          { "group": "external", "pattern": "react/**", "position": "before" },
+          { "group": "external", "pattern": "next", "position": "before" },
+          { "group": "external", "pattern": "next/**", "position": "before" },
+
           { "group": "internal", "pattern": "@/components/ui/**" },
           {
             "group": "internal",
@@ -58,6 +63,7 @@
           },
           { "group": "internal", "pattern": "@/types/**", "position": "after" }
         ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
         "warnOnUnassignedImports": true
       }
     ],
