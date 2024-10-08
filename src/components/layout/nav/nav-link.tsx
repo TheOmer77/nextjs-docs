@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import Link from 'next/link';
 
-import { IconButton } from '@/components/ui/icon-button';
+import { Button } from '@/components/ui/button';
 
 export const NavLink = ({
   href,
@@ -11,10 +11,10 @@ export const NavLink = ({
 }: ComponentPropsWithoutRef<'a'>) => {
   const LinkComp = href?.startsWith?.('/') ? Link : 'a';
   return (
-    <IconButton asChild className={className}>
+    <Button asChild variant='flat' icon className={className}>
       <LinkComp {...props} href={href as string}>
         {children}
       </LinkComp>
-    </IconButton>
+    </Button>
   );
 };
