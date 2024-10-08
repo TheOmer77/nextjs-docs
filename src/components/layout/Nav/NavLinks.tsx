@@ -1,4 +1,4 @@
-import { getMDXComponent } from 'next-contentlayer/hooks';
+import { getMDXComponent } from 'next-contentlayer2/hooks';
 
 import { NavLink } from './NavLink';
 import { mdxComponents } from '../Mdx';

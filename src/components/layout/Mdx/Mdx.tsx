@@ -1,6 +1,6 @@
 'use client';
 
-import { getMDXComponent } from 'next-contentlayer/hooks';
+import { getMDXComponent } from 'next-contentlayer2/hooks';
 import type { MDXComponents } from 'mdx/types';
 
 import { Alert } from './Alert';

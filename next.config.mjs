@@ -1,4 +1,4 @@
-import { withContentlayer } from 'next-contentlayer';
+import { withContentlayer } from 'next-contentlayer2';
 
 /**
  * Enable importing SVGs in React & MDX.
