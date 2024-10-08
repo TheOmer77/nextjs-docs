@@ -46,6 +46,7 @@
     "eslint-plugin-prefer-arrow-functions": "^3.4.1",
     "postcss": "^8.4.47",
     "postcss-hover-media-feature": "^1.0.2",
+    "postcss-mixins": "^11.0.3",
     "postcss-viewport-unit-fallback": "^1.0.1",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
