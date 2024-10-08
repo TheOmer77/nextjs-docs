@@ -2,11 +2,11 @@ import type { ReactNode } from 'react';
 import { Figtree, Fira_Code } from 'next/font/google';
 import clsx from 'clsx';
 
-import Layout from 'components/layout';
-import { config } from 'constants/contentlayer';
+import Layout from '@/components/layout';
+import { config } from '@/constants/contentlayer';
 
-import 'styles/index.css';
-import 'styles/prism.css';
+import '@/styles/index.css';
+import '@/styles/prism.css';
 
 const font = Figtree({
   subsets: ['latin'],

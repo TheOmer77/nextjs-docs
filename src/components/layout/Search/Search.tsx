@@ -5,8 +5,8 @@ import { SearchButton } from './SearchButton';
 import SearchDialog from './SearchDialog';
 import { SearchItem } from './SearchItem';
 import { SearchGroup } from './SearchGroup';
-import { allDocs, config, sidebarDocs } from 'constants/contentlayer';
-import type { Doc } from 'types';
+import { allDocs, config, sidebarDocs } from '@/constants/contentlayer';
+import type { Doc } from '@/types';
 
 const uncategorizedDocs = sidebarDocs.filter(
     doc =>

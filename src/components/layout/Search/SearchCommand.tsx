@@ -5,8 +5,8 @@ import {
 } from 'react';
 import { CommandEmpty, CommandInput, CommandList, CommandRoot } from 'cmdk';
 
-import { ScrollArea } from 'components/general';
-import { SearchIcon } from 'assets/icons';
+import { ScrollArea } from '@/components/general';
+import { SearchIcon } from '@/assets/icons';
 
 export const SearchCommand = forwardRef<
   ElementRef<typeof CommandRoot>,

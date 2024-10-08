@@ -5,12 +5,12 @@ import { usePathname } from 'next/navigation';
 
 import { Nav } from './Nav';
 import { Sidebar } from './Sidebar';
-import { cn } from 'lib/cn';
+import { cn } from '@/lib/cn';
 import {
   allDocs,
   notFoundPageName,
   specialFileNames,
-} from 'constants/contentlayer';
+} from '@/constants/contentlayer';
 
 const Layout = ({ children }: PropsWithChildren) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

@@ -1,8 +1,8 @@
 import { type ComponentPropsWithoutRef, type ReactNode } from 'react';
 import Link from 'next/link';
 
-import { cn } from 'lib/cn';
-import { config } from 'constants/contentlayer';
+import { cn } from '@/lib/cn';
+import { config } from '@/constants/contentlayer';
 
 export type HomeLayoutProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
   /** Home page main title. */

@@ -11,15 +11,15 @@ import {
   ListSubheader,
   ScrollArea,
   Sheet,
-} from 'components/general';
+} from '@/components/general';
 import {
   allDocs,
   config,
   notFoundPageName,
   sidebarDocs,
   specialFileNames,
-} from 'constants/contentlayer';
-import type { Doc } from 'types';
+} from '@/constants/contentlayer';
+import type { Doc } from '@/types';
 
 export interface SidebarProps {
   open?: boolean;
@@ -116,7 +116,7 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
         <aside
           className='fixed hidden h-screen w-80 select-none flex-col bg-neutral-50
 pt-16 after:absolute after:end-0 after:top-0 after:-z-10 after:h-inherit
-after:w-screen after:bg-inherit dark:bg-neutral-900 md:flex'
+after:w-screen after:bg-inherit md:flex dark:bg-neutral-900'
         >
           <ScrollArea
             className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px

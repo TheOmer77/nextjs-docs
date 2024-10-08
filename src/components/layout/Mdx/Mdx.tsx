@@ -6,9 +6,9 @@ import type { MDXComponents } from 'mdx/types';
 import { Alert } from './Alert';
 import { MdxBlockquote } from './MdxBlockquote';
 import { MdxLink } from './MdxLink';
-import * as layouts from 'layouts';
-import { cn } from 'lib/cn';
-import type { Doc } from 'types';
+import * as layouts from '@/layouts';
+import { cn } from '@/lib/cn';
+import type { Doc } from '@/types';
 
 export const mdxComponents: MDXComponents = {
   a: MdxLink,

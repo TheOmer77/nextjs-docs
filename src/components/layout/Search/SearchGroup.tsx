@@ -5,7 +5,7 @@ import {
 } from 'react';
 import { CommandGroup as Group } from 'cmdk';
 
-import { cn } from 'lib/cn';
+import { cn } from '@/lib/cn';
 
 export const SearchGroup = forwardRef<
   ElementRef<typeof Group>,

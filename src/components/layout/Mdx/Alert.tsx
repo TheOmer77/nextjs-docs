@@ -1,4 +1,4 @@
-import { AlertOctagonIcon, InfoIcon } from 'assets/icons';
+import { AlertOctagonIcon, InfoIcon } from '@/assets/icons';
 import {
   Children,
   isValidElement,
@@ -6,7 +6,7 @@ import {
   type ReactElement,
   type PropsWithChildren,
 } from 'react';
-import { cn } from 'lib/cn';
+import { cn } from '@/lib/cn';
 
 export type MdxAlertProps = ComponentPropsWithoutRef<'div'> & {
   type: 'info' | 'danger';

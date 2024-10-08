@@ -12,7 +12,10 @@
     "moduleResolution": "Bundler",
     "noEmit": true,
     "noUncheckedIndexedAccess": true,
-    "paths": { "contentlayer/generated": ["../.contentlayer/generated"] },
+    "paths": {
+      "@/*": ["./*"],
+      "contentlayer/generated": ["../.contentlayer/generated"]
+    },
     "plugins": [{ "name": "next" }],
     "resolveJsonModule": true,
     "skipLibCheck": true,
