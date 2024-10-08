@@ -1,8 +1,9 @@
 import {
   Dialog as DialogRoot,
-  DialogPortal,
-  DialogOverlay,
   DialogContent,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
   type DialogProps,
 } from '@radix-ui/react-dialog';
 
@@ -22,8 +23,10 @@ max-w-md -translate-x-1/2 gap-4 rounded-lg bg-white shadow-lg
 shadow-neutral-950/20 [--zoom-translate-x:-50%] focus-visible:outline-none
 data-[state=closed]:animate-zoom-out data-[state=open]:animate-zoom-in
 sm:top-20 md:top-32 rtl:translate-x-1/2 rtl:[--zoom-translate-x:50%]
-dark:bg-neutral-900 '
+dark:bg-neutral-900'
+          aria-describedby={undefined}
         >
+          <DialogTitle className='sr-only'>Search docs...</DialogTitle>
           <SearchCommand>{children}</SearchCommand>
         </DialogContent>
       </DialogPortal>
