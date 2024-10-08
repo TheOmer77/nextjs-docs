@@ -11,18 +11,34 @@ import type { Config } from 'tailwindcss';
 
 const shades = [50, ...[...Array(9).keys()].map(key => (key + 1) * 100), 950];
 
-const config: Config = {
+const config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './data/**/*.mdx'],
+  darkMode: [
+    'variant',
+    [
+      "@media not print { @media (prefers-color-scheme: dark) { &:not(:is([data-theme='light'] *)) } }",
+      "@media not print { &:is([data-theme='dark'] *) }",
+    ],
+  ],
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: { '2xl': '1400px' },
+    },
     extend: {
+      borderRadius: {
+        lg: 'var(--border-radius)',
+        md: 'calc(var(--border-radius) - 2px)',
+        sm: 'calc(var(--border-radius) - 4px)',
+      },
       fontFamily: {
         sans: ['var(--font-family)', 'sans-serif'],
         mono: ['var(--font-family-mono)', 'monospace'],
       },
-      maxWidth: { '8xl': '90rem' },
-      spacing: { inherit: 'inherit' },
-      height: { screen: '100dvh' },
-      maxHeight: { screen: '100dvh' },
+      screens: { '2xl': '1440px' },
+      spacing: { em: '1em', inherit: 'inherit' },
+      transitionTimingFunction: { DEFAULT: 'cubic-bezier(0.2, 1, 0.4, 1)' },
       typography: () => ({
         DEFAULT: {
           css: {
@@ -68,21 +84,19 @@ const config: Config = {
                 backgroundColor: 'rgb(var(--color-neutral-800))',
               },
             },
-            'code::before': {
-              content: 'none',
-            },
-            'code::after': {
-              content: 'none',
-            },
+            'code::before': { content: 'none' },
+            'code::after': { content: 'none' },
           },
         },
       }),
     },
     colors: {
       inherit: 'inherit',
+      current: 'currentColor',
       white: '#fff',
       black: '#000',
       transparent: 'transparent',
+
       ...['primary', 'neutral', 'danger'].reduce(
         (obj, colorName) => ({
           ...obj,
@@ -90,19 +104,49 @@ const config: Config = {
             (obj, shade) => ({
               ...obj,
               [shade]: `rgb(var(--color-${colorName}-${shade}) / <alpha-value>)`,
-              main: `rgb(var(--color-${colorName}-main) / <alpha-value>)`,
-              light: `rgb(var(--color-${colorName}-light) / <alpha-value>)`,
-              dark: `rgb(var(--color-${colorName}-dark) / <alpha-value>)`,
-              contrast: `rgb(var(--color-${colorName}-contrast) / <alpha-value>)`,
             }),
-            {}
+            {
+              DEFAULT: `rgb(var(--color-${colorName}-main))`,
+              active: `rgb(var(--color-${colorName}-active))`,
+              foreground: `rgb(var(--color-${colorName}-foreground))`,
+            }
           ),
         }),
         {}
       ),
+
+      border: 'rgb(var(--color-border))',
+      ring: 'rgb(var(--color-ring))',
+      background: 'rgb(var(--color-background))',
+      foreground: 'rgb(var(--color-foreground))',
+      secondary: {
+        DEFAULT: 'rgb(var(--color-secondary))',
+        foreground: 'rgb(var(--color-secondary-foreground))',
+      },
+      muted: {
+        DEFAULT: 'rgb(var(--color-muted))',
+        foreground: 'rgb(var(--color-muted-foreground))',
+      },
+      accent: {
+        DEFAULT: 'rgb(var(--color-accent))',
+        foreground: 'rgb(var(--color-accent-foreground))',
+      },
+      popover: {
+        DEFAULT: 'rgb(var(--color-popover))',
+        foreground: 'rgb(var(--color-popover-foreground))',
+      },
+      card: {
+        DEFAULT: 'rgb(var(--color-card))',
+        foreground: 'rgb(var(--color-card-foreground))',
+      },
+      input: {
+        DEFAULT: 'rgb(var(--color-input))',
+        hover: 'rgb(var(--color-input-hover))',
+        invalid: 'rgb(var(--color-input-invalid))',
+      },
     },
   },
   plugins: [animations, autofillOverride, stateLayer, typography],
-};
+} satisfies Config;
 
 export default config;
