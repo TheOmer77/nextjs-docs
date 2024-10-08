@@ -1,6 +1,6 @@
 import { forwardRef, type ComponentPropsWithoutRef } from 'react';
 
-import { SearchIcon } from '@/assets/icons';
+import { SearchIcon } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
 export const SearchBoxButton = forwardRef<

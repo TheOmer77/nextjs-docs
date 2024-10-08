@@ -1,4 +1,4 @@
-import { AlertOctagonIcon, InfoIcon } from '@/assets/icons';
+import { AlertOctagonIcon, InfoIcon } from 'lucide-react';
 import {
   Children,
   isValidElement,
