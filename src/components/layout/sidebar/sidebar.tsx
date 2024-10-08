@@ -113,25 +113,15 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
   return (
     <>
       {(currentDoc || notFoundDoc)?.displaySidebar && (
-        <aside
-          className='fixed hidden h-screen w-80 select-none flex-col bg-neutral-50
-pt-16 after:absolute after:end-0 after:top-0 after:-z-10 after:h-inherit
-after:w-screen after:bg-inherit md:flex dark:bg-neutral-900'
-        >
-          <ScrollArea
-            className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px
-overflow-y-auto rounded-lg'
-          >
+        <aside className='fixed hidden h-screen w-80 select-none flex-col bg-neutral-50 pt-16 after:absolute after:end-0 after:top-0 after:-z-10 after:h-inherit after:w-screen after:bg-inherit md:flex dark:bg-neutral-900'>
+          <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
             <List className='px-2 pb-2'>{listCategories}</List>
           </ScrollArea>
         </aside>
       )}
       <Sheet open={open} onOpenChange={onOpenChange}>
         <Logo onClick={() => onOpenChange?.(false)} />
-        <ScrollArea
-          className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px
-overflow-y-auto rounded-lg'
-        >
+        <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
           <List className='px-2 pb-2'>{listCategories}</List>
         </ScrollArea>
       </Sheet>

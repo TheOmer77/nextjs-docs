@@ -29,10 +29,7 @@ export const ScrollBar = forwardRef<
     )}
     {...props}
   >
-    <ScrollAreaThumb
-      className='relative z-50 flex-1 rounded-full bg-neutral-200
-hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700'
-    />
+    <ScrollAreaThumb className='relative z-50 flex-1 rounded-full bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700' />
   </ScrollAreaScrollbar>
 ));
 ScrollBar.displayName = ScrollAreaScrollbar.displayName;

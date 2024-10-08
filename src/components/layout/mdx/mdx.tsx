@@ -28,13 +28,12 @@ export const Mdx = ({ doc, prose = true }: MdxProps) => {
   return (
     <div
       className={cn(
-        `prose mx-auto max-w-[calc(100vw-2rem)] py-8
-dark:prose-invert`,
+        `prose mx-auto max-w-[calc(100vw-2rem)] py-8 dark:prose-invert`,
         doc.displaySidebar && 'md:max-w-[calc(100vw-22rem)] lg:max-w-3xl'
       )}
     >
       {doc.title && doc.showTitle && (
-        <h1 className='text-5xl font-extrabold tracking-tight sm:text-[3.5rem] '>
+        <h1 className='text-5xl font-extrabold tracking-tight sm:text-[3.5rem]'>
           {doc.title}
         </h1>
       )}

@@ -31,8 +31,7 @@ export const HomeLayout = ({
   <div
     {...props}
     className={cn(
-      `relative mx-auto flex min-h-[calc(100dvh-8rem)] w-full flex-col
-items-start justify-center gap-4 px-4 pb-16 sm:px-8`,
+      `relative mx-auto flex min-h-[calc(100dvh-8rem)] w-full flex-col items-start justify-center gap-4 px-4 pb-16 sm:px-8`,
       className
     )}
   >
@@ -50,16 +49,9 @@ items-start justify-center gap-4 px-4 pb-16 sm:px-8`,
           key={`home-action-${index}`}
           href={url}
           className={cn(
-            `flex h-12 items-center justify-center rounded-lg bg-white px-6
-text-lg font-medium text-neutral-800 no-underline shadow-md
-shadow-neutral-950/20 transition-[background-color] duration-200 state-layer
-hover:state-layer-neutral-500/10 focus-visible:outline-none
-active:bg-neutral-100 active:duration-0 dark:bg-neutral-900
-dark:text-neutral-200 dark:active:bg-neutral-800 [&>*]:z-10`,
+            `flex h-12 items-center justify-center rounded-lg bg-white px-6 text-lg font-medium text-neutral-800 no-underline shadow-md shadow-neutral-950/20 transition-[background-color] duration-200 state-layer hover:state-layer-neutral-500/10 focus-visible:outline-none active:bg-neutral-100 active:duration-0 dark:bg-neutral-900 dark:text-neutral-200 dark:active:bg-neutral-800 [&>*]:z-10`,
             primary &&
-              `bg-primary-main text-primary-contrast
-hover:state-layer-primary-light/30 active:bg-primary-light dark:bg-primary-main
-dark:text-primary-contrast dark:active:bg-primary-light`
+              `bg-primary-main text-primary-contrast hover:state-layer-primary-light/30 active:bg-primary-light dark:bg-primary-main dark:text-primary-contrast dark:active:bg-primary-light`
           )}
         >
           <span>{text}</span>
