@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import type { ComponentPropsWithoutRef } from 'react';
+import Link from 'next/link';
 
 import { IconButton } from '@/components/ui';
 

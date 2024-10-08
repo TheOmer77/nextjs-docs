@@ -1,5 +1,6 @@
 import { forwardRef, type ComponentPropsWithoutRef } from 'react';
 import { Primitive } from '@radix-ui/react-primitive';
+
 import { cn } from '@/lib/cn';
 
 export const ListItemIcon = forwardRef<

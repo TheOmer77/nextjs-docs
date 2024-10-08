@@ -2,11 +2,12 @@
 
 import { useMemo } from 'react';
 import Link from 'next/link';
-import { cn } from '@/lib/cn';
+import { ChevronRightIcon } from 'lucide-react';
 
 import { ListItem, ListItemIcon, ListItemText } from '@/components/ui';
-import { ChevronRightIcon } from 'lucide-react';
+import { cn } from '@/lib/cn';
 import { allDocs } from '@/constants/contentlayer';
+
 import type { Doc } from '@/types';
 
 interface SidebarItemProps {

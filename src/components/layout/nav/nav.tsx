@@ -1,8 +1,10 @@
+import { MenuIcon } from 'lucide-react';
+
+import { IconButton } from '@/components/ui';
+
 import { NavLinks } from './nav-links';
 import { Logo } from '../logo';
 import { Search } from '../search';
-import { IconButton } from '@/components/ui';
-import { MenuIcon } from 'lucide-react';
 
 export interface NavProps {
   onMenuClick?: () => void;

@@ -1,4 +1,3 @@
-import { AlertOctagonIcon, InfoIcon } from 'lucide-react';
 import {
   Children,
   isValidElement,
@@ -6,6 +5,8 @@ import {
   type ReactElement,
   type PropsWithChildren,
 } from 'react';
+import { AlertOctagonIcon, InfoIcon } from 'lucide-react';
+
 import { cn } from '@/lib/cn';
 
 export type MdxAlertProps = ComponentPropsWithoutRef<'div'> & {

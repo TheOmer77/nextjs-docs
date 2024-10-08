@@ -1,15 +1,17 @@
 'use client';
 
 import { getMDXComponent } from 'next-contentlayer2/hooks';
-import type { MDXComponents } from 'mdx/types';
+
+import { ErrorLayout } from '@/components/layout/error';
+import { HomeLayout } from '@/components/layout/home';
+import { cn } from '@/lib/cn';
 
 import { Alert } from './alert';
 import { MdxBlockquote } from './mdx-blockquote';
 import { MdxLink } from './mdx-link';
-import { HomeLayout } from '@/components/layout/home';
-import { ErrorLayout } from '@/components/layout/error';
-import { cn } from '@/lib/cn';
+
 import type { Doc } from '@/types';
+import type { MDXComponents } from 'mdx/types';
 
 export const mdxComponents: MDXComponents = {
   a: MdxLink,

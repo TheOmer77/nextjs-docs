@@ -3,14 +3,15 @@
 import { useState, type PropsWithChildren } from 'react';
 import { usePathname } from 'next/navigation';
 
-import { Nav } from './nav';
-import { Sidebar } from './sidebar';
 import { cn } from '@/lib/cn';
 import {
   allDocs,
   notFoundPageName,
   specialFileNames,
 } from '@/constants/contentlayer';
+
+import { Nav } from './nav';
+import { Sidebar } from './sidebar';
 
 const Layout = ({ children }: PropsWithChildren) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

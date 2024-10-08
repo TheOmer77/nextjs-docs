@@ -4,7 +4,6 @@ import clsx from 'clsx';
 
 import Layout from '@/components/layout';
 import { config } from '@/constants/contentlayer';
-
 import '@/styles/index.css';
 import '@/styles/prism.css';
 

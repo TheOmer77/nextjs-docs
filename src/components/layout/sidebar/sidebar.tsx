@@ -3,8 +3,6 @@
 import { Fragment } from 'react';
 import { usePathname } from 'next/navigation';
 
-import { SidebarItem } from './sidebar-item';
-import { Logo } from '../logo';
 import {
   Collapsible,
   List,
@@ -19,6 +17,10 @@ import {
   sidebarDocs,
   specialFileNames,
 } from '@/constants/contentlayer';
+
+import { SidebarItem } from './sidebar-item';
+import { Logo } from '../logo';
+
 import type { Doc } from '@/types';
 
 export interface SidebarProps {

@@ -1,11 +1,13 @@
 import { Fragment, useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+import { allDocs, config, sidebarDocs } from '@/constants/contentlayer';
+
 import { SearchButton } from './search-button';
 import SearchDialog from './search-dialog';
-import { SearchItem } from './search-item';
 import { SearchGroup } from './search-group';
-import { allDocs, config, sidebarDocs } from '@/constants/contentlayer';
+import { SearchItem } from './search-item';
+
 import type { Doc } from '@/types';
 
 const uncategorizedDocs = sidebarDocs.filter(

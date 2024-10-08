@@ -1,9 +1,10 @@
 'use client';
 
 import { forwardRef, type ComponentPropsWithoutRef } from 'react';
+import { RovingFocusGroup } from '@radix-ui/react-roving-focus';
+
 import { cn } from '@/lib/cn';
 
-import { RovingFocusGroup } from '@radix-ui/react-roving-focus';
 
 import {
   LIST_GROUP_NAME,

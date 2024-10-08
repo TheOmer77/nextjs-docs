@@ -1,4 +1,5 @@
 import { forwardRef, type ComponentPropsWithoutRef } from 'react';
+
 import { cn } from '@/lib/cn';
 
 export interface ListItemTextProps extends ComponentPropsWithoutRef<'div'> {

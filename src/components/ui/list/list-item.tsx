@@ -1,8 +1,10 @@
 'use client';
 
 import { forwardRef, useRef, type ComponentPropsWithoutRef } from 'react';
-import { RovingFocusGroupItem } from '@radix-ui/react-roving-focus';
 import { Primitive } from '@radix-ui/react-primitive';
+import { RovingFocusGroupItem } from '@radix-ui/react-roving-focus';
+
+import { cn } from '@/lib/cn';
 
 import {
   LIST_ITEM_NAME,
@@ -10,7 +12,6 @@ import {
   useRovingFocusGroupScope,
   type ScopedProps,
 } from './common';
-import { cn } from '@/lib/cn';
 
 // eslint-disable-next-line react/display-name
 const ListItemButton = forwardRef<

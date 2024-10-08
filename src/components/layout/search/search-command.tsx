@@ -4,9 +4,9 @@ import {
   type ElementRef,
 } from 'react';
 import { CommandEmpty, CommandInput, CommandList, CommandRoot } from 'cmdk';
+import { SearchIcon } from 'lucide-react';
 
 import { ScrollArea } from '@/components/ui';
-import { SearchIcon } from 'lucide-react';
 
 export const SearchCommand = forwardRef<
   ElementRef<typeof CommandRoot>,
