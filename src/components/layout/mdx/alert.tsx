@@ -28,14 +28,14 @@ export const Alert = ({
       {...props}
       className={cn(
         'my-[1.6em] border-s-[0.25rem] ps-[1em] [&>:nth-child(2)]:mt-0',
-        type === 'danger' ? 'border-danger-main' : 'border-primary-main',
+        type === 'danger' ? 'border-danger' : 'border-primary',
         className
       )}
     >
       <p
         className={cn(
           'mb-2 flex flex-row items-center [&>*]:text-inherit [&>svg]:me-3 [&>svg]:shrink-0',
-          type === 'danger' ? 'text-danger-main' : 'text-primary-main'
+          type === 'danger' ? 'text-danger' : 'text-primary'
         )}
       >
         {type === 'danger' ? <AlertOctagonIcon /> : <InfoIcon />}

@@ -23,7 +23,7 @@ export const Logo = forwardRef<HTMLElement, ComponentPropsWithoutRef<'header'>>(
           {LogoMdx ? (
             <LogoMdx />
           ) : (
-            <span className='text-2xl font-bold tracking-tight text-primary-main'>
+            <span className='text-2xl font-bold tracking-tight text-primary'>
               {config.title}
             </span>
           )}

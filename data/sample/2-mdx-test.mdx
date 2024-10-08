@@ -17,7 +17,7 @@ export const Counter = () => {
 return (
 
 <div className='flex w-full flex-col items-center gap-2'>
-  <div className='flex h-20 w-20 select-none items-center justify-center rounded-lg bg-primary-main text-4xl font-bold text-primary-contrast'>
+  <div className='flex h-20 w-20 select-none items-center justify-center rounded-lg bg-primary text-4xl font-bold text-primary-foreground'>
     {count}
   </div>
   <button
@@ -41,12 +41,12 @@ const Counter = () => {
 
   return (
     <div className='flex w-full flex-col items-center gap-2'>
-      <div className='flex h-20 w-20 select-none items-center justify-center rounded-lg bg-primary-main text-4xl font-bold text-primary-contrast'>
+      <div className='bg-primary text-primary-foreground flex h-20 w-20 select-none items-center justify-center rounded-lg text-4xl font-bold'>
         {count}
       </div>
       <button
         onClick={() => setCount(prev => prev + 1)}
-        className='flex h-9 cursor-default select-none flex-row items-center rounded-lg bg-white px-4 text-sm font-medium text-neutral-800 shadow-sm shadow-neutral-950/20 transition-colors duration-200 state-layer hover:state-layer-neutral-500/10 focus-visible:outline-none focus-visible:state-layer-neutral-500/10 active:bg-neutral-50 active:duration-0 dark:bg-neutral-900 dark:text-neutral-300 dark:active:bg-neutral-800'
+        className='state-layer hover:state-layer-neutral-500/10 focus-visible:state-layer-neutral-500/10 flex h-9 cursor-default select-none flex-row items-center rounded-lg bg-white px-4 text-sm font-medium text-neutral-800 shadow-sm shadow-neutral-950/20 transition-colors duration-200 focus-visible:outline-none active:bg-neutral-50 active:duration-0 dark:bg-neutral-900 dark:text-neutral-300 dark:active:bg-neutral-800'
       >
         Increment
       </button>
