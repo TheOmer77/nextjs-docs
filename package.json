@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit && eslint --max-warnings 0 src",
-    "format": "prettier --write ."
+    "format": "eslint --fix src && prettier --write ."
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.1",
