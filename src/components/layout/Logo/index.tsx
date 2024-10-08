@@ -2,7 +2,7 @@ import { forwardRef, type ComponentPropsWithoutRef } from 'react';
 import Link from 'next/link';
 import { getMDXComponent } from 'next-contentlayer/hooks';
 
-import { cn } from 'utils';
+import { cn } from 'lib/cn';
 import { allDocs, config, navLogoName } from 'constants/contentlayer';
 
 export const Logo = forwardRef<HTMLElement, ComponentPropsWithoutRef<'header'>>(

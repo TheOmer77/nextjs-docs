@@ -1,7 +1,7 @@
 import { type ComponentPropsWithoutRef, type ReactNode } from 'react';
 import Link from 'next/link';
 
-import { cn } from 'utils';
+import { cn } from 'lib/cn';
 import { config } from 'constants/contentlayer';
 
 export type HomeLayoutProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
@@ -40,7 +40,7 @@ items-start justify-center gap-4 px-4 pb-16 sm:px-8`,
       {title || config.title}
     </h1>
     {tagline && (
-      <p className='m-0 text-lg text-neutral-700 dark:text-neutral-300 sm:text-xl'>
+      <p className='m-0 text-lg text-neutral-700 sm:text-xl dark:text-neutral-300'>
         {tagline}
       </p>
     )}

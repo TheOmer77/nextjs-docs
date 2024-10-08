@@ -6,7 +6,7 @@ import {
   type ReactElement,
   type PropsWithChildren,
 } from 'react';
-import { cn } from 'utils';
+import { cn } from 'lib/cn';
 
 export type MdxAlertProps = ComponentPropsWithoutRef<'div'> & {
   type: 'info' | 'danger';

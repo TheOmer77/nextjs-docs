@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 import { Nav } from './Nav';
 import { Sidebar } from './Sidebar';
-import { cn } from 'utils';
+import { cn } from 'lib/cn';
 import {
   allDocs,
   notFoundPageName,

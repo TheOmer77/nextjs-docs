@@ -6,7 +6,7 @@ import {
   type DialogProps,
 } from '@radix-ui/react-dialog';
 
-import { cn } from 'utils';
+import { cn } from 'lib/cn';
 import { SearchCommand } from './SearchCommand';
 
 const SearchDialog = ({ open, onOpenChange, children }: DialogProps) => {
@@ -22,8 +22,8 @@ data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in'
 max-w-md -translate-x-1/2 gap-4 rounded-lg bg-white shadow-lg
 shadow-neutral-950/20 [--zoom-translate-x:-50%] focus-visible:outline-none
 data-[state=closed]:animate-zoom-out data-[state=open]:animate-zoom-in
-rtl:translate-x-1/2 rtl:[--zoom-translate-x:50%] dark:bg-neutral-900 sm:top-20
-md:top-32 '
+sm:top-20 md:top-32 rtl:translate-x-1/2 rtl:[--zoom-translate-x:50%]
+dark:bg-neutral-900 '
         >
           <SearchCommand>{children}</SearchCommand>
         </DialogContent>
