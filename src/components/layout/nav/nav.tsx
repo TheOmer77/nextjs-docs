@@ -16,7 +16,7 @@ export const Nav = ({ onMenuClick }: NavProps) => (
       variant='flat'
       size='lg'
       icon
-      className='ms-2 md:hidden'
+      className='ms-4 md:hidden'
       aria-label='Open sidebar'
       onClick={onMenuClick}
     >
@@ -27,7 +27,7 @@ export const Nav = ({ onMenuClick }: NavProps) => (
       a different other method for hiding on mobile */
       className='invisible absolute h-0 w-0 md:visible md:relative md:h-16'
     />
-    <div className='flex h-full grow flex-row items-center justify-end gap-2 bg-white px-2 md:px-4 dark:bg-neutral-950'>
+    <div className='flex h-full grow flex-row items-center justify-end gap-2 bg-white px-4 dark:bg-neutral-950'>
       <Search />
       <NavLinks />
     </div>
