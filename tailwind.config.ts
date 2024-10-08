@@ -1,7 +1,8 @@
 import typography from '@tailwindcss/typography';
-import plugin from 'tailwindcss/plugin';
 import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
 import toColorValue from 'tailwindcss/lib/util/toColorValue';
+import plugin from 'tailwindcss/plugin';
+
 import type { Config } from 'tailwindcss';
 
 const shades = [50, ...[...Array(9).keys()].map(key => (key + 1) * 100), 950];
