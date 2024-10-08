@@ -1,7 +1,11 @@
 import typography from '@tailwindcss/typography';
 
 // importing '@/config/tailwind' doesn't work here
-import { autofillOverride, stateLayer } from './src/config/tailwind';
+import {
+  animations,
+  autofillOverride,
+  stateLayer,
+} from './src/config/tailwind';
 
 import type { Config } from 'tailwindcss';
 
@@ -73,80 +77,6 @@ const config: Config = {
           },
         },
       }),
-      keyframes: {
-        'fade-in': { from: { opacity: '0' }, to: { opacity: '1' } },
-        'fade-out': { from: { opacity: '1' }, to: { opacity: '0' } },
-        'collapse-in': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-collapsible-content-height)' },
-        },
-        'collapse-out': {
-          from: { height: 'var(--radix-collapsible-content-height)' },
-          to: { height: '0' },
-        },
-        'slide-in': {
-          from: {
-            transform: `translate(
-  var(--slide-translate-origin-x, 0%),
-  var(--slide-translate-origin-y, 0%)
-)`,
-          },
-          to: { transform: 'translate(0%, 0%)' },
-        },
-        'slide-out': {
-          from: { transform: 'translate(0%, 0%)' },
-          to: {
-            transform: `translate(
-  var(--slide-translate-origin-x, 0%),
-  var(--slide-translate-origin-y, 0%)
-)`,
-          },
-        },
-        'zoom-in': {
-          from: {
-            opacity: '0',
-            transform: `translate(
-  var(--zoom-translate-x, 0%),
-  var(--zoom-translate-y, 0%)
-) scale(0.95)`,
-          },
-          to: {
-            opacity: '1',
-            transform: `translate(
-  var(--zoom-translate-x, 0%),
-  var(--zoom-translate-y, 0%)
-) scale(1)`,
-          },
-        },
-        'zoom-out': {
-          from: {
-            opacity: '1',
-            transform: `translate(
-  var(--zoom-translate-x, 0%),
-  var(--zoom-translate-y, 0%)
-) scale(1)`,
-          },
-          to: {
-            opacity: '0',
-            transform: `translate(
-  var(--zoom-translate-x, 0%),
-  var(--zoom-translate-y, 0%)
-) scale(0.95)`,
-          },
-        },
-      },
-      animation: {
-        'collapse-in': 'collapse-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-        'collapse-out': 'collapse-out 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-        'fade-in': 'fade-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-        'fade-out': 'fade-out 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-        'slide-in': 'slide-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-        'slide-out': 'slide-out 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-        'zoom-in': 'zoom-in 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-        'zoom-out': 'zoom-out 300ms cubic-bezier(0.2, 1, 0.4, 1)',
-      },
-      transitionTimingFunction: { DEFAULT: 'cubic-bezier(0.2, 1, 0.4, 1)' },
-      transitionDuration: { 50: '50ms' },
     },
     colors: {
       inherit: 'inherit',
@@ -172,7 +102,7 @@ const config: Config = {
       ),
     },
   },
-  plugins: [autofillOverride, stateLayer, typography],
+  plugins: [animations, autofillOverride, stateLayer, typography],
 };
 
 export default config;
