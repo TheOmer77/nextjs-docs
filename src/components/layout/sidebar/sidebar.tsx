@@ -4,9 +4,9 @@ import { Fragment } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { Collapsible } from '@/components/ui/collapsible';
+import { Drawer, DrawerContent, DrawerTitle } from '@/components/ui/drawer';
 import { List, ListSubheader } from '@/components/ui/list';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Sheet } from '@/components/ui/sheet';
 import {
   allDocs,
   config,
@@ -118,12 +118,15 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
           </ScrollArea>
         </aside>
       )}
-      <Sheet open={open} onOpenChange={onOpenChange}>
-        <Logo onClick={() => onOpenChange?.(false)} />
-        <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
-          <List className='px-2 pb-2'>{listCategories}</List>
-        </ScrollArea>
-      </Sheet>
+      <Drawer open={open} onOpenChange={onOpenChange} direction='left'>
+        <DrawerContent aria-describedby={undefined}>
+          <DrawerTitle className='sr-only'>Navigation drawer</DrawerTitle>
+          <Logo onClick={() => onOpenChange?.(false)} />
+          <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
+            <List className='px-2 pb-2'>{listCategories}</List>
+          </ScrollArea>
+        </DrawerContent>
+      </Drawer>
     </>
   );
 };
