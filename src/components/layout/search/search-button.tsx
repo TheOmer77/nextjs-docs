@@ -11,6 +11,7 @@ export const SearchButton = ({
   <>
     <Button
       variant='flat'
+      size='lg'
       icon
       className='sm:hidden'
       aria-label='Search docs'

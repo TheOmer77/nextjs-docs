@@ -14,6 +14,7 @@ export const Nav = ({ onMenuClick }: NavProps) => (
   <nav className='max-w-8xl fixed start-1/2 top-0 z-20 mx-auto flex h-16 w-full -translate-x-1/2 flex-row items-center justify-between bg-white md:bg-transparent rtl:translate-x-1/2 dark:bg-neutral-950 dark:md:bg-transparent'>
     <Button
       variant='flat'
+      size='lg'
       icon
       className='ms-2 md:hidden'
       aria-label='Open sidebar'
