@@ -11,9 +11,8 @@ import { MdxBlockquote } from './mdx-blockquote';
 import { MdxLink } from './mdx-link';
 
 import type { Doc } from '@/types';
-import type { MDXComponents } from 'mdx/types';
 
-export const mdxComponents: MDXComponents = {
+export const mdxComponents = {
   a: MdxLink,
   blockquote: MdxBlockquote,
   Alert,
