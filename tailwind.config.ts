@@ -1,7 +1,7 @@
 import typography from '@tailwindcss/typography';
 
 // importing '@/config/tailwind' doesn't work here
-import { stateLayer } from './src/config/tailwind';
+import { autofillOverride, stateLayer } from './src/config/tailwind';
 
 import type { Config } from 'tailwindcss';
 
@@ -172,7 +172,7 @@ const config: Config = {
       ),
     },
   },
-  plugins: [typography, stateLayer],
+  plugins: [autofillOverride, stateLayer, typography],
 };
 
 export default config;
