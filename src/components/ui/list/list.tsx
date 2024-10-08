@@ -5,7 +5,6 @@ import { RovingFocusGroup } from '@radix-ui/react-roving-focus';
 
 import { cn } from '@/lib/cn';
 
-
 import {
   LIST_GROUP_NAME,
   ListContext,
@@ -15,12 +14,12 @@ import {
 
 type RovingFocusGroupProps = ComponentPropsWithoutRef<typeof RovingFocusGroup>;
 
-export interface ListProps extends ComponentPropsWithoutRef<'ul'> {
+export type ListProps = ComponentPropsWithoutRef<'ul'> & {
   disabled?: boolean;
   rovingFocus?: boolean;
   loop?: RovingFocusGroupProps['loop'];
   dir?: RovingFocusGroupProps['dir'];
-}
+};
 
 // eslint-disable-next-line react/display-name
 const ListUl = forwardRef<HTMLUListElement, ComponentPropsWithoutRef<'ul'>>(
