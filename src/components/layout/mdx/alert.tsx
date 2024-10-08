@@ -26,18 +26,17 @@ export const Alert = ({
     <div
       {...props}
       className={cn(
-        `my-[1.6em] border-s-[0.25rem] ps-[1em]
-[&>:first-child>svg:first-child]:me-2 [&>:first-child>svg:first-child]:inline
-[&>:first-child]:mb-2 [&>:nth-child(2)]:mt-0`,
-        type === 'danger'
-          ? `border-danger-main [&>:first-child>*]:text-danger-main
-[&>:first-child]:text-danger-main`
-          : `border-primary-main [&>:first-child>*]:text-primary-main
-[&>:first-child]:text-primary-main`,
+        'my-[1.6em] border-s-[0.25rem] ps-[1em] [&>:nth-child(2)]:mt-0',
+        type === 'danger' ? 'border-danger-main' : 'border-primary-main',
         className
       )}
     >
-      <p>
+      <p
+        className={cn(
+          'mb-2 flex flex-row items-center [&>*]:text-inherit [&>svg]:me-3 [&>svg]:shrink-0',
+          type === 'danger' ? 'text-danger-main' : 'text-primary-main'
+        )}
+      >
         {type === 'danger' ? <AlertOctagonIcon /> : <InfoIcon />}
         {childrenArr[0]?.props.children}
       </p>
