@@ -1,6 +1,6 @@
 import { MenuIcon } from 'lucide-react';
 
-import { IconButton } from '@/components/ui';
+import { IconButton } from '@/components/ui/icon-button';
 
 import { NavLinks } from './nav-links';
 import { Logo } from '../logo';
@@ -11,7 +11,7 @@ export interface NavProps {
 }
 
 export const Nav = ({ onMenuClick }: NavProps) => (
-  <nav className='fixed start-1/2 top-0 z-20 mx-auto flex h-16 w-full max-w-8xl -translate-x-1/2 flex-row items-center justify-between bg-white md:bg-transparent rtl:translate-x-1/2 dark:bg-neutral-950 dark:md:bg-transparent'>
+  <nav className='max-w-8xl fixed start-1/2 top-0 z-20 mx-auto flex h-16 w-full -translate-x-1/2 flex-row items-center justify-between bg-white md:bg-transparent rtl:translate-x-1/2 dark:bg-neutral-950 dark:md:bg-transparent'>
     <IconButton
       aria-label='Open sidebar'
       className='ms-2 md:hidden'

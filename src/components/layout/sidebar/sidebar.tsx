@@ -3,13 +3,10 @@
 import { Fragment } from 'react';
 import { usePathname } from 'next/navigation';
 
-import {
-  Collapsible,
-  List,
-  ListSubheader,
-  ScrollArea,
-  Sheet,
-} from '@/components/ui';
+import { Collapsible } from '@/components/ui/collapsible';
+import { List, ListSubheader } from '@/components/ui/list';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Sheet } from '@/components/ui/sheet';
 import {
   allDocs,
   config,

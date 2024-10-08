@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import { SearchIcon } from 'lucide-react';
 
-import { IconButton } from '@/components/ui';
+import { IconButton } from '@/components/ui/icon-button';
 
 import { SearchBoxButton } from './search-box-button';
 

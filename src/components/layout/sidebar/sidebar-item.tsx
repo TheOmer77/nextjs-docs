@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import { ChevronRightIcon } from 'lucide-react';
 
-import { ListItem, ListItemIcon, ListItemText } from '@/components/ui';
+import { ListItem, ListItemIcon, ListItemText } from '@/components/ui/list';
 import { cn } from '@/lib/cn';
 import { allDocs } from '@/constants/contentlayer';
 

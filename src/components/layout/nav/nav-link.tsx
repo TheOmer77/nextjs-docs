@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import Link from 'next/link';
 
-import { IconButton } from '@/components/ui';
+import { IconButton } from '@/components/ui/icon-button';
 
 export const NavLink = ({
   href,
