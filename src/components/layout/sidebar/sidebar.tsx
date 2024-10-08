@@ -62,7 +62,7 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
       categoryDocs.length > 0 && (
         <Fragment key={category}>
           {category !== '_' && (
-            <ListSubheader className='bg-neutral-50 dark:bg-neutral-900'>
+            <ListSubheader className='md:bg-neutral-50 md:dark:bg-neutral-900'>
               {config.categories[category] || category}
             </ListSubheader>
           )}
