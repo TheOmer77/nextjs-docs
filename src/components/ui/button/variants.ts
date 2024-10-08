@@ -14,9 +14,15 @@ export const buttonVariants = cva(
       size: {
         sm: 'h-9 px-3',
         md: 'h-10 px-4',
-        lg: 'h-11 px-8',
+        lg: 'h-11 px-5',
       },
+      icon: { true: 'px-0' },
     },
-    defaultVariants: { variant: 'default', size: 'md' },
+    compoundVariants: [
+      { icon: true, size: 'sm', className: 'w-9' },
+      { icon: true, size: 'md', className: 'w-10' },
+      { icon: true, size: 'lg', className: 'w-11' },
+    ],
+    defaultVariants: { variant: 'default', size: 'md', icon: false },
   }
 );
