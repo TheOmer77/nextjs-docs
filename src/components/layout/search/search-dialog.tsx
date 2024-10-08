@@ -9,9 +9,7 @@ import {
 
 import { SearchCommand } from './search-command';
 
-const SearchDialog = ({ open, onOpenChange, children }: DialogProps) => {
-  return (
-    <DialogRoot open={open} onOpenChange={onOpenChange}>
+const SearchDialog = ({ open, onOpenChange, children }: DialogProps) => <DialogRoot open={open} onOpenChange={onOpenChange}>
       <DialogPortal>
         <DialogOverlay
           className='fixed inset-0 z-50 bg-black/50
@@ -30,8 +28,6 @@ dark:bg-neutral-900'
           <SearchCommand>{children}</SearchCommand>
         </DialogContent>
       </DialogPortal>
-    </DialogRoot>
-  );
-};
+    </DialogRoot>;
 
 export default SearchDialog;

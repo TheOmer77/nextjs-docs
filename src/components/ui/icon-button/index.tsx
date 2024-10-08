@@ -10,9 +10,7 @@ import { cn } from '@/lib/cn';
 export const IconButton = forwardRef<
   HTMLButtonElement,
   ComponentPropsWithoutRef<typeof Primitive.button>
->(({ className, children, ...props }, ref) => {
-  return (
-    <Primitive.button
+>(({ className, children, ...props }, ref) => <Primitive.button
       {...props}
       ref={ref}
       className={cn(
@@ -25,7 +23,5 @@ active:duration-0 dark:text-neutral-300`,
       )}
     >
       {Children.only(children)}
-    </Primitive.button>
-  );
-});
+    </Primitive.button>);
 IconButton.displayName = 'IconButton';

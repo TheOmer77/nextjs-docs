@@ -6,9 +6,7 @@ import { SearchIcon } from 'lucide-react';
 
 export const SearchButton = ({
   onClick,
-}: Pick<ComponentPropsWithoutRef<'button'>, 'onClick'>) => {
-  return (
-    <>
+}: Pick<ComponentPropsWithoutRef<'button'>, 'onClick'>) => <>
       <IconButton
         className='sm:hidden'
         aria-label='Search docs'
@@ -17,6 +15,4 @@ export const SearchButton = ({
         <SearchIcon />
       </IconButton>
       <SearchBoxButton onClick={onClick} className='hidden sm:flex' />
-    </>
-  );
-};
+    </>;

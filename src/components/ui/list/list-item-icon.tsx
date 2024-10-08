@@ -5,9 +5,7 @@ import { cn } from '@/lib/cn';
 export const ListItemIcon = forwardRef<
   SVGSVGElement,
   ComponentPropsWithoutRef<'svg'>
->(({ children, className, ...props }, ref) => {
-  return (
-    <Primitive.svg
+>(({ children, className, ...props }, ref) => <Primitive.svg
       {...props}
       ref={ref}
       asChild
@@ -18,7 +16,5 @@ dark:text-neutral-400 print:text-neutral-600`,
       )}
     >
       {children}
-    </Primitive.svg>
-  );
-});
+    </Primitive.svg>);
 ListItemIcon.displayName = 'ListItemIcon';
