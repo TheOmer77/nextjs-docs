@@ -28,7 +28,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
       <link rel='icon' type='image/x-icon' href='/favicon.png' />
     </head>
     <body>
-      <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden'>
+      <div className='max-w-8xl mx-auto flex flex-row overflow-x-hidden'>
         <Layout>{children}</Layout>
       </div>
     </body>

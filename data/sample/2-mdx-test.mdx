@@ -41,12 +41,12 @@ const Counter = () => {
 
   return (
     <div className='flex w-full flex-col items-center gap-2'>
-      <div className='bg-primary text-primary-foreground flex h-20 w-20 select-none items-center justify-center rounded-lg text-4xl font-bold'>
+      <div className='flex h-20 w-20 select-none items-center justify-center rounded-lg bg-primary text-4xl font-bold text-primary-foreground'>
         {count}
       </div>
       <button
         onClick={() => setCount(prev => prev + 1)}
-        className='border-input/50 bg-background ring-offset-background state-layer hover:state-layer-foreground/5 focus-visible:ring-ring active:state-layer-foreground/10 inline-flex h-10 cursor-default items-center justify-center whitespace-nowrap rounded-md border px-4 text-sm font-medium shadow-sm shadow-neutral-950/10 transition-[background-color,opacity] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:duration-0 dark:bg-neutral-800 [&>*]:z-10'
+        className='inline-flex h-10 cursor-default items-center justify-center whitespace-nowrap rounded-md border border-input/50 bg-background px-4 text-sm font-medium shadow-sm shadow-neutral-950/10 ring-offset-background transition-[background-color,opacity] state-layer hover:state-layer-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:duration-0 active:state-layer-foreground/10 dark:bg-neutral-800 [&>*]:z-10'
       >
         Increment
       </button>
