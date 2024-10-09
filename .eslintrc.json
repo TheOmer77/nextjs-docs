@@ -68,6 +68,18 @@
         "warnOnUnassignedImports": true
       }
     ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": ["lucide-react"],
+            "importNamePattern": "^(Lucide.*|(?:(?!.*Icon$).+))$",
+            "message": "Only import icons that end with 'Icon' and don't start with 'Lucide'."
+          }
+        ]
+      }
+    ],
     "prefer-arrow-callback": ["warn"],
     "prefer-arrow-functions/prefer-arrow-functions": [
       "warn",
