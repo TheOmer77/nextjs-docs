@@ -14,7 +14,7 @@ export const SearchCommand = forwardRef<
 >(({ children, ...props }, ref) => (
   <CommandRoot
     ref={ref}
-    className='flex size-full flex-col overflow-hidden rounded-lg bg-white text-neutral-800 dark:bg-neutral-900 dark:text-neutral-200'
+    className='flex size-full flex-col overflow-hidden rounded-lg'
     {...props}
   >
     <div
