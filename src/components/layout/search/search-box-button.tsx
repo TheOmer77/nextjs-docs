@@ -11,7 +11,7 @@ export const SearchBoxButton = forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      `flex h-9 w-64 select-none flex-row items-center justify-start gap-2 rounded-lg bg-neutral-50 px-3 text-start text-sm text-neutral-600 transition-colors duration-200 state-layer hover:state-layer-neutral-100/50 focus-visible:outline-none active:bg-neutral-100 active:duration-0 dark:bg-neutral-700/20 dark:text-neutral-400 dark:hover:state-layer-neutral-800/50 dark:active:bg-neutral-800 [&>*]:z-10 [&>svg]:text-base`,
+      `flex h-9 w-64 select-none flex-row items-center justify-start gap-2 rounded-lg bg-card px-3 text-start text-sm text-muted-foreground ring-offset-background transition-colors duration-200 state-layer hover:state-layer-muted/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:state-layer-muted/30 active:bg-accent active:duration-0 [&>*]:z-10 [&>svg]:text-base`,
       className
     )}
     aria-label='Search docs'

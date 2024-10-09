@@ -22,14 +22,15 @@ export const ScrollBar = forwardRef<
     className={cn(
       'flex touch-none select-none transition-colors',
       orientation === 'vertical' &&
-        'h-full w-3 border-l border-l-transparent p-0.5',
+        'h-full w-2.5 border-l border-l-transparent p-px',
       orientation === 'horizontal' &&
-        'h-3 flex-col border-t border-t-transparent p-0.5',
+        'h-2.5 flex-col border-t border-t-transparent p-px',
       className
     )}
+    data-scroll-bar=''
     {...props}
   >
-    <ScrollAreaThumb className='relative z-50 flex-1 rounded-full bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700' />
+    <ScrollAreaThumb className='relative flex-1 rounded-full bg-border' />
   </ScrollAreaScrollbar>
 ));
 ScrollBar.displayName = ScrollAreaScrollbar.displayName;
