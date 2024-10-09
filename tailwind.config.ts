@@ -36,6 +36,7 @@ const config = {
         sans: ['var(--font-family)', 'sans-serif'],
         mono: ['var(--font-family-mono)', 'monospace'],
       },
+      maxWidth: { '8xl': '90rem' },
       screens: { '2xl': '1440px' },
       spacing: { em: '1em', inherit: 'inherit' },
       transitionTimingFunction: { DEFAULT: 'cubic-bezier(0.2, 1, 0.4, 1)' },
