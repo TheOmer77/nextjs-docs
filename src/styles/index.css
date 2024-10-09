@@ -140,5 +140,5 @@
   }
 }
 .lucide {
-  @apply h-em w-em;
+  @apply size-em;
 }
