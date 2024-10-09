@@ -19,7 +19,7 @@ export const SearchItem = forwardRef<
 >(({ doc, parentDoc, ...props }, ref) => (
   <CommandItem
     ref={ref}
-    className='relative min-h-[2.5rem] cursor-default select-none items-start rounded-lg px-2 py-2.5 text-sm outline-none transition-colors duration-75 active:duration-0 aria-selected:bg-neutral-50 aria-selected:active:bg-neutral-100 data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 dark:aria-selected:bg-neutral-800 dark:aria-selected:active:bg-neutral-700'
+    className='relative min-h-10 cursor-default select-none items-start rounded-lg px-2 py-2.5 text-sm outline-none transition-colors duration-75 active:duration-0 aria-selected:bg-neutral-50 aria-selected:active:bg-neutral-100 data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 dark:aria-selected:bg-neutral-800 dark:aria-selected:active:bg-neutral-700'
     {...props}
   >
     {parentDoc && (

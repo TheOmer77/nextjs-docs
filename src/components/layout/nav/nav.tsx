@@ -11,7 +11,7 @@ export interface NavProps {
 }
 
 export const Nav = ({ onMenuClick }: NavProps) => (
-  <nav className='max-w-8xl fixed start-1/2 top-0 z-20 mx-auto flex h-16 w-full -translate-x-1/2 flex-row items-center justify-between bg-white md:bg-transparent rtl:translate-x-1/2 dark:bg-neutral-950 dark:md:bg-transparent'>
+  <nav className='fixed start-1/2 top-0 z-20 mx-auto flex h-16 w-full max-w-8xl -translate-x-1/2 flex-row items-center justify-between bg-white md:bg-transparent rtl:translate-x-1/2 dark:bg-neutral-950 dark:md:bg-transparent'>
     <Button
       variant='flat'
       size='lg'
@@ -25,7 +25,7 @@ export const Nav = ({ onMenuClick }: NavProps) => (
     <Logo
       /* Setting `display: none` breaks SVG gradients in the logo, so using 
       a different other method for hiding on mobile */
-      className='invisible absolute h-0 w-0 md:visible md:relative md:h-16'
+      className='invisible absolute size-0 md:visible md:relative md:h-16'
     />
     <div className='flex h-full grow flex-row items-center justify-end gap-2 bg-white px-4 dark:bg-neutral-950'>
       <Search />
