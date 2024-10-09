@@ -40,9 +40,7 @@ export const HomeLayout = ({
       {title || config.title}
     </h1>
     {tagline && (
-      <p className='text-neutral-muted-foreground m-0 text-lg sm:text-xl'>
-        {tagline}
-      </p>
+      <p className='m-0 text-lg text-muted-foreground sm:text-xl'>{tagline}</p>
     )}
     <div className='m-0 flex flex-row flex-wrap gap-2'>
       {actions.map(({ text, url, primary }, index) => (
