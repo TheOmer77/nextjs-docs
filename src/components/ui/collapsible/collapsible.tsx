@@ -4,7 +4,7 @@ import {
   CollapsibleContent,
   type CollapsibleContentProps,
 } from '@radix-ui/react-collapsible';
-import { Primitive } from '@radix-ui/react-primitive';
+import { Slot } from '@radix-ui/react-slot';
 
 import { cn } from '@/lib/cn';
 
@@ -12,16 +12,16 @@ export type CollapsibleProps = CollapsibleContentProps & { open?: boolean };
 
 export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
   ({ open = false, asChild, className, children, ...props }, ref) => {
+    const Comp = asChild ? Slot : 'div';
     const content = (
-      <Primitive.div
-        asChild={asChild}
+      <Comp
         className={cn(
           `overflow-hidden data-[state=closed]:animate-collapse-out data-[state=open]:animate-collapse-in`,
           className
         )}
       >
         {children}
-      </Primitive.div>
+      </Comp>
     );
 
     const [isSSR, setIsSSR] = useState(true);
