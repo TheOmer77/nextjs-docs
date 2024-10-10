@@ -24,7 +24,7 @@ export const Nav = () => {
       </Button>
       <Logo
         /* Setting `display: none` breaks SVG gradients in the logo, so using 
-      a different other method for hiding on mobile */
+      a different method for hiding on mobile */
         className='invisible absolute size-0 md:visible md:relative md:h-16'
       />
       <div className='flex h-full grow flex-row items-center justify-end gap-2 bg-background px-4'>
