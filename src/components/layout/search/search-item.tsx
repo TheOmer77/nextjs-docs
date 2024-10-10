@@ -7,11 +7,10 @@ import { CommandItem } from 'cmdk';
 
 import type { Doc } from '@/types';
 
-export interface SearchItemProps
-  extends ComponentPropsWithoutRef<typeof CommandItem> {
+export type SearchItemProps = ComponentPropsWithoutRef<typeof CommandItem> & {
   doc: Doc;
   parentDoc?: Doc;
-}
+};
 
 export const SearchItem = forwardRef<
   ElementRef<typeof CommandItem>,

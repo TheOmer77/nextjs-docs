@@ -11,11 +11,11 @@ import { allDocs } from '@/constants/contentlayer';
 
 import type { Doc } from '@/types';
 
-interface SidebarItemProps {
+type SidebarItemProps = {
   doc: Doc;
   active?: boolean;
   childActive?: boolean;
-}
+};
 
 export const SidebarItem = ({
   doc,
