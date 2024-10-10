@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
 import { Figtree, Fira_Code } from 'next/font/google';
 import clsx from 'clsx';
 
@@ -22,7 +22,7 @@ export const metadata = {
   title: { template: config.titleTemplate, default: config.title },
 };
 
-const RootLayout = ({ children }: { children: ReactNode }) => (
+const RootLayout = ({ children }: PropsWithChildren) => (
   <html lang='en' className={clsx(font.variable, fontMono.variable)}>
     <head>
       <link rel='icon' type='image/x-icon' href='/favicon.png' />
