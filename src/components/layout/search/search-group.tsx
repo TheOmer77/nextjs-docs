@@ -14,7 +14,7 @@ export const SearchGroup = forwardRef<
   <Group
     ref={ref}
     className={cn(
-      'overflow-hidden text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground',
+      'overflow-hidden text-foreground [&_[cmdk-group-heading]]:p-2 [&_[cmdk-group-heading]]:text-sm [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground md:[&_[cmdk-group-heading]]:text-xs',
       className
     )}
     {...props}
