@@ -1,6 +1,7 @@
-import { Fragment, useCallback, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
+import { useModal } from '@/hooks/use-modal';
 import { allDocs, config, sidebarDocs } from '@/constants/contentlayer';
 
 import { SearchButton } from './search-button';
@@ -27,35 +28,37 @@ const uncategorizedDocs = sidebarDocs.filter(
   };
 
 export const Search = () => {
-  const [open, setOpen] = useState(false);
+  const { currentModal, openModal, closeModal } = useModal();
   const router = useRouter();
+
+  const handleOpenChange = (open: boolean) => !open && closeModal();
 
   const handleDocSelect = useCallback(
     (doc: Doc) => {
-      setOpen(false);
-      router.push(doc.url);
+      openModal(null, 'replace');
+      setTimeout(() => router.replace(doc.url), 10);
     },
-    [router]
+    [openModal, router]
   );
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
-        event.preventDefault();
-        setOpen(true);
-      }
+      if (!(event.ctrlKey || event.metaKey) || event.key !== 'k') return;
+      event.preventDefault();
+      openModal('search');
     };
 
     window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [openModal]);
 
   return (
     <>
-      <SearchButton onClick={() => setOpen(true)} />
-      <SearchDialog open={open} onOpenChange={setOpen}>
+      <SearchButton onClick={() => openModal('search')} />
+      <SearchDialog
+        open={currentModal === 'search'}
+        onOpenChange={handleOpenChange}
+      >
         {Object.keys(docsByCategory).map(category => (
           <SearchGroup
             key={category}
