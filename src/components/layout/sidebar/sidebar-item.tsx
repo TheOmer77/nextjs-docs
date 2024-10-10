@@ -1,13 +1,13 @@
 'use client';
 
-import { useMemo, type ElementRef, type MouseEventHandler } from 'react';
-import { useRouter } from 'next/navigation';
+import { useMemo } from 'react';
 import { ChevronRightIcon } from 'lucide-react';
 
 import { ListItem, ListItemIcon, ListItemText } from '@/components/ui/list';
-import { useModal } from '@/hooks/use-modal';
 import { cn } from '@/lib/cn';
 import { allDocs } from '@/constants/contentlayer';
+
+import { SidebarLink } from './sidebar-link';
 
 import type { Doc } from '@/types';
 
@@ -22,9 +22,6 @@ export const SidebarItem = ({
   active = false,
   childActive = false,
 }: SidebarItemProps) => {
-  const router = useRouter();
-  const { currentModal, openModal } = useModal();
-
   const children = useMemo(
     () =>
       allDocs.filter(childDoc =>
@@ -33,22 +30,9 @@ export const SidebarItem = ({
     [doc._raw.flattenedPath]
   );
 
-  const handleClick: MouseEventHandler<ElementRef<'a'>> = e => {
-    if (!e.currentTarget) return;
-    const pathname = e.currentTarget.pathname;
-    e.preventDefault();
-
-    // Same behavior as Next link
-    if (!currentModal) return router.push(pathname);
-
-    // First close drawer, then navigate
-    openModal(null, 'replace');
-    setTimeout(() => router.replace(pathname), 10);
-  };
-
   return (
     <ListItem asChild key={doc._id} aria-current={active ? 'page' : undefined}>
-      <a href={doc.url} onClick={handleClick}>
+      <SidebarLink href={doc.url}>
         <ListItemText primary={doc.title} />
         {children.length > 0 && (
           <ListItemIcon
@@ -60,7 +44,7 @@ export const SidebarItem = ({
             <ChevronRightIcon />
           </ListItemIcon>
         )}
-      </a>
+      </SidebarLink>
     </ListItem>
   );
 };
