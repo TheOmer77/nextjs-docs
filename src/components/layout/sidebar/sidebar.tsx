@@ -1,12 +1,11 @@
-'use client';
-
-import { Fragment } from 'react';
-import { usePathname } from 'next/navigation';
+import { Fragment, type ElementRef, type MouseEventHandler } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 
 import { Collapsible } from '@/components/ui/collapsible';
 import { Drawer, DrawerContent, DrawerTitle } from '@/components/ui/drawer';
 import { List, ListSubheader } from '@/components/ui/list';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { useModal } from '@/hooks/use-modal';
 import {
   allDocs,
   config,
@@ -19,11 +18,6 @@ import { SidebarItem } from './sidebar-item';
 import { Logo } from '../logo';
 
 import type { Doc } from '@/types';
-
-export interface SidebarProps {
-  open?: boolean;
-  onOpenChange?: (open: boolean) => void;
-}
 
 const uncategorizedDocs = sidebarDocs.filter(
     doc =>
@@ -41,8 +35,25 @@ const uncategorizedDocs = sidebarDocs.filter(
     ),
   };
 
-export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
+export const Sidebar = () => {
   const pathname = usePathname();
+  const router = useRouter();
+  const { currentModal, openModal, closeModal } = useModal();
+
+  const handleOpenChange = (open: boolean) => !open && closeModal();
+
+  const handleItemClick: MouseEventHandler<ElementRef<'a'>> = e => {
+    if (!e.currentTarget) return;
+    const href = e.currentTarget.href;
+    e.preventDefault();
+
+    // Same behavior as Next link
+    if (!currentModal) return router.push(href);
+
+    // First close drawer, then navigate
+    openModal(null, 'replace');
+    setTimeout(() => router.replace(href), 10);
+  };
 
   const currentDoc = allDocs
       .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
@@ -84,7 +95,7 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
                   doc={doc}
                   active={isActive}
                   childActive={isChildActive}
-                  onClick={() => onOpenChange?.(false)}
+                  onClick={handleItemClick}
                 />
                 {children.length > 0 && (
                   <Collapsible
@@ -96,7 +107,7 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
                         key={childDoc._id}
                         doc={childDoc}
                         active={childDoc.url === pathname}
-                        onClick={() => onOpenChange?.(false)}
+                        onClick={handleItemClick}
                       />
                     ))}
                   </Collapsible>
@@ -118,10 +129,14 @@ export const Sidebar = ({ open = false, onOpenChange }: SidebarProps) => {
           </ScrollArea>
         </aside>
       )}
-      <Drawer open={open} onOpenChange={onOpenChange} direction='left'>
+      <Drawer
+        open={currentModal === 'nav-drawer'}
+        onOpenChange={handleOpenChange}
+        direction='left'
+      >
         <DrawerContent aria-describedby={undefined}>
           <DrawerTitle className='sr-only'>Navigation drawer</DrawerTitle>
-          <Logo onClick={() => onOpenChange?.(false)} />
+          <Logo onClick={() => closeModal()} />
           <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
             <List className='px-2 pb-2'>{listCategories}</List>
           </ScrollArea>
