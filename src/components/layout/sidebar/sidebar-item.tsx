@@ -1,7 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
-import Link from 'next/link';
+import { useMemo, type ElementRef, type MouseEventHandler } from 'react';
 import { ChevronRightIcon } from 'lucide-react';
 
 import { ListItem, ListItemIcon, ListItemText } from '@/components/ui/list';
@@ -14,7 +13,7 @@ interface SidebarItemProps {
   doc: Doc;
   active?: boolean;
   childActive?: boolean;
-  onClick?: () => void;
+  onClick?: MouseEventHandler<ElementRef<'a'>>;
 }
 
 export const SidebarItem = ({
@@ -32,13 +31,8 @@ export const SidebarItem = ({
   );
 
   return (
-    <ListItem
-      asChild
-      key={doc._id}
-      aria-current={active ? 'page' : undefined}
-      onClick={onClick}
-    >
-      <Link href={doc.url}>
+    <ListItem asChild key={doc._id} aria-current={active ? 'page' : undefined}>
+      <a href={doc.url} onClick={onClick}>
         <ListItemText primary={doc.title} />
         {children.length > 0 && (
           <ListItemIcon
@@ -50,7 +44,7 @@ export const SidebarItem = ({
             <ChevronRightIcon />
           </ListItemIcon>
         )}
-      </Link>
+      </a>
     </ListItem>
   );
 };
