@@ -21,8 +21,8 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "contentlayer2": "^0.5.1",
-    "lucide-react": "^0.449.0",
-    "next": "^14.2.14",
+    "lucide-react": "^0.451.0",
+    "next": "^14.2.15",
     "next-contentlayer2": "^0.5.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -39,12 +39,12 @@
     "autoprefixer": "^10.4.20",
     "change-case": "^5.4.4",
     "eslint": "^8.57.1",
-    "eslint-config-next": "^14.2.14",
+    "eslint-config-next": "^14.2.15",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-check-file": "^2.8.0",
     "eslint-plugin-import-x": "^4.3.1",
     "eslint-plugin-prefer-arrow-functions": "^3.4.1",
-    "eslint-plugin-tailwindcss": "^3.17.4",
+    "eslint-plugin-tailwindcss": "^3.17.5",
     "postcss": "^8.4.47",
     "postcss-hover-media-feature": "^1.0.2",
     "postcss-mixins": "^11.0.3",
@@ -52,6 +52,6 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   }
 }
