@@ -1,4 +1,5 @@
 import {
+  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
   type MouseEventHandler,
@@ -7,11 +8,10 @@ import { useRouter } from 'next/navigation';
 
 import { useModal } from '@/hooks/use-modal';
 
-export const SidebarLink = ({
-  href,
-  children,
-  ...props
-}: ComponentPropsWithoutRef<'a'>) => {
+export const SidebarLink = forwardRef<
+  ElementRef<'a'>,
+  ComponentPropsWithoutRef<'a'>
+>(({ href, children, ...props }, ref) => {
   const router = useRouter();
   const { currentModal, openModal } = useModal();
 
@@ -29,8 +29,9 @@ export const SidebarLink = ({
   };
 
   return (
-    <a {...props} href={href} onClick={handleClick}>
+    <a {...props} ref={ref} href={href} onClick={handleClick}>
       {children}
     </a>
   );
-};
+});
+SidebarLink.displayName = 'SidebarLink';
