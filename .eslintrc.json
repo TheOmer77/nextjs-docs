@@ -101,6 +101,6 @@
   },
   "settings": {
     "import-x/resolver": { "node": true, "typescript": true },
-    "tailwindcss": { "callees": ["clsx", "cn"] }
+    "tailwindcss": { "callees": ["clsx", "cn", "cva"] }
   }
 }
