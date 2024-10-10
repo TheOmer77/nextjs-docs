@@ -71,6 +71,12 @@
     "no-restricted-imports": [
       "warn",
       {
+        "paths": [
+          {
+            "name": "next/router",
+            "message": "Import from 'next/navigation' instead."
+          }
+        ],
         "patterns": [
           {
             "group": ["lucide-react"],
