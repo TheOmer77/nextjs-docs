@@ -136,7 +136,7 @@ export const Sidebar = () => {
       >
         <DrawerContent aria-describedby={undefined}>
           <DrawerTitle className='sr-only'>Navigation drawer</DrawerTitle>
-          <Logo onClick={() => closeModal()} />
+          <Logo />
           <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
             <List className='px-2 pb-2'>{listCategories}</List>
           </ScrollArea>
