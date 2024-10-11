@@ -39,7 +39,6 @@ const config = {
       maxWidth: { '8xl': '90rem' },
       screens: { '2xl': '1440px' },
       spacing: { em: '1em', inherit: 'inherit' },
-      transitionTimingFunction: { DEFAULT: 'cubic-bezier(0.2, 1, 0.4, 1)' },
       typography: () => ({
         DEFAULT: {
           css: {
