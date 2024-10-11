@@ -6,7 +6,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'border border-input/50 bg-background shadow-sm shadow-neutral-950/10 hover:state-layer-foreground/5 active:state-layer-foreground/10 dark:bg-neutral-800',
+          'border border-input/40 bg-background shadow-sm shadow-neutral-950/10 hover:state-layer-foreground/5 active:state-layer-foreground/10 dark:bg-neutral-800',
         primary:
           'bg-primary text-primary-foreground shadow-sm shadow-primary/30 hover:state-layer-primary-foreground/10 active:state-layer-primary-foreground/25',
         flat: 'bg-transparent hover:state-layer-foreground/5 active:state-layer-foreground/10',
