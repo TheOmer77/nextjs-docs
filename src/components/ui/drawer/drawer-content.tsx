@@ -15,7 +15,6 @@ export const DrawerContent = forwardRef<
   ElementRef<typeof DrawerPrimitive.Content>,
   ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
-  // data-vaul-drawer-direction
   <DrawerPrimitive.Portal>
     <DrawerOverlay />
     <DrawerPrimitive.Content
