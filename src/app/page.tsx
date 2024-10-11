@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 
-import { Mdx } from 'components/layout/Mdx';
-import { allDocs, config } from 'constants/contentlayer';
+import { Mdx } from '@/components/layout/mdx';
+import { allDocs, config } from '@/constants/contentlayer';
 
 export const generateMetadata = () => {
   const doc = allDocs.find(doc => doc.url === '/');

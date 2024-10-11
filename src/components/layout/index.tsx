@@ -1,20 +1,21 @@
 'use client';
 
-import { useState, type PropsWithChildren } from 'react';
+import { Suspense, type PropsWithChildren } from 'react';
 import { usePathname } from 'next/navigation';
 
-import { Nav } from './Nav';
-import { Sidebar } from './Sidebar';
-import { cn } from 'utils';
+import { cn } from '@/lib/cn';
 import {
   allDocs,
   notFoundPageName,
   specialFileNames,
-} from 'constants/contentlayer';
+} from '@/constants/contentlayer';
+
+import { Nav } from './nav';
+import { Sidebar } from './sidebar';
 
 const Layout = ({ children }: PropsWithChildren) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
+
   const currentDoc = allDocs
       .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
       .find(doc => doc.url === pathname),
@@ -24,8 +25,10 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   return (
     <>
-      <Sidebar open={sidebarOpen} onOpenChange={setSidebarOpen} />
-      <Nav onMenuClick={() => setSidebarOpen(true)} />
+      <Suspense>
+        <Sidebar />
+        <Nav />
+      </Suspense>
 
       <main
         className={cn(

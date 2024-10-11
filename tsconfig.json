@@ -3,6 +3,7 @@
     "allowJs": true,
     "baseUrl": "src",
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -12,7 +13,10 @@
     "moduleResolution": "Bundler",
     "noEmit": true,
     "noUncheckedIndexedAccess": true,
-    "paths": { "contentlayer/generated": ["../.contentlayer/generated"] },
+    "paths": {
+      "@/*": ["./*"],
+      "contentlayer/generated": ["../.contentlayer/generated"]
+    },
     "plugins": [{ "name": "next" }],
     "resolveJsonModule": true,
     "skipLibCheck": true,
