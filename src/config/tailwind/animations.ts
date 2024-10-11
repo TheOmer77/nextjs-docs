@@ -28,7 +28,7 @@ export const animations = plugin(
       { values: theme('transitionDuration') }
     );
     matchUtilities(
-      { duration: value => ({ '--animation-timing-function': value }) },
+      { ease: value => ({ '--animation-timing-function': value }) },
       { values: theme('transitionTimingFunction') }
     );
   },
