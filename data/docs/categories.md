@@ -3,6 +3,8 @@ title: Categories
 category: usage
 ---
 
+> [!DANGER] **This page is now irrelevant and will be removed.**
+
 Categories are labels that can be used as a way to group and organize pages based on their content or purpose.
 
 Categories and their display names can be defined in `data/config.json`. The `categories` field in this file is an object where keys are category IDs, and their values are the display names shown to the user.

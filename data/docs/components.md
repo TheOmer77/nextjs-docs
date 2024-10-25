@@ -54,7 +54,7 @@ Alternatively, you can use the `<Alert>` component:
 
 ## Page layouts
 
-The home & 404 error pages use special layout components by default, however these layouts can also be used in any other page.
+The home & not found error pages use special layout components by default, however these layouts can also be used in any other page.
 
 ### HomeLayout
 
