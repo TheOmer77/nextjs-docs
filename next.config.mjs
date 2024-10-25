@@ -1,6 +1,10 @@
-import { withContentlayer } from 'next-contentlayer2';
+//@ts-check
 
-const nextConfig = { reactStrictMode: true };
+import { createMDX } from 'fumadocs-mdx/next';
 
-const config = withContentlayer(nextConfig);
-export default config;
+const withMDX = createMDX();
+
+/** @type {import('next').NextConfig} */
+const config = { reactStrictMode: true };
+
+export default withMDX(config);
