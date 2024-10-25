@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/cn';
-import { config } from '@/constants/contentlayer';
+import { siteConfig } from '@/constants/site';
 
 export type HomeLayoutProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
   /** Home page main title. */
@@ -37,7 +37,7 @@ export const HomeLayout = ({
     )}
   >
     <h1 className='m-0 text-5xl font-extrabold tracking-tight sm:text-7xl'>
-      {title || config.title}
+      {title || siteConfig.title}
     </h1>
     {tagline && (
       <p className='m-0 text-lg text-muted-foreground sm:text-xl'>{tagline}</p>
