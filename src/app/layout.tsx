@@ -2,8 +2,8 @@ import type { PropsWithChildren } from 'react';
 import { Figtree, Fira_Code } from 'next/font/google';
 import clsx from 'clsx';
 
-import Layout from '@/components/layout';
-import { config } from '@/constants/contentlayer';
+import { Nav } from '@/components/layout/nav';
+import { Sidebar } from '@/components/layout/sidebar';
 import '@/styles/index.css';
 import '@/styles/prism.css';
 
@@ -18,21 +18,16 @@ const fontMono = Fira_Code({
   fallback: ['monospace'],
 });
 
-export const metadata = {
-  title: { template: config.titleTemplate, default: config.title },
-};
-
-const RootLayout = ({ children }: PropsWithChildren) => (
+const Layout = ({ children }: PropsWithChildren) => (
   <html lang='en' className={clsx(font.variable, fontMono.variable)}>
-    <head>
-      <link rel='icon' type='image/x-icon' href='/favicon.png' />
-    </head>
-    <body>
+    <body className='min-h-dvh'>
+      <Nav />
       <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden'>
-        <Layout>{children}</Layout>
+        <Sidebar />
+        {children}
       </div>
     </body>
   </html>
 );
 
-export default RootLayout;
+export default Layout;
