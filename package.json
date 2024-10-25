@@ -46,6 +46,7 @@
     "eslint-plugin-check-file": "^2.8.0",
     "eslint-plugin-import-x": "^4.3.1",
     "eslint-plugin-prefer-arrow-functions": "^3.4.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-tailwindcss": "^3.17.5",
     "postcss": "^8.4.47",
     "postcss-hover-media-feature": "^1.0.2",
