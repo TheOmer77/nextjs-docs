@@ -30,7 +30,8 @@
     "rehype-prism-plus": "^2.0.0",
     "remark-gfm": "^4.0.0",
     "tailwind-merge": "^2.5.4",
-    "vaul": "^1.1.0"
+    "vaul": "^1.1.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
