@@ -1,13 +1,16 @@
+'use client';
+
+import { Suspense } from 'react';
 import { MenuIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
+import { Logo } from '@/components/layout/logo';
+// import { Search } from '@/components/layout/search';
 import { useModal } from '@/hooks/use-modal';
 
 import { NavLinks } from './nav-links';
-import { Logo } from '../logo';
-import { Search } from '../search';
 
-export const Nav = () => {
+const NavContent = () => {
   const { openModal } = useModal();
 
   return (
@@ -28,9 +31,16 @@ export const Nav = () => {
         className='invisible absolute size-0 md:visible md:relative md:h-16'
       />
       <div className='flex h-full grow flex-row items-center justify-end gap-2 bg-background px-4'>
-        <Search />
+        {/* TODO: Add search back */}
+        {/* <Search /> */}
         <NavLinks />
       </div>
     </nav>
   );
 };
+
+export const Nav = () => (
+  <Suspense>
+    <NavContent />
+  </Suspense>
+);

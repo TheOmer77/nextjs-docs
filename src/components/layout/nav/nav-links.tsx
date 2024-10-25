@@ -1,12 +1,11 @@
-import { getMDXComponent } from 'next-contentlayer2/hooks';
-
-import { allDocs, navLinksName } from '@/constants/contentlayer';
+import { mdxComponents } from '@/components/layout/mdx';
+import { source } from '@/lib/source';
+import { navLinksName } from '@/constants/docs';
 
 import { NavLink } from './nav-link';
-import { mdxComponents } from '../mdx';
 
 export const NavLinks = () => {
-  const linksDoc = allDocs.find(doc => doc._raw.flattenedPath === navLinksName),
-    LinksMdx = linksDoc && getMDXComponent(linksDoc.body.code);
+  const linksDoc = source.getPage([navLinksName]),
+    LinksMdx = linksDoc?.data.body;
   return LinksMdx && <LinksMdx components={{ ...mdxComponents, NavLink }} />;
 };
