@@ -4,7 +4,5 @@
   "singleQuote": true,
   "jsxSingleQuote": true,
   "trailingComma": "es5",
-  "arrowParens": "avoid",
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindFunctions": ["clsx", "cn", "cva"]
+  "arrowParens": "avoid"
 }
