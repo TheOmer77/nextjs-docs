@@ -4,6 +4,7 @@ import prettier from 'eslint-config-prettier';
 import checkFile from 'eslint-plugin-check-file';
 import importX from 'eslint-plugin-import-x';
 import preferArrowFunctions from 'eslint-plugin-prefer-arrow-functions';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import tailwind from 'eslint-plugin-tailwindcss';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,11 +12,7 @@ import * as tseslint from 'typescript-eslint';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
+const compat = new FlatCompat({ baseDirectory: __dirname });
 
 const config = tseslint.config(
   js.configs.recommended,
@@ -60,93 +57,41 @@ const config = tseslint.config(
     },
   },
   {
+    plugins: { 'simple-import-sort': simpleImportSort },
     rules: {
-      'prefer-template': 'warn',
-      'import-x/order': [
-        'warn',
+      'simple-import-sort/imports': [
+        'error',
         {
-          alphabetize: {
-            order: 'asc',
-            orderImportKind: 'asc',
-          },
-
-          distinctGroup: false,
-
           groups: [
-            ['builtin', 'external'],
-            'internal',
-            ['parent', 'sibling', 'index'],
-            'type',
+            ['^hono', '^react', '^next', '^next/.*', '^@?\\w'],
+            ['^@repo/.*'],
+            [
+              '^@/components/ui/.*',
+              '^@/components/(?!ui).*',
+              '^@/hooks(/.*)?',
+              '^@/routes(/.*)?',
+              '^@/utils(/.*)?',
+              '^@/lib(/.*)?',
+              '^@/config(/.*)?',
+              '^@/constants(/.*)?',
+              '^@/types(/.*)?',
+              '^@/styles(/.*)?',
+            ],
+            [
+              '^\\./?$',
+              '^\\.(?!/?$)',
+              '^\\./(?=.*/)(?!/?$)',
+              '^\\.\\./?$',
+              '^\\.\\.(?!/?$)',
+            ],
           ],
-
-          'newlines-between': 'always',
-
-          pathGroups: [
-            {
-              group: 'external',
-              pattern: 'react',
-              position: 'before',
-            },
-            {
-              group: 'external',
-              pattern: 'react/**',
-              position: 'before',
-            },
-            {
-              group: 'external',
-              pattern: 'next',
-              position: 'before',
-            },
-            {
-              group: 'external',
-              pattern: 'next/**',
-              position: 'before',
-            },
-            {
-              group: 'internal',
-              pattern: '@/components/ui/**',
-            },
-            {
-              group: 'internal',
-              pattern: '@/components/**',
-              position: 'after',
-            },
-            {
-              group: 'internal',
-              pattern: '@/hooks/**',
-              position: 'after',
-            },
-            {
-              group: 'internal',
-              pattern: '@/lib/**',
-              position: 'after',
-            },
-            {
-              group: 'internal',
-              pattern: '@/config/**',
-              position: 'after',
-            },
-            {
-              group: 'internal',
-              pattern: '@/constants/**',
-              position: 'after',
-            },
-            {
-              group: 'internal',
-              pattern: '@/styles/**',
-              position: 'after',
-            },
-            {
-              group: 'internal',
-              pattern: '@/types/**',
-              position: 'after',
-            },
-          ],
-
-          pathGroupsExcludedImportTypes: ['builtin'],
-          warnOnUnassignedImports: true,
         },
       ],
+    },
+  },
+  {
+    rules: {
+      'prefer-template': 'warn',
       'no-restricted-imports': [
         'warn',
         {
