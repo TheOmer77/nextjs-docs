@@ -1,17 +1,17 @@
 import type { ComponentPropsWithoutRef } from 'react';
-import { getMDXComponent } from 'next-contentlayer2/hooks';
 
+import { SidebarLink } from '@/components/layout/sidebar/sidebar-link';
 import { cn } from '@/lib/cn';
-import { allDocs, config, navLogoName } from '@/constants/contentlayer';
-
-import { SidebarLink } from '../sidebar/sidebar-link';
+import { source } from '@/lib/source';
+import { navLogoName } from '@/constants/docs';
+import { siteConfig } from '@/constants/site';
 
 export const Logo = ({
   className,
   ...props
 }: ComponentPropsWithoutRef<'header'>) => {
-  const logoDoc = allDocs.find(doc => doc._raw.flattenedPath === navLogoName),
-    LogoMdx = logoDoc && getMDXComponent(logoDoc.body.code);
+  const logoDoc = source.getPage([navLogoName]),
+    LogoMdx = logoDoc?.data.body;
 
   return (
     <header
@@ -23,7 +23,7 @@ export const Logo = ({
           <LogoMdx />
         ) : (
           <span className='text-2xl font-bold tracking-tight text-primary'>
-            {config.title}
+            {siteConfig.title}
           </span>
         )}
       </SidebarLink>
