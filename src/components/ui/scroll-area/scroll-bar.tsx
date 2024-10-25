@@ -1,7 +1,7 @@
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
 } from 'react';
 import {
   ScrollAreaScrollbar,

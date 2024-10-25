@@ -2,9 +2,9 @@
 
 import {
   Children,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useRef,
-  type ComponentPropsWithoutRef,
 } from 'react';
 import { RovingFocusGroupItem } from '@radix-ui/react-roving-focus';
 import { Slot } from '@radix-ui/react-slot';
@@ -13,9 +13,9 @@ import { cn } from '@/lib/cn';
 
 import {
   LIST_ITEM_NAME,
+  type ScopedProps,
   useListContext,
   useRovingFocusGroupScope,
-  type ScopedProps,
 } from './common';
 
 export type ListItemProps = ScopedProps<ComponentPropsWithoutRef<'button'>> & {

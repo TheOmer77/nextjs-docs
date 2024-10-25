@@ -1,9 +1,10 @@
 import type { PropsWithChildren } from 'react';
 import { Figtree, Fira_Code } from 'next/font/google';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 import { Nav } from '@/components/layout/nav';
 import { Sidebar } from '@/components/layout/sidebar';
+
 import '@/styles/index.css';
 import '@/styles/prism.css';
 

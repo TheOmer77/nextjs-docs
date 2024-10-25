@@ -1,13 +1,12 @@
 import { notFound } from 'next/navigation';
 import Link from 'fumadocs-core/link';
+import type { MDXComponents } from 'mdx/types';
 
 import { ErrorLayout } from '@/components/layout/error';
 import { HomeLayout } from '@/components/layout/home';
 import { Alert, MdxBlockquote } from '@/components/layout/mdx';
 import { cn } from '@/lib/cn';
 import { source } from '@/lib/source';
-
-import type { MDXComponents } from 'mdx/types';
 
 const mdxComponents = {
   a: Link,

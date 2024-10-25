@@ -1,9 +1,9 @@
 import {
   Children,
-  isValidElement,
   type ComponentPropsWithoutRef,
-  type ReactElement,
+  isValidElement,
   type PropsWithChildren,
+  type ReactElement,
 } from 'react';
 import { AlertOctagonIcon, InfoIcon } from 'lucide-react';
 

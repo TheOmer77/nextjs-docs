@@ -1,8 +1,8 @@
 import { forwardRef, useEffect, useState } from 'react';
 import {
-  Root,
   CollapsibleContent,
   type CollapsibleContentProps,
+  Root,
 } from '@radix-ui/react-collapsible';
 import { Slot } from '@radix-ui/react-slot';
 
