@@ -39,9 +39,7 @@ export const Search = () => {
       <SearchDialog
         open={currentModal === 'search'}
         onOpenChange={handleOpenChange}
-      >
-        {/* TODO: Search items */}
-      </SearchDialog>
+      />
     </>
   );
 };

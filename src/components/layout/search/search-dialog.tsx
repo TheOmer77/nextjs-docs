@@ -9,7 +9,7 @@ import {
 
 import { SearchCommand } from './search-command';
 
-const SearchDialog = ({ open, onOpenChange, children }: DialogProps) => (
+const SearchDialog = ({ open, onOpenChange }: DialogProps) => (
   <DialogRoot open={open} onOpenChange={onOpenChange}>
     <DialogPortal>
       <DialogOverlay className='fixed inset-0 z-50 bg-neutral-950/50 duration-300 data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in' />
@@ -18,7 +18,7 @@ const SearchDialog = ({ open, onOpenChange, children }: DialogProps) => (
         aria-describedby={undefined}
       >
         <DialogTitle className='sr-only'>Search docs...</DialogTitle>
-        <SearchCommand>{children}</SearchCommand>
+        <SearchCommand />
       </DialogContent>
     </DialogPortal>
   </DialogRoot>
