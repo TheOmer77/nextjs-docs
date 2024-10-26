@@ -20,27 +20,22 @@ export const mdxComponents = {
   ErrorLayout,
 };
 
-export type MdxProps = { doc: Doc; prose?: boolean };
+export type MDXProps = { doc: Doc };
 
-export const MDX = ({ doc, prose = true }: MdxProps) => {
-  // TODO: Is this ever used? If not, remove it
-  if (!prose)
-    return <MDXContent code={doc.body.code} components={mdxComponents} />;
-  return (
-    <div
-      className={cn(
-        `prose mx-auto max-w-[calc(100vw-2rem)] py-8 dark:prose-invert`,
-        doc.showSidebar && 'md:max-w-[calc(100vw-22rem)] lg:max-w-3xl'
-      )}
-    >
-      {doc.title && doc.showTitle && (
-        <h1 className='text-5xl font-extrabold tracking-tight sm:text-[3.5rem]'>
-          {doc.title}
-        </h1>
-      )}
-      <MDXContent code={doc.body.code} components={mdxComponents} />
-    </div>
-  );
-};
+export const MDX = ({ doc }: MDXProps) => (
+  <div
+    className={cn(
+      `prose mx-auto max-w-[calc(100vw-2rem)] py-8 dark:prose-invert`,
+      doc.showSidebar && 'md:max-w-[calc(100vw-22rem)] lg:max-w-3xl'
+    )}
+  >
+    {doc.title && doc.showTitle && (
+      <h1 className='text-5xl font-extrabold tracking-tight sm:text-[3.5rem]'>
+        {doc.title}
+      </h1>
+    )}
+    <MDXContent code={doc.body.code} components={mdxComponents} />
+  </div>
+);
 
 export default MDX;
