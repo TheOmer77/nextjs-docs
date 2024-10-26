@@ -1,5 +1,5 @@
 import { ErrorLayout } from '@/components/layout/error';
-import { Mdx } from '@/components/layout/mdx';
+import { MDX } from '@/components/layout/mdx';
 import { allDocs, config, notFoundPageName } from '@/constants/contentlayer';
 
 export const generateMetadata = () => {
@@ -15,7 +15,7 @@ const NotFoundPage = () => {
   const doc = allDocs.find(doc => doc._raw.flattenedPath === notFoundPageName);
 
   return doc ? (
-    <Mdx doc={doc} />
+    <MDX doc={doc} />
   ) : (
     <div className='py-8'>
       <ErrorLayout code={404} text='Not found' />;

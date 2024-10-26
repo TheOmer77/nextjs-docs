@@ -1,6 +1,6 @@
 'use client';
 
-import { getMDXComponent } from 'next-contentlayer2/hooks';
+import { MDXContent } from '@content-collections/mdx/react';
 
 import { ErrorLayout } from '@/components/layout/error';
 import { HomeLayout } from '@/components/layout/home';
@@ -23,9 +23,10 @@ export const mdxComponents = {
 
 export type MdxProps = { doc: Doc; prose?: boolean };
 
-export const Mdx = ({ doc, prose = true }: MdxProps) => {
-  const MdxContent = getMDXComponent(doc.body.code);
-  if (!prose) return <MdxContent components={mdxComponents} />;
+export const MDX = ({ doc, prose = true }: MdxProps) => {
+  // TODO: Is this ever used? If not, remove it
+  if (!prose)
+    return <MDXContent code={doc.body.code} components={mdxComponents} />;
   return (
     <div
       className={cn(
@@ -38,9 +39,9 @@ export const Mdx = ({ doc, prose = true }: MdxProps) => {
           {doc.title}
         </h1>
       )}
-      <MdxContent components={mdxComponents} />
+      <MDXContent code={doc.body.code} components={mdxComponents} />
     </div>
   );
 };
 
-export default Mdx;
+export default MDX;

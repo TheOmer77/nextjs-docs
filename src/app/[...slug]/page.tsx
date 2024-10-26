@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import { Mdx } from '@/components/layout/mdx';
+import { MDX } from '@/components/layout/mdx';
 import { allDocs, specialFileNames } from '@/constants/contentlayer';
 
 export const generateStaticParams = async () =>
@@ -25,7 +25,7 @@ const DocPage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
     .find(doc => doc.url === `/${slug.join('/')}`);
   if (!doc) return notFound();
 
-  return <Mdx doc={doc} />;
+  return <MDX doc={doc} />;
 };
 
 export default DocPage;
