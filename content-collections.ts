@@ -48,11 +48,9 @@ const siteConfig = defineCollection({
     title: z.string().default('Docs'),
     /** Template for the `<title>` of pages. */
     titleTemplate: z.string().default('%s – Docs'),
-    /* Object where keys are category IDs and values are display names. */
+    /** Object where keys are category IDs and values are display names. */
     categories: z.record(z.string(), z.string()).default({}),
   }),
 });
 
-export default defineConfig({
-  collections: [doc, siteConfig],
-});
+export default defineConfig({ collections: [doc, siteConfig] });
