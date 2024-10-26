@@ -15,7 +15,7 @@ export const specialFileNames = [
 const filteredDocs = allDocs.filter(doc => {
   if (
     !doc.title ||
-    !doc.showInSidebar ||
+    !doc.includeInSidebar ||
     specialFileNames.includes(doc._raw.flattenedPath)
   )
     return false;
