@@ -17,7 +17,7 @@ const doc = defineCollection({
     /** Whether or not to include this page as an item in the sidebar. */
     showInSidebar: z.boolean().default(true), // TODO: Rename to `includeInSidebar`
     /** Whether or not to show the sidebar when this page is viewed. */
-    displaySidebar: z.boolean().default(true), // TODO: Rename to `showSidebar`
+    showSidebar: z.boolean().default(true),
   }),
   transform: async (doc, ctx) => {
     const filenameParts = doc._meta.fileName

@@ -30,7 +30,7 @@ export const MDX = ({ doc, prose = true }: MdxProps) => {
     <div
       className={cn(
         `prose mx-auto max-w-[calc(100vw-2rem)] py-8 dark:prose-invert`,
-        doc.displaySidebar && 'md:max-w-[calc(100vw-22rem)] lg:max-w-3xl'
+        doc.showSidebar && 'md:max-w-[calc(100vw-22rem)] lg:max-w-3xl'
       )}
     >
       {doc.title && doc.showTitle && (
