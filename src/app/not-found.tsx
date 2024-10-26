@@ -3,7 +3,7 @@ import { MDX } from '@/components/layout/mdx';
 import { allDocs, config, notFoundPageName } from '@/constants/docs';
 
 export const generateMetadata = () => {
-  const doc = allDocs.find(doc => doc._raw.flattenedPath === notFoundPageName);
+  const doc = allDocs.find(doc => doc._meta.path === notFoundPageName);
   return {
     title: doc?.title
       ? config.titleTemplate.replace('%s', doc.title)
@@ -12,7 +12,7 @@ export const generateMetadata = () => {
 };
 
 const NotFoundPage = () => {
-  const doc = allDocs.find(doc => doc._raw.flattenedPath === notFoundPageName);
+  const doc = allDocs.find(doc => doc._meta.path === notFoundPageName);
 
   return doc ? (
     <MDX doc={doc} />

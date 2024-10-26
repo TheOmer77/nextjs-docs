@@ -24,9 +24,9 @@ export const SidebarItem = ({
   const children = useMemo(
     () =>
       allDocs.filter(childDoc =>
-        childDoc._raw.flattenedPath.startsWith(`${doc._raw.flattenedPath}/`)
+        childDoc._meta.path.startsWith(`${doc._meta.path}/`)
       ),
-    [doc._raw.flattenedPath]
+    [doc._meta.path]
   );
 
   return (

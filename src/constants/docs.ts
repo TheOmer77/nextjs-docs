@@ -16,23 +16,23 @@ const filteredDocs = allDocs.filter(doc => {
   if (
     !doc.title ||
     !doc.includeInSidebar ||
-    specialFileNames.includes(doc._raw.flattenedPath)
+    specialFileNames.includes(doc._meta.path)
   )
     return false;
-  const parentFolder = doc._raw.flattenedPath.split('/').slice(0, -1).join('/');
+  const parentFolder = doc._meta.path.split('/').slice(0, -1).join('/');
   return !allDocs.some(
     d =>
-      d._raw.flattenedPath === parentFolder &&
+      d._meta.path === parentFolder &&
       d._id.startsWith(`${parentFolder}/index.`)
   );
 });
 
 export const sidebarDocs = [
   ...filteredDocs
-    .filter(doc => !isNaN(Number(doc._raw.sourceFileName.split('-')[0])))
+    .filter(doc => !isNaN(Number(doc._meta.fileName.split('-')[0])))
     .sort((a, b) => {
-      const aFilenameNum = Number(a._raw.sourceFileName.split('-')[0]),
-        bFilenameNum = Number(b._raw.sourceFileName.split('-')[0]);
+      const aFilenameNum = Number(a._meta.fileName.split('-')[0]),
+        bFilenameNum = Number(b._meta.fileName.split('-')[0]);
 
       switch (true) {
         case aFilenameNum > bFilenameNum:
@@ -48,7 +48,7 @@ export const sidebarDocs = [
       }
     }),
   ...filteredDocs
-    .filter(doc => isNaN(Number(doc._raw.sourceFileName.split('-')[0])))
+    .filter(doc => isNaN(Number(doc._meta.fileName.split('-')[0])))
     .sort((a, b) => (a.url > b.url ? 1 : a.url < b.url ? -1 : 0)),
 ];
 

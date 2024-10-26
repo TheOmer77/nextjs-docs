@@ -4,7 +4,7 @@ import { MDX } from '@/components/layout/mdx';
 import { allDocs, config, specialFileNames } from '@/constants/docs';
 
 export const generateStaticParams = async () =>
-  allDocs.map(doc => ({ slug: doc._raw.flattenedPath.split('/') }));
+  allDocs.map(doc => ({ slug: doc._meta.path.split('/') }));
 
 export const generateMetadata = async ({
   params,
@@ -14,7 +14,7 @@ export const generateMetadata = async ({
   const slug = (await params).slug;
   const doc = slug
     ? allDocs
-        .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
+        .filter(doc => !specialFileNames.includes(doc._meta.path))
         .find(doc => doc.url === `/${slug.join('/')}`)
     : allDocs.find(doc => doc.url === '/index');
   return {
@@ -28,7 +28,7 @@ const DocPage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
   const slug = (await params).slug;
   const doc = slug
     ? allDocs
-        .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
+        .filter(doc => !specialFileNames.includes(doc._meta.path))
         .find(doc => doc.url === `/${slug.join('/')}`)
     : allDocs.find(doc => doc.url === '/index');
   if (!doc) return notFound();

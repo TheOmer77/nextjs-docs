@@ -69,13 +69,9 @@ export const Search = () => {
               doc => {
                 const children = allDocs
                   .filter(childDoc =>
-                    childDoc._raw.flattenedPath.startsWith(
-                      `${doc._raw.flattenedPath}/`
-                    )
+                    childDoc._meta.path.startsWith(`${doc._meta.path}/`)
                   )
-                  .sort((a, b) =>
-                    a._raw.flattenedPath > b._raw.flattenedPath ? 1 : -1
-                  );
+                  .sort((a, b) => (a._meta.path > b._meta.path ? 1 : -1));
                 return (
                   <Fragment key={doc._id}>
                     <SearchItem

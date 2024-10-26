@@ -6,7 +6,7 @@ import { NavLink } from './nav-link';
 import { mdxComponents } from '../mdx';
 
 export const NavLinks = () => {
-  const linksDoc = allDocs.find(doc => doc._raw.flattenedPath === navLinksName);
+  const linksDoc = allDocs.find(doc => doc._meta.path === navLinksName);
   if (linksDoc)
     return (
       <MDXContent

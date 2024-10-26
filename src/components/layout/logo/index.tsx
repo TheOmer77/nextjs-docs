@@ -10,7 +10,7 @@ export const Logo = ({
   className,
   ...props
 }: ComponentPropsWithoutRef<'header'>) => {
-  const logoDoc = allDocs.find(doc => doc._raw.flattenedPath === navLogoName);
+  const logoDoc = allDocs.find(doc => doc._meta.path === navLogoName);
 
   return (
     <header

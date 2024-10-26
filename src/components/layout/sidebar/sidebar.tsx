@@ -51,13 +51,9 @@ const ListCategories = () => {
           {docsByCategory[category as keyof typeof docsByCategory]?.map(doc => {
             const children = allDocs
               .filter(childDoc =>
-                childDoc._raw.flattenedPath.startsWith(
-                  `${doc._raw.flattenedPath}/`
-                )
+                childDoc._meta.path.startsWith(`${doc._meta.path}/`)
               )
-              .sort((a, b) =>
-                a._raw.flattenedPath > b._raw.flattenedPath ? 1 : -1
-              );
+              .sort((a, b) => (a._meta.path > b._meta.path ? 1 : -1));
             const isActive = doc.url === pathname,
               isChildActive = children.some(
                 childDoc => childDoc.url === pathname
@@ -100,11 +96,9 @@ export const Sidebar = () => {
   const handleOpenChange = (open: boolean) => !open && closeModal();
 
   const currentDoc = allDocs
-      .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
+      .filter(doc => !specialFileNames.includes(doc._meta.path))
       .find(doc => doc.url === pathname),
-    notFoundDoc = allDocs.find(
-      doc => doc._raw.flattenedPath === notFoundPageName
-    );
+    notFoundDoc = allDocs.find(doc => doc._meta.path === notFoundPageName);
 
   return (
     <>
