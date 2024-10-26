@@ -20,19 +20,13 @@ const doc = defineCollection({
     includeInSidebar: z.boolean().default(true),
   }),
   transform: async (doc, ctx) => {
-    const filenameParts = doc._meta.fileName
-      .split('.')
-      .slice(0, -1)
-      .join('.')
-      .split('-');
-    const url = `/${
-      isNaN(Number(filenameParts[0]))
-        ? doc._meta.path
-        : [
-            ...doc._meta.path.split('/').slice(0, -1),
-            filenameParts.slice(1).join('-'),
-          ].join('/')
-    }`;
+    const slugs = doc._meta.path.split('/');
+    const url = `/${slugs
+      .map(slug => {
+        const parts = slug.split('-');
+        return (isNaN(Number(parts[0])) ? parts : parts.slice(1)).join('-');
+      })
+      .join('/')}`;
 
     const code = await compileMDX(ctx, doc, {
       remarkPlugins: [remarkGfm],
