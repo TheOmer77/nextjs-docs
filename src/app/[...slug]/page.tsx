@@ -6,24 +6,26 @@ import { allDocs, specialFileNames } from '@/constants/contentlayer';
 export const generateStaticParams = async () =>
   allDocs.map(doc => ({ slug: doc._raw.flattenedPath.split('/') }));
 
-export const generateMetadata = ({
+export const generateMetadata = async ({
   params,
 }: {
-  params: { slug: string[] };
+  params: Promise<{ slug: string[] }>;
 }) => {
+  const slug = (await params).slug;
   const doc = allDocs
     .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
-    .find(doc => doc.url === `/${params.slug.join('/')}`);
+    .find(doc => doc.url === `/${slug.join('/')}`);
   return { title: doc?.title };
 };
 
-const DocLayout = ({ params }: { params: { slug: string[] } }) => {
+const DocPage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
+  const slug = (await params).slug;
   const doc = allDocs
     .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
-    .find(doc => doc.url === `/${params.slug.join('/')}`);
+    .find(doc => doc.url === `/${slug.join('/')}`);
   if (!doc) return notFound();
 
   return <Mdx doc={doc} />;
 };
 
-export default DocLayout;
+export default DocPage;
