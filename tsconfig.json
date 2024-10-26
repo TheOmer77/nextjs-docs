@@ -15,7 +15,7 @@
     "noUncheckedIndexedAccess": true,
     "paths": {
       "@/*": ["./*"],
-      "contentlayer/generated": ["../.contentlayer/generated"]
+      "contentlayer/generated": ["../.content-collections/generated"]
     },
     "plugins": [{ "name": "next" }],
     "resolveJsonModule": true,
@@ -27,7 +27,7 @@
   "include": [
     "src",
     "next-env.d.ts",
-    ".contentlayer/generated",
+    ".content-collections/generated",
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
