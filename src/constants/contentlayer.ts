@@ -1,5 +1,5 @@
-import { allDocs } from 'contentlayer/generated';
-export { allDocs, config } from 'contentlayer/generated';
+import { allDocs, allConfigs } from 'contentlayer/generated';
+export { allDocs } from 'contentlayer/generated';
 
 export const notFoundPageName = '_not-found';
 export const navLogoName = '_nav-logo';
@@ -42,3 +42,7 @@ export const sidebarDocs = [
     .filter(doc => isNaN(Number(doc._raw.sourceFileName.split('-')[0])))
     .sort((a, b) => (a.url > b.url ? 1 : a.url < b.url ? -1 : 0)),
 ];
+
+// Workaround: content Collections doesn't support singletons
+if (!allConfigs[0]) throw new Error('Site config (config.json) is missing!');
+export const config = allConfigs[0];
