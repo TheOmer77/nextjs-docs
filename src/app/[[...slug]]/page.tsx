@@ -11,12 +11,11 @@ export const generateMetadata = async ({
 }: {
   params: Promise<{ slug: string[] }>;
 }) => {
-  const slug = (await params).slug;
-  const doc = slug
-    ? allDocs
-        .filter(doc => !specialFileNames.includes(doc._meta.path))
-        .find(doc => doc.url === `/${slug.join('/')}`)
-    : allDocs.find(doc => doc.url === '/index');
+  const slug = (await params).slug || [];
+  const doc = allDocs
+    .filter(doc => !specialFileNames.includes(doc._meta.path))
+    .find(doc => doc.url === `/${slug.join('/')}`);
+
   return {
     title: doc?.title
       ? config.titleTemplate.replace('%s', doc.title)
@@ -25,12 +24,10 @@ export const generateMetadata = async ({
 };
 
 const DocPage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
-  const slug = (await params).slug;
-  const doc = slug
-    ? allDocs
-        .filter(doc => !specialFileNames.includes(doc._meta.path))
-        .find(doc => doc.url === `/${slug.join('/')}`)
-    : allDocs.find(doc => doc.url === '/index');
+  const slug = (await params).slug || [];
+  const doc = allDocs
+    .filter(doc => !specialFileNames.includes(doc._meta.path))
+    .find(doc => doc.url === `/${slug.join('/')}`);
   if (!doc) return notFound();
 
   return <MDX doc={doc} />;

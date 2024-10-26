@@ -1,16 +1,10 @@
 import { allConfigs, allDocs } from 'content-collections';
 export { allDocs } from 'content-collections';
 
-export const homePageName = 'index';
 export const notFoundPageName = '_not-found';
 export const navLogoName = '_nav-logo';
 export const navLinksName = '_nav-links';
-export const specialFileNames = [
-  homePageName,
-  notFoundPageName,
-  navLogoName,
-  navLinksName,
-];
+export const specialFileNames = [notFoundPageName, navLogoName, navLinksName];
 
 const filteredDocs = allDocs.filter(doc => {
   if (
