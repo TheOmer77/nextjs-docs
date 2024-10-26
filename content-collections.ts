@@ -33,19 +33,7 @@ const doc = defineCollection({
       rehypePlugins: [[rehypePrism, { ignoreMissing: true }]],
     });
 
-    return {
-      ...doc,
-      _id: doc._meta.filePath,
-      _raw: {
-        sourceFilePath: doc._meta.filePath,
-        sourceFileName: doc._meta.fileName,
-        sourceFileDir: doc._meta.directory,
-        flattenedPath: doc._meta.path,
-        contentType: 'mdx',
-      },
-      url,
-      body: { code },
-    };
+    return { ...doc, _id: doc._meta.filePath, url, body: { code } };
   },
 });
 
