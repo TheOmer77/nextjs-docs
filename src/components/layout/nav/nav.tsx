@@ -5,7 +5,7 @@ import { MenuIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/layout/logo';
-// import { Search } from '@/components/layout/search';
+import { Search } from '@/components/layout/search';
 import { useModal } from '@/hooks/use-modal';
 
 import { NavLinks } from './nav-links';
@@ -31,8 +31,7 @@ const NavContent = () => {
         className='invisible absolute size-0 md:visible md:relative md:h-16'
       />
       <div className='flex h-full grow flex-row items-center justify-end gap-2 bg-background px-4'>
-        {/* TODO: Add search back */}
-        {/* <Search /> */}
+        <Search />
         <NavLinks />
       </div>
     </nav>

@@ -1,14 +1,14 @@
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
-  type ElementRef,
+  type ComponentRef,
+  forwardRef,
 } from 'react';
 import { CommandGroup as Group } from 'cmdk';
 
 import { cn } from '@/lib/cn';
 
 export const SearchGroup = forwardRef<
-  ElementRef<typeof Group>,
+  ComponentRef<typeof Group>,
   ComponentPropsWithoutRef<typeof Group>
 >(({ className, ...props }, ref) => (
   <Group

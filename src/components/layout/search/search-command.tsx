@@ -1,7 +1,7 @@
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
-  type ElementRef,
+  type ComponentRef,
+  forwardRef,
 } from 'react';
 import { CommandEmpty, CommandInput, CommandList, CommandRoot } from 'cmdk';
 import { SearchIcon } from 'lucide-react';
@@ -9,7 +9,7 @@ import { SearchIcon } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 export const SearchCommand = forwardRef<
-  ElementRef<typeof CommandRoot>,
+  ComponentRef<typeof CommandRoot>,
   ComponentPropsWithoutRef<typeof CommandRoot>
 >(({ children, ...props }, ref) => (
   <CommandRoot

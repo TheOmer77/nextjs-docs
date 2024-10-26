@@ -1,7 +1,7 @@
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
-  type ElementRef,
+  type ComponentRef,
+  forwardRef,
 } from 'react';
 import { CommandItem } from 'cmdk';
 
@@ -13,7 +13,7 @@ export type SearchItemProps = ComponentPropsWithoutRef<typeof CommandItem> & {
 };
 
 export const SearchItem = forwardRef<
-  ElementRef<typeof CommandItem>,
+  ComponentRef<typeof CommandItem>,
   SearchItemProps
 >(({ doc, parentDoc, ...props }, ref) => (
   <CommandItem
