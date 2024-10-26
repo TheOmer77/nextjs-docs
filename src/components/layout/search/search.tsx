@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 
 import { useModal } from '@/hooks/use-modal';
 import { allDocs, config, sidebarDocs } from '@/constants/docs';
-import type { Doc } from '@/types';
+import type { Doc } from '@/types/docs';
 
 import { SearchButton } from './search-button';
 import SearchDialog from './search-dialog';

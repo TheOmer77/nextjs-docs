@@ -13,7 +13,7 @@ import {
   sidebarDocs,
   specialFileNames,
 } from '@/constants/docs';
-import type { Doc } from '@/types';
+import type { Doc } from '@/types/docs';
 
 import { SidebarItem } from './sidebar-item';
 import { Logo } from '../logo';

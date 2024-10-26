@@ -5,7 +5,7 @@ import { MDXContent } from '@content-collections/mdx/react';
 import { ErrorLayout } from '@/components/layout/error';
 import { HomeLayout } from '@/components/layout/home';
 import { cn } from '@/lib/cn';
-import type { Doc } from '@/types';
+import type { Doc } from '@/types/docs';
 
 import { Alert } from './alert';
 import { MdxBlockquote } from './mdx-blockquote';

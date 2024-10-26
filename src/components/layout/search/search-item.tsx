@@ -5,7 +5,7 @@ import {
 } from 'react';
 import { CommandItem } from 'cmdk';
 
-import type { Doc } from '@/types';
+import type { Doc } from '@/types/docs';
 
 export type SearchItemProps = ComponentPropsWithoutRef<typeof CommandItem> & {
   doc: Doc;

@@ -6,7 +6,7 @@ import { ChevronRightIcon } from 'lucide-react';
 import { ListItem, ListItemIcon, ListItemText } from '@/components/ui/list';
 import { cn } from '@/lib/cn';
 import { allDocs } from '@/constants/docs';
-import type { Doc } from '@/types';
+import type { Doc } from '@/types/docs';
 
 import { SidebarLink } from './sidebar-link';
 
