@@ -1,6 +1,6 @@
 # Next.js Docs thing
 
-This is a simple docs site powered by [Next.js](https://nextjs.org/) and [ContentLayer](https://www.contentlayer.dev/).
+This is a simple docs site powered by [Next.js](https://nextjs.org/) and [Content Collections](https://www.content-collections.dev/).
 
 ## Getting Started
 
