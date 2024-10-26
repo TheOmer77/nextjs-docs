@@ -1,6 +1,6 @@
 import { ErrorLayout } from '@/components/layout/error';
 import { MDX } from '@/components/layout/mdx';
-import { allDocs, config, notFoundPageName } from '@/constants/contentlayer';
+import { allDocs, config, notFoundPageName } from '@/constants/docs';
 
 export const generateMetadata = () => {
   const doc = allDocs.find(doc => doc._raw.flattenedPath === notFoundPageName);

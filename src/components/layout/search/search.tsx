@@ -2,7 +2,7 @@ import { Fragment, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { useModal } from '@/hooks/use-modal';
-import { allDocs, config, sidebarDocs } from '@/constants/contentlayer';
+import { allDocs, config, sidebarDocs } from '@/constants/docs';
 import type { Doc } from '@/types';
 
 import { SearchButton } from './search-button';

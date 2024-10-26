@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react';
 import { MDXContent } from '@content-collections/mdx/react';
 
 import { cn } from '@/lib/cn';
-import { allDocs, config, navLogoName } from '@/constants/contentlayer';
+import { allDocs, config, navLogoName } from '@/constants/docs';
 
 import { SidebarLink } from '../sidebar/sidebar-link';
 

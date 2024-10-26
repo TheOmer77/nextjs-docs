@@ -12,7 +12,7 @@ import {
   notFoundPageName,
   sidebarDocs,
   specialFileNames,
-} from '@/constants/contentlayer';
+} from '@/constants/docs';
 import type { Doc } from '@/types';
 
 import { SidebarItem } from './sidebar-item';

@@ -1,6 +1,6 @@
 import { MDXContent } from '@content-collections/mdx/react';
 
-import { allDocs, navLinksName } from '@/constants/contentlayer';
+import { allDocs, navLinksName } from '@/constants/docs';
 
 import { NavLink } from './nav-link';
 import { mdxComponents } from '../mdx';

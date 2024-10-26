@@ -4,11 +4,7 @@ import { type PropsWithChildren, Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/cn';
-import {
-  allDocs,
-  notFoundPageName,
-  specialFileNames,
-} from '@/constants/contentlayer';
+import { allDocs, notFoundPageName, specialFileNames } from '@/constants/docs';
 
 import { Nav } from './nav';
 import { Sidebar } from './sidebar';
