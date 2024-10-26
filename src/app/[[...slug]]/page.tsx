@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 
 import { MDX } from '@/components/layout/mdx';
-import { allDocs, config, specialFileNames } from '@/constants/docs';
+import { allDocs, specialFileNames } from '@/constants/docs';
 
 export const generateStaticParams = async () =>
   allDocs.map(doc => ({ slug: doc._meta.path.split('/') }));
@@ -16,11 +16,8 @@ export const generateMetadata = async ({
     .filter(doc => !specialFileNames.includes(doc._meta.path))
     .find(doc => doc.url === `/${slug.join('/')}`);
 
-  return {
-    title: doc?.title
-      ? config.titleTemplate.replace('%s', doc.title)
-      : config.title,
-  };
+  if (!doc?.title) return {};
+  return { title: doc.title };
 };
 
 const DocPage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
