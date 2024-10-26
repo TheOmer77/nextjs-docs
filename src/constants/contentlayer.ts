@@ -1,5 +1,5 @@
-import { allConfigs, allDocs } from 'contentlayer/generated';
-export { allDocs } from 'contentlayer/generated';
+import { allConfigs, allDocs } from 'content-collections';
+export { allDocs } from 'content-collections';
 
 export const homePageName = 'index';
 export const notFoundPageName = '_not-found';

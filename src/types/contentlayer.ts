@@ -1,1 +1,1 @@
-export type { Config, Doc } from 'contentlayer/generated';
+export type { Config, Doc } from 'content-collections';
