@@ -34,15 +34,18 @@ export const sidebarDocs = [
       const aFilenameNum = Number(a._raw.sourceFileName.split('-')[0]),
         bFilenameNum = Number(b._raw.sourceFileName.split('-')[0]);
 
-      return aFilenameNum > bFilenameNum
-        ? 1
-        : aFilenameNum < bFilenameNum
-          ? -1
-          : a.url > b.url
-            ? 1
-            : a.url < b.url
-              ? -1
-              : 0;
+      switch (true) {
+        case aFilenameNum > bFilenameNum:
+          return 1;
+        case aFilenameNum < bFilenameNum:
+          return -1;
+        case a.url > b.url:
+          return 1;
+        case a.url < b.url:
+          return -1;
+        default:
+          return 0;
+      }
     }),
   ...filteredDocs
     .filter(doc => isNaN(Number(doc._raw.sourceFileName.split('-')[0])))
