@@ -1,7 +1,7 @@
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
 } from 'react';
 import { CommandEmpty, CommandInput, CommandList, CommandRoot } from 'cmdk';
 import { SearchIcon } from 'lucide-react';

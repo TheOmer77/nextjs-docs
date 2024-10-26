@@ -5,12 +5,11 @@ import { MDXContent } from '@content-collections/mdx/react';
 import { ErrorLayout } from '@/components/layout/error';
 import { HomeLayout } from '@/components/layout/home';
 import { cn } from '@/lib/cn';
+import type { Doc } from '@/types';
 
 import { Alert } from './alert';
 import { MdxBlockquote } from './mdx-blockquote';
 import { MdxLink } from './mdx-link';
-
-import type { Doc } from '@/types';
 
 export const mdxComponents = {
   a: MdxLink,

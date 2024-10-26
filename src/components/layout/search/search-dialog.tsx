@@ -3,8 +3,8 @@ import {
   DialogContent,
   DialogOverlay,
   DialogPortal,
-  DialogTitle,
   type DialogProps,
+  DialogTitle,
 } from '@radix-ui/react-dialog';
 
 import { SearchCommand } from './search-command';

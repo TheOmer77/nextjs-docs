@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, type PropsWithChildren } from 'react';
+import { type PropsWithChildren, Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/cn';

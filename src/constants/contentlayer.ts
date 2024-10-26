@@ -1,4 +1,4 @@
-import { allDocs, allConfigs } from 'contentlayer/generated';
+import { allConfigs, allDocs } from 'contentlayer/generated';
 export { allDocs } from 'contentlayer/generated';
 
 export const homePageName = 'index';

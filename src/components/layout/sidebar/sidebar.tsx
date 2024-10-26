@@ -13,11 +13,10 @@ import {
   sidebarDocs,
   specialFileNames,
 } from '@/constants/contentlayer';
+import type { Doc } from '@/types';
 
 import { SidebarItem } from './sidebar-item';
 import { Logo } from '../logo';
-
-import type { Doc } from '@/types';
 
 const uncategorizedDocs = sidebarDocs.filter(
     doc =>

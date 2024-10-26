@@ -3,13 +3,12 @@ import { useRouter } from 'next/navigation';
 
 import { useModal } from '@/hooks/use-modal';
 import { allDocs, config, sidebarDocs } from '@/constants/contentlayer';
+import type { Doc } from '@/types';
 
 import { SearchButton } from './search-button';
 import SearchDialog from './search-dialog';
 import { SearchGroup } from './search-group';
 import { SearchItem } from './search-item';
-
-import type { Doc } from '@/types';
 
 const uncategorizedDocs = sidebarDocs.filter(
     doc =>

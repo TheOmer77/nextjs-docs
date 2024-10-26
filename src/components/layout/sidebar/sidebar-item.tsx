@@ -6,10 +6,9 @@ import { ChevronRightIcon } from 'lucide-react';
 import { ListItem, ListItemIcon, ListItemText } from '@/components/ui/list';
 import { cn } from '@/lib/cn';
 import { allDocs } from '@/constants/contentlayer';
+import type { Doc } from '@/types';
 
 import { SidebarLink } from './sidebar-link';
-
-import type { Doc } from '@/types';
 
 type SidebarItemProps = {
   doc: Doc;
