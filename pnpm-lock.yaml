@@ -51,12 +51,6 @@ importers:
       react-dom:
         specifier: 19.0.0-rc-69d4b800-20241021
         version: 19.0.0-rc-69d4b800-20241021(react@19.0.0-rc-69d4b800-20241021)
-      rehype-prism-plus:
-        specifier: ^2.0.0
-        version: 2.0.0
-      remark-gfm:
-        specifier: ^4.0.0
-        version: 4.0.0
       tailwind-merge:
         specifier: ^2.5.4
         version: 2.5.4
@@ -136,6 +130,12 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
+      rehype-prism-plus:
+        specifier: ^2.0.0
+        version: 2.0.0
+      remark-gfm:
+        specifier: ^4.0.0
+        version: 4.0.0
       tailwindcss:
         specifier: ^3.4.14
         version: 3.4.14
