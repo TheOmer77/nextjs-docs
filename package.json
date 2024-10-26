@@ -32,6 +32,9 @@
     "vaul": "^1.1.0"
   },
   "devDependencies": {
+    "@content-collections/core": "^0.7.2",
+    "@content-collections/mdx": "^0.2.0",
+    "@content-collections/next": "^0.2.3",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.13.0",
     "@tailwindcss/typography": "^0.5.15",
