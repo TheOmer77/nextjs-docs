@@ -1,6 +1,5 @@
+import { defineCollection, defineConfig } from '@content-collections/core';
 import { compileMDX } from '@content-collections/mdx';
-import { defineCollection } from '@content-collections/core';
-import { defineConfig } from '@content-collections/core';
 import rehypePrism from 'rehype-prism-plus';
 import remarkGfm from 'remark-gfm';
 
