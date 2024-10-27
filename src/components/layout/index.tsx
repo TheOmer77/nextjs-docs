@@ -1,6 +1,6 @@
 'use client';
 
-import { type PropsWithChildren, Suspense } from 'react';
+import type { PropsWithChildren } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/cn';
@@ -20,9 +20,7 @@ const Layout = ({ children }: PropsWithChildren) => {
   return (
     <>
       <Sidebar />
-      <Suspense>
-        <Nav />
-      </Suspense>
+      <Nav />
 
       <main
         className={cn(
