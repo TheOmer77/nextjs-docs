@@ -36,7 +36,7 @@ Alternatively, you can use the `<Alert>` component:
 </Alert>
 ```
 
-#### Examples
+### Examples
 
 > [!INFO]
 > This is an alert with some info.
@@ -61,7 +61,7 @@ The home & 404 error pages use special layout components by default, however the
 ```jsx
 <HomeLayout
   title='Next.js Docs Template'
-  tagline='A simple docs site powered by Next.js and ContentLayer.'
+  tagline='A simple docs site powered by Next.js and Content Collections.'
   actions={[
     { text: 'Get started', url: '/docs/basic-usage', primary: true },
     { text: 'Sample pages', url: '/sample/markdown-test' },

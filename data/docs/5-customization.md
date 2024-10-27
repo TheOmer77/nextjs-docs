@@ -8,7 +8,7 @@ category: usage
 The `config.json` file in the `data/` directory defines various site-wide properties. In addition to [categories](/docs/categories), the following properties can be defined:
 
 - `title` - Site title, appearing by default as the home page's `<title>`, as well as in the Nav's header.
-- `titleTemplate` - Template for the `<title>` of pages other than the home page.
+- `titleTemplate` - Template for the `<title>` of pages.
 
 ## Special pages
 

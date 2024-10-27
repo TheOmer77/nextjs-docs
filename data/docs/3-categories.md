@@ -11,7 +11,7 @@ Each page can be assigned a category - this is done by setting the `category` fi
 
 For example, if a page is configured as follows:
 
-```markdown
+```md
 ---
 title: Very cool page
 category: category
