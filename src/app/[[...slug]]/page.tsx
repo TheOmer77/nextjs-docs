@@ -4,7 +4,7 @@ import { MDX } from '@/components/layout/mdx';
 import { allDocs, specialFileNames } from '@/constants/docs';
 
 export const generateStaticParams = async () =>
-  allDocs.map(doc => ({ slug: doc._meta.path.split('/') }));
+  allDocs.map(doc => ({ slug: doc.url.split('/').slice(1) }));
 
 export const generateMetadata = async ({
   params,
