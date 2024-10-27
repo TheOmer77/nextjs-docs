@@ -19,8 +19,8 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   return (
     <>
+      <Sidebar />
       <Suspense>
-        <Sidebar />
         <Nav />
       </Suspense>
 

@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { Collapsible } from '@/components/ui/collapsible';
@@ -89,11 +89,31 @@ const ListCategories = () => {
   });
 };
 
+const SidebarDrawer = () => {
+  const { currentModal, closeModal } = useModal();
+  const handleOpenChange = (open: boolean) => !open && closeModal();
+
+  return (
+    <Drawer
+      open={currentModal === 'nav-drawer'}
+      onOpenChange={handleOpenChange}
+      direction='left'
+    >
+      <DrawerContent aria-describedby={undefined}>
+        <DrawerTitle className='sr-only'>Navigation drawer</DrawerTitle>
+        <Logo />
+        <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
+          <List className='px-2 pb-2'>
+            <ListCategories />
+          </List>
+        </ScrollArea>
+      </DrawerContent>
+    </Drawer>
+  );
+};
+
 export const Sidebar = () => {
   const pathname = usePathname();
-  const { currentModal, closeModal } = useModal();
-
-  const handleOpenChange = (open: boolean) => !open && closeModal();
 
   const currentDoc = allDocs
       .filter(doc => !specialFileNames.includes(doc._meta.path))
@@ -111,21 +131,9 @@ export const Sidebar = () => {
           </ScrollArea>
         </aside>
       )}
-      <Drawer
-        open={currentModal === 'nav-drawer'}
-        onOpenChange={handleOpenChange}
-        direction='left'
-      >
-        <DrawerContent aria-describedby={undefined}>
-          <DrawerTitle className='sr-only'>Navigation drawer</DrawerTitle>
-          <Logo />
-          <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
-            <List className='px-2 pb-2'>
-              <ListCategories />
-            </List>
-          </ScrollArea>
-        </DrawerContent>
-      </Drawer>
+      <Suspense>
+        <SidebarDrawer />
+      </Suspense>
     </>
   );
 };
