@@ -14,7 +14,7 @@ const cssVars = createCssVariablesTheme({
 });
 const highlighter = await createHighlighter({
   themes: [cssVars],
-  langs: ['html', 'js', 'json', 'jsx', 'md', 'mdx', 'ts', 'tsx', 'yaml'],
+  langs: ['html', 'js', 'json', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 });
 
 const doc = defineCollection({
