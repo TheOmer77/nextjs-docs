@@ -1,4 +1,5 @@
 import typography from '@tailwindcss/typography';
+import type { Config } from 'tailwindcss';
 
 // importing '@/config/tailwind' doesn't work here
 import {
@@ -6,8 +7,6 @@ import {
   autofillOverride,
   stateLayer,
 } from './src/config/tailwind';
-
-import type { Config } from 'tailwindcss';
 
 const shades = [50, ...[...Array(9).keys()].map(key => (key + 1) * 100), 950];
 
