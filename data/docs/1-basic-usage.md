@@ -17,7 +17,7 @@ Each page has some frontmatter metadata at the top, which includes information a
 
 ### Example page metadata
 
-```yaml
+```md
 ---
 title: My Page Title
 category: category1
