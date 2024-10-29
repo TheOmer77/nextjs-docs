@@ -1,9 +1,9 @@
 import {
   Children,
-  isValidElement,
   type ComponentPropsWithoutRef,
-  type ReactElement,
+  isValidElement,
   type PropsWithChildren,
+  type ReactElement,
 } from 'react';
 
 import { Alert } from './alert';

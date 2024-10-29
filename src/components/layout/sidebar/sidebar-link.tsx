@@ -1,14 +1,15 @@
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
   type MouseEventHandler,
+  Suspense,
 } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { useModal } from '@/hooks/use-modal';
 
-export const SidebarLink = forwardRef<
+const SidebarLinkContent = forwardRef<
   ElementRef<'a'>,
   ComponentPropsWithoutRef<'a'>
 >(({ href, children, ...props }, ref) => {
@@ -34,4 +35,22 @@ export const SidebarLink = forwardRef<
     </a>
   );
 });
+SidebarLinkContent.displayName = 'SidebarLinkContent';
+
+export const SidebarLink = forwardRef<
+  ElementRef<'a'>,
+  ComponentPropsWithoutRef<'a'>
+>(({ href, children, ...props }, ref) => (
+  <Suspense
+    fallback={
+      <a {...props} ref={ref} href={href}>
+        {children}
+      </a>
+    }
+  >
+    <SidebarLinkContent {...props} ref={ref} href={href}>
+      {children}
+    </SidebarLinkContent>
+  </Suspense>
+));
 SidebarLink.displayName = 'SidebarLink';

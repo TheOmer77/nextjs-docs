@@ -21,4 +21,4 @@ nested
 
 ## Nesting & categories
 
-Nested pages are always displayed under their parent in the sidebar. As such, it's not necessary to give them a category, and they are treated as if they have the same category as their parent.
+Nested pages are always displayed under their parent in the sidebar. As such, it's not necessary to give them a category, and they are treated as if they have the same category as their parent index page.

@@ -2,9 +2,9 @@
 
 import {
   Children,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useRef,
-  type ComponentPropsWithoutRef,
 } from 'react';
 import { RovingFocusGroupItem } from '@radix-ui/react-roving-focus';
 import { Slot } from '@radix-ui/react-slot';
@@ -13,9 +13,9 @@ import { cn } from '@/lib/cn';
 
 import {
   LIST_ITEM_NAME,
+  type ScopedProps,
   useListContext,
   useRovingFocusGroupScope,
-  type ScopedProps,
 } from './common';
 
 export type ListItemProps = ScopedProps<ComponentPropsWithoutRef<'button'>> & {
@@ -36,7 +36,7 @@ export const ListItem = forwardRef<HTMLButtonElement, ListItemProps>(
         ref={ref}
         disabled={disabled}
         className={cn(
-          'flex min-h-12 w-full select-none items-center rounded-lg px-4 py-2 text-start text-base outline-none transition-[background-color] duration-100 state-layer focus-visible:outline-none focus-visible:state-layer-muted/30 active:bg-muted/30 active:duration-0 disabled:text-muted data-[state=open]:bg-muted/30 md:min-h-10 md:text-sm [&:not(:disabled)]:hover:state-layer-muted/30 [&>*]:z-10',
+          'flex min-h-12 w-full select-none items-center rounded-lg px-4 py-2 text-start text-base outline-none transition-[background-color] duration-100 state-layer focus-visible:outline-none focus-visible:state-layer-muted/30 active:bg-muted/30 active:duration-0 disabled:text-muted aria-[current=page]:bg-muted/30 data-[state=open]:bg-muted/30 md:min-h-10 md:text-sm [&:not(:disabled)]:hover:state-layer-muted/30 [&>*]:z-10',
           className
         )}
       >

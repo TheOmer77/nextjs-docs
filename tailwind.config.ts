@@ -1,4 +1,5 @@
 import typography from '@tailwindcss/typography';
+import type { Config } from 'tailwindcss';
 
 // importing '@/config/tailwind' doesn't work here
 import {
@@ -6,8 +7,6 @@ import {
   autofillOverride,
   stateLayer,
 } from './src/config/tailwind';
-
-import type { Config } from 'tailwindcss';
 
 const shades = [50, ...[...Array(9).keys()].map(key => (key + 1) * 100), 950];
 
@@ -54,8 +53,8 @@ const config = {
             '--tw-prose-quote-borders': 'rgb(var(--color-neutral-300))',
             '--tw-prose-captions': 'rgb(var(--color-neutral-600))',
             '--tw-prose-code': 'rgb(var(--color-neutral-900))',
-            '--tw-prose-pre-code': 'rgb(var(--color-neutral-100))',
-            '--tw-prose-pre-bg': 'rgb(var(--color-neutral-900))',
+            '--tw-prose-pre-code': 'rgb(var(--color-neutral-800))',
+            '--tw-prose-pre-bg': 'rgb(var(--color-neutral-50))',
             '--tw-prose-th-borders': 'rgb(var(--color-neutral-300))',
             '--tw-prose-td-borders': 'rgb(var(--color-neutral-200))',
             '--tw-prose-invert-body': 'rgb(var(--color-neutral-200))',
@@ -70,7 +69,7 @@ const config = {
             '--tw-prose-invert-quote-borders': 'rgb(var(--color-neutral-700))',
             '--tw-prose-invert-captions': 'rgb(var(--color-neutral-400))',
             '--tw-prose-invert-code': 'rgb(var(--color-neutral-50))',
-            '--tw-prose-invert-pre-code': 'rgb(var(--color-neutral-300))',
+            '--tw-prose-invert-pre-code': 'rgb(var(--color-neutral-200))',
             '--tw-prose-invert-pre-bg': 'rgb(var(--color-neutral-900))',
             '--tw-prose-invert-th-borders': 'rgb(var(--color-neutral-600))',
             '--tw-prose-invert-td-borders': 'rgb(var(--color-neutral-700))',

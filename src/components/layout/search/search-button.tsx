@@ -7,7 +7,8 @@ import { SearchBoxButton } from './search-box-button';
 
 export const SearchButton = ({
   onClick,
-}: Pick<ComponentPropsWithoutRef<'button'>, 'onClick'>) => (
+  disabled,
+}: Pick<ComponentPropsWithoutRef<'button'>, 'onClick' | 'disabled'>) => (
   <>
     <Button
       variant='flat'
@@ -16,9 +17,14 @@ export const SearchButton = ({
       className='sm:hidden'
       aria-label='Search docs'
       onClick={onClick}
+      disabled={disabled}
     >
       <SearchIcon />
     </Button>
-    <SearchBoxButton onClick={onClick} className='hidden sm:flex' />
+    <SearchBoxButton
+      onClick={onClick}
+      disabled={disabled}
+      className='hidden sm:flex'
+    />
   </>
 );

@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { Collapsible } from '@/components/ui/collapsible';
@@ -12,12 +12,11 @@ import {
   notFoundPageName,
   sidebarDocs,
   specialFileNames,
-} from '@/constants/contentlayer';
+} from '@/constants/docs';
+import type { Doc } from '@/types/docs';
 
 import { SidebarItem } from './sidebar-item';
 import { Logo } from '../logo';
-
-import type { Doc } from '@/types';
 
 const uncategorizedDocs = sidebarDocs.filter(
     doc =>
@@ -52,13 +51,9 @@ const ListCategories = () => {
           {docsByCategory[category as keyof typeof docsByCategory]?.map(doc => {
             const children = allDocs
               .filter(childDoc =>
-                childDoc._raw.flattenedPath.startsWith(
-                  `${doc._raw.flattenedPath}/`
-                )
+                childDoc._meta.path.startsWith(`${doc._meta.path}/`)
               )
-              .sort((a, b) =>
-                a._raw.flattenedPath > b._raw.flattenedPath ? 1 : -1
-              );
+              .sort((a, b) => (a._meta.path > b._meta.path ? 1 : -1));
             const isActive = doc.url === pathname,
               isChildActive = children.some(
                 childDoc => childDoc.url === pathname
@@ -94,22 +89,40 @@ const ListCategories = () => {
   });
 };
 
-export const Sidebar = () => {
-  const pathname = usePathname();
+const SidebarDrawer = () => {
   const { currentModal, closeModal } = useModal();
-
   const handleOpenChange = (open: boolean) => !open && closeModal();
 
+  return (
+    <Drawer
+      open={currentModal === 'nav-drawer'}
+      onOpenChange={handleOpenChange}
+      direction='left'
+    >
+      <DrawerContent aria-describedby={undefined}>
+        <DrawerTitle className='sr-only'>Navigation drawer</DrawerTitle>
+        <Logo />
+        <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
+          <List className='px-2 pb-2'>
+            <ListCategories />
+          </List>
+        </ScrollArea>
+      </DrawerContent>
+    </Drawer>
+  );
+};
+
+export const Sidebar = () => {
+  const pathname = usePathname();
+
   const currentDoc = allDocs
-      .filter(doc => !specialFileNames.includes(doc._raw.flattenedPath))
+      .filter(doc => !specialFileNames.includes(doc._meta.path))
       .find(doc => doc.url === pathname),
-    notFoundDoc = allDocs.find(
-      doc => doc._raw.flattenedPath === notFoundPageName
-    );
+    notFoundDoc = allDocs.find(doc => doc._meta.path === notFoundPageName);
 
   return (
     <>
-      {(currentDoc || notFoundDoc)?.displaySidebar && (
+      {(currentDoc || notFoundDoc)?.showSidebar && (
         <aside className='fixed hidden h-screen w-80 select-none flex-col bg-card pt-16 after:absolute after:end-0 after:top-0 after:-z-10 after:h-inherit after:w-screen after:bg-inherit md:flex [&_[data-sidebar-subheader]]:bg-card'>
           <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
             <List className='px-2 pb-2'>
@@ -118,21 +131,9 @@ export const Sidebar = () => {
           </ScrollArea>
         </aside>
       )}
-      <Drawer
-        open={currentModal === 'nav-drawer'}
-        onOpenChange={handleOpenChange}
-        direction='left'
-      >
-        <DrawerContent aria-describedby={undefined}>
-          <DrawerTitle className='sr-only'>Navigation drawer</DrawerTitle>
-          <Logo />
-          <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
-            <List className='px-2 pb-2'>
-              <ListCategories />
-            </List>
-          </ScrollArea>
-        </DrawerContent>
-      </Drawer>
+      <Suspense>
+        <SidebarDrawer />
+      </Suspense>
     </>
   );
 };

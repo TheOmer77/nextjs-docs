@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/cn';
-import { config } from '@/constants/contentlayer';
+import { config } from '@/constants/docs';
 
 export type HomeLayoutProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
   /** Home page main title. */

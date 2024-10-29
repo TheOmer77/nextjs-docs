@@ -1,11 +1,10 @@
-import { forwardRef, type ComponentPropsWithoutRef } from 'react';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { Slot } from '@radix-ui/react-slot';
+import type { VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/cn';
 
 import { buttonVariants } from './variants';
-
-import type { VariantProps } from 'class-variance-authority';
 
 export type ButtonProps = ComponentPropsWithoutRef<'button'> &
   VariantProps<typeof buttonVariants> & {

@@ -1,8 +1,8 @@
 import type { ComponentPropsWithoutRef } from 'react';
-import { getMDXComponent } from 'next-contentlayer2/hooks';
+import { MDXContent } from '@content-collections/mdx/react';
 
 import { cn } from '@/lib/cn';
-import { allDocs, config, navLogoName } from '@/constants/contentlayer';
+import { allDocs, config, navLogoName } from '@/constants/docs';
 
 import { SidebarLink } from '../sidebar/sidebar-link';
 
@@ -10,8 +10,7 @@ export const Logo = ({
   className,
   ...props
 }: ComponentPropsWithoutRef<'header'>) => {
-  const logoDoc = allDocs.find(doc => doc._raw.flattenedPath === navLogoName),
-    LogoMdx = logoDoc && getMDXComponent(logoDoc.body.code);
+  const logoDoc = allDocs.find(doc => doc._meta.path === navLogoName);
 
   return (
     <header
@@ -19,8 +18,8 @@ export const Logo = ({
       className={cn(`flex h-16 flex-row items-center px-4 md:w-80`, className)}
     >
       <SidebarLink href='/'>
-        {LogoMdx ? (
-          <LogoMdx />
+        {logoDoc ? (
+          <MDXContent code={logoDoc.body.code} />
         ) : (
           <span className='text-2xl font-bold tracking-tight text-primary'>
             {config.title}

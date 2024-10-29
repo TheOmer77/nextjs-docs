@@ -5,11 +5,10 @@ import { ChevronRightIcon } from 'lucide-react';
 
 import { ListItem, ListItemIcon, ListItemText } from '@/components/ui/list';
 import { cn } from '@/lib/cn';
-import { allDocs } from '@/constants/contentlayer';
+import { allDocs } from '@/constants/docs';
+import type { Doc } from '@/types/docs';
 
 import { SidebarLink } from './sidebar-link';
-
-import type { Doc } from '@/types';
 
 type SidebarItemProps = {
   doc: Doc;
@@ -25,9 +24,9 @@ export const SidebarItem = ({
   const children = useMemo(
     () =>
       allDocs.filter(childDoc =>
-        childDoc._raw.flattenedPath.startsWith(`${doc._raw.flattenedPath}/`)
+        childDoc._meta.path.startsWith(`${doc._meta.path}/`)
       ),
-    [doc._raw.flattenedPath]
+    [doc._meta.path]
   );
 
   return (
