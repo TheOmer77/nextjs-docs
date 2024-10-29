@@ -25,17 +25,6 @@ Alerts are an extension of the blockquote syntax that you can use to emphasize c
 > This is the most dangerous alert you have ever seen. But not really.
 ```
 
-Alternatively, you can use the `<Alert>` component:
-
-```jsx
-<Alert type='info'>
-  This is an alert with some info.
-</Alert>
-<Alert type='danger'>
-  This is an alert with a warning or negative message.
-</Alert>
-```
-
 ### Examples
 
 > [!INFO]

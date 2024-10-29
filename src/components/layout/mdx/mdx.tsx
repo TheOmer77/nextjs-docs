@@ -7,14 +7,12 @@ import { HomeLayout } from '@/components/layout/home';
 import { cn } from '@/lib/cn';
 import type { Doc } from '@/types/docs';
 
-import { Alert } from './alert';
 import { MdxBlockquote } from './mdx-blockquote';
 import { MdxLink } from './mdx-link';
 
 export const mdxComponents = {
   a: MdxLink,
   blockquote: MdxBlockquote,
-  Alert,
 
   HomeLayout,
   ErrorLayout,

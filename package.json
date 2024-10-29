@@ -2,7 +2,7 @@
   "name": "nextjs-docs",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228",
+  "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee",
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
@@ -20,7 +20,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
-    "lucide-react": "^0.453.0",
+    "lucide-react": "^0.454.0",
     "next": "^15.0.1",
     "react": "19.0.0-rc-69d4b800-20241021",
     "react-dom": "19.0.0-rc-69d4b800-20241021",
@@ -33,9 +33,9 @@
     "@content-collections/next": "^0.2.3",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.13.0",
-    "@shikijs/rehype": "^1.22.1",
+    "@shikijs/rehype": "^1.22.2",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/node": "^22.8.0",
+    "@types/node": "^22.8.2",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "autoprefixer": "^10.4.20",
@@ -54,10 +54,10 @@
     "postcss-viewport-unit-fallback": "^1.0.1",
     "prettier": "^3.3.3",
     "remark-gfm": "^4.0.0",
-    "shiki": "^1.22.1",
+    "shiki": "^1.22.2",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3",
-    "typescript-eslint": "^8.11.0"
+    "typescript-eslint": "^8.12.1"
   },
   "pnpm": {
     "overrides": {
