@@ -6,7 +6,7 @@ import Layout from '@/components/layout';
 import { config } from '@/constants/docs';
 
 import '@/styles/index.css';
-import '@/styles/prism.css';
+import '@/styles/shiki.css';
 
 const font = Figtree({
   subsets: ['latin'],

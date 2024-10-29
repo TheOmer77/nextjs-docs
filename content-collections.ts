@@ -1,7 +1,21 @@
 import { defineCollection, defineConfig } from '@content-collections/core';
 import { compileMDX } from '@content-collections/mdx';
-import rehypePrism from 'rehype-prism-plus';
+import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
 import remarkGfm from 'remark-gfm';
+import { createHighlighter } from 'shiki';
+import { createCssVariablesTheme } from 'shiki/core';
+
+// Shiki stuff
+const cssVars = createCssVariablesTheme({
+  name: 'css-variables',
+  variablePrefix: '--shiki-',
+  variableDefaults: {},
+  fontStyle: true,
+});
+const highlighter = await createHighlighter({
+  themes: [cssVars],
+  langs: ['html', 'js', 'json', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+});
 
 const doc = defineCollection({
   name: 'Doc',
@@ -30,7 +44,9 @@ const doc = defineCollection({
 
     const code = await compileMDX(ctx, doc, {
       remarkPlugins: [remarkGfm],
-      rehypePlugins: [[rehypePrism, { ignoreMissing: true }]],
+      rehypePlugins: [
+        [rehypeShikiFromHighlighter, highlighter, { theme: cssVars.name }],
+      ],
     });
 
     return { ...doc, _id: doc._meta.filePath, url, body: { code } };
