@@ -1,4 +1,4 @@
-# Next.js Docs thing
+# Docs thing
 
 This is a simple docs site powered by [Next.js](https://nextjs.org/) and [Content Collections](https://www.content-collections.dev/).
 
