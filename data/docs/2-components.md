@@ -49,7 +49,7 @@ The home & 404 error pages use special layout components by default, however the
 
 ```jsx
 <HomeLayout
-  title='Next.js Docs Template'
+  title='Docs Thing'
   tagline='A simple docs site powered by Next.js and Content Collections.'
   actions={[
     { text: 'Get started', url: '/docs/basic-usage', primary: true },
