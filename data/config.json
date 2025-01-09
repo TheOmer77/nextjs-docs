@@ -1,6 +1,6 @@
 {
-  "title": "Docs Template",
-  "titleTemplate": "%s – Docs Template",
+  "title": "Docs Thing",
+  "titleTemplate": "%s – Docs Thing",
   "categories": {
     "usage": "Usage",
     "sample": "Sample pages"
