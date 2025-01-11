@@ -23,7 +23,7 @@ export type MDXProps = { doc: Doc };
 export const MDX = ({ doc }: MDXProps) => (
   <div
     className={cn(
-      `prose mx-auto max-w-[calc(100vw-2rem)] py-8 dark:prose-invert`,
+      `prose mx-auto max-w-[calc(100vw-2rem)] py-8 dark:prose-invert print:max-w-none`,
       doc.showSidebar && 'md:max-w-[calc(100vw-22rem)] lg:max-w-3xl'
     )}
   >

@@ -24,7 +24,7 @@ const Layout = ({ children }: PropsWithChildren) => {
 
       <main
         className={cn(
-          'grow px-4 pt-16',
+          'grow px-4 pt-16 print:p-0',
           (currentDoc || notFoundDoc)?.showSidebar && 'md:ps-[21rem]'
         )}
       >
