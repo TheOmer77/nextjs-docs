@@ -6,23 +6,22 @@ category: sample
 import { useState } from 'react';
 
 export const Counter = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
-return (
-
+  return (
     <div className='flex w-full flex-col items-center gap-2'>
-      <div className='flex size-20 select-none items-center justify-center rounded-lg bg-primary text-4xl font-bold text-primary-foreground'>
+      <div className='flex size-20 select-none items-center justify-center rounded-lg bg-primary text-4xl font-bold text-primary-foreground [print-color-adjust:exact]'>
         {count}
       </div>
       <button
         onClick={() => setCount(prev => prev + 1)}
-        className='inline-flex h-10 cursor-default items-center justify-center whitespace-nowrap rounded-md border border-input/40 bg-background px-4 text-sm font-medium shadow-sm shadow-neutral-950/10 ring-offset-background transition-[background-color,opacity] state-layer hover:state-layer-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:duration-0 active:state-layer-foreground/10 dark:bg-neutral-800 [&>*]:z-10'
+        className='inline-flex h-10 cursor-default items-center justify-center whitespace-nowrap rounded-md border border-input/40 bg-background px-4 text-sm font-medium shadow-sm shadow-neutral-950/10 ring-offset-background transition-[background-color,opacity] state-layer [print-color-adjust:exact] hover:state-layer-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:duration-0 active:state-layer-foreground/10 dark:bg-neutral-800 [&>*]:z-10'
       >
         Increment
       </button>
     </div>
-
-); };
+  );
+};
 
 <Counter />
 
@@ -36,12 +35,12 @@ const Counter = () => {
 
   return (
     <div className='flex w-full flex-col items-center gap-2'>
-      <div className='flex size-20 select-none items-center justify-center rounded-lg bg-primary text-4xl font-bold text-primary-foreground'>
+      <div className='flex size-20 select-none items-center justify-center rounded-lg bg-primary text-4xl font-bold text-primary-foreground [print-color-adjust:exact]'>
         {count}
       </div>
       <button
         onClick={() => setCount(prev => prev + 1)}
-        className='inline-flex h-10 cursor-default items-center justify-center whitespace-nowrap rounded-md border border-input/40 bg-background px-4 text-sm font-medium shadow-sm shadow-neutral-950/10 ring-offset-background transition-[background-color,opacity] state-layer hover:state-layer-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:duration-0 active:state-layer-foreground/10 dark:bg-neutral-800 [&>*]:z-10'
+        className='inline-flex h-10 cursor-default items-center justify-center whitespace-nowrap rounded-md border border-input/40 bg-background px-4 text-sm font-medium shadow-sm shadow-neutral-950/10 ring-offset-background transition-[background-color,opacity] state-layer [print-color-adjust:exact] hover:state-layer-foreground/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:duration-0 active:state-layer-foreground/10 dark:bg-neutral-800 [&>*]:z-10'
       >
         Increment
       </button>
