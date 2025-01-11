@@ -20,7 +20,7 @@ export const DrawerContent = forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        `fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto w-dvw max-w-screen-sm flex-col bg-popover pb-[env(safe-area-inset-bottom)] shadow shadow-neutral-900/50 focus-visible:outline-none data-[vaul-drawer-direction=bottom]:mx-auto data-[vaul-drawer-direction=top]:mx-auto data-[vaul-drawer-direction=left]:h-full data-[vaul-drawer-direction=right]:h-full data-[vaul-drawer-direction=left]:w-80 data-[vaul-drawer-direction=right]:w-80 data-[vaul-drawer-direction=bottom]:rounded-t-lg data-[vaul-drawer-direction=left]:rounded-r-lg data-[vaul-drawer-direction=right]:rounded-l-lg data-[vaul-drawer-direction=top]:rounded-b-lg [&>[data-drawer-handle]]:data-[vaul-drawer-direction=left]:hidden [&>[data-drawer-handle]]:data-[vaul-drawer-direction=right]:hidden`,
+        `fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto w-dvw max-w-screen-sm flex-col bg-popover pb-[env(safe-area-inset-bottom)] shadow shadow-neutral-900/50 focus-visible:outline-none data-[vaul-drawer-direction=bottom]:mx-auto data-[vaul-drawer-direction=top]:mx-auto data-[vaul-drawer-direction=left]:h-full data-[vaul-drawer-direction=right]:h-full data-[vaul-drawer-direction=left]:w-80 data-[vaul-drawer-direction=right]:w-80 data-[vaul-drawer-direction=bottom]:rounded-t-lg data-[vaul-drawer-direction=left]:rounded-r-lg data-[vaul-drawer-direction=right]:rounded-l-lg data-[vaul-drawer-direction=top]:rounded-b-lg print:hidden [&>[data-drawer-handle]]:data-[vaul-drawer-direction=left]:hidden [&>[data-drawer-handle]]:data-[vaul-drawer-direction=right]:hidden`,
         className
       )}
       {...props}
