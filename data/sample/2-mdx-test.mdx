@@ -6,10 +6,9 @@ category: sample
 import { useState } from 'react';
 
 export const Counter = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
-return (
-
+  return (
     <div className='flex w-full flex-col items-center gap-2'>
       <div className='flex size-20 select-none items-center justify-center rounded-lg bg-primary text-4xl font-bold text-primary-foreground'>
         {count}
@@ -21,8 +20,8 @@ return (
         Increment
       </button>
     </div>
-
-); };
+  );
+};
 
 <Counter />
 

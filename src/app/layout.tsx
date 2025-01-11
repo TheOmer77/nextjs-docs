@@ -29,7 +29,7 @@ const RootLayout = ({ children }: PropsWithChildren) => (
       <link rel='icon' type='image/x-icon' href='/favicon.png' />
     </head>
     <body>
-      <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden'>
+      <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden print:block'>
         <Layout>{children}</Layout>
       </div>
     </body>
