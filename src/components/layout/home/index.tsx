@@ -47,7 +47,7 @@ export const HomeLayout = ({
         <Button
           key={`home-action-${index}`}
           variant={primary ? 'primary' : 'default'}
-          className='h-12 cursor-pointer px-6 text-lg no-underline [print-color-adjust:exact]'
+          className='h-12 cursor-pointer px-6 text-lg no-underline'
           asChild
         >
           <Link href={url}>
