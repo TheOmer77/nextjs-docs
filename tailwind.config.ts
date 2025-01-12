@@ -78,10 +78,7 @@ const config = {
               fontWeight: 'inherit',
               padding: '0.125rem 0.25rem',
               borderRadius: '0.25rem',
-              backgroundColor: 'rgb(var(--color-neutral-100))',
-              '@media (prefers-color-scheme: dark)': {
-                backgroundColor: 'rgb(var(--color-neutral-800))',
-              },
+              backgroundColor: 'rgb(var(--color-accent))',
             },
             'code::before': { content: 'none' },
             'code::after': { content: 'none' },
