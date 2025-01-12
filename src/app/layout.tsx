@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react';
+import { ThemeProvider } from 'next-themes';
 import { Figtree, Fira_Code } from 'next/font/google';
 import { clsx } from 'clsx';
 
@@ -24,14 +25,20 @@ export const metadata = {
 };
 
 const RootLayout = ({ children }: PropsWithChildren) => (
-  <html lang='en' className={clsx(font.variable, fontMono.variable)}>
+  <html
+    lang='en'
+    className={clsx(font.variable, fontMono.variable)}
+    suppressHydrationWarning
+  >
     <head>
       <link rel='icon' type='image/x-icon' href='/favicon.png' />
     </head>
     <body>
-      <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden print:block'>
-        <Layout>{children}</Layout>
-      </div>
+      <ThemeProvider>
+        <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden print:block'>
+          <Layout>{children}</Layout>
+        </div>
+      </ThemeProvider>
     </body>
   </html>
 );
