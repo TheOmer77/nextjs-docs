@@ -8,6 +8,7 @@ import { SearchButton } from '@/components/layout/search/search-button';
 import { useModal } from '@/hooks/use-modal';
 
 import { NavLinks } from './nav-links';
+import { NavThemeMenu } from './nav-theme-menu';
 
 const NavDrawerButton = () => {
   const { openModal } = useModal();
@@ -40,6 +41,7 @@ export const Nav = () => (
         <Search />
       </Suspense>
       <NavLinks />
+      <NavThemeMenu />
     </div>
   </nav>
 );
