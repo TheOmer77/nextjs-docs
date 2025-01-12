@@ -6,7 +6,7 @@ import { allDocs, config, sidebarDocs } from '@/constants/docs';
 import type { Doc } from '@/types/docs';
 
 import { SearchButton } from './search-button';
-import SearchDialog from './search-dialog';
+import { SearchDialog } from './search-dialog';
 import { SearchGroup } from './search-group';
 import { SearchItem } from './search-item';
 

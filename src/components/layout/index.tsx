@@ -18,7 +18,7 @@ const Layout = ({ children }: PropsWithChildren) => {
     notFoundDoc = allDocs.find(doc => doc._meta.path === notFoundPageName);
 
   return (
-    <>
+    <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden print:block'>
       <Sidebar />
       <Nav />
 
@@ -30,7 +30,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       >
         {children}
       </main>
-    </>
+    </div>
   );
 };
 

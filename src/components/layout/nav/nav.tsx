@@ -8,6 +8,7 @@ import { SearchButton } from '@/components/layout/search/search-button';
 import { useModal } from '@/hooks/use-modal';
 
 import { NavLinks } from './nav-links';
+import { NavThemeMenu } from './nav-theme-menu';
 
 const NavDrawerButton = () => {
   const { openModal } = useModal();
@@ -16,7 +17,7 @@ const NavDrawerButton = () => {
       variant='flat'
       size='lg'
       icon
-      className='ms-4 md:hidden print:hidden'
+      className='ms-2 sm:ms-4 md:hidden print:hidden'
       aria-label='Open sidebar'
       onClick={() => openModal('nav-drawer')}
     >
@@ -35,11 +36,12 @@ export const Nav = () => (
       a different method for hiding on mobile */
       className='invisible absolute md:visible md:relative md:h-16 print:visible print:relative print:h-auto print:w-full print:p-0'
     />
-    <div className='flex h-full grow flex-row items-center justify-end gap-2 bg-background px-4 print:hidden'>
+    <div className='flex h-full grow flex-row items-center justify-end bg-background px-2 sm:px-4 print:hidden'>
       <Suspense fallback={<SearchButton disabled />}>
         <Search />
       </Suspense>
       <NavLinks />
+      <NavThemeMenu />
     </div>
   </nav>
 );
