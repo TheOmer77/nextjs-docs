@@ -35,9 +35,7 @@ const RootLayout = ({ children }: PropsWithChildren) => (
     </head>
     <body>
       <ThemeProvider>
-        <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden print:block'>
-          <Layout>{children}</Layout>
-        </div>
+        <Layout>{children}</Layout>
       </ThemeProvider>
     </body>
   </html>
