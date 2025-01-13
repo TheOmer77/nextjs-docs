@@ -8,9 +8,13 @@ import { cn } from '@/lib/cn';
 import type { Doc } from '@/types/docs';
 
 import { MdxBlockquote } from './mdx-blockquote';
+import { h1, h2, h3 } from './mdx-heading';
 import { MdxLink } from './mdx-link';
 
 export const mdxComponents = {
+  h1,
+  h2,
+  h3,
   a: MdxLink,
   blockquote: MdxBlockquote,
 
