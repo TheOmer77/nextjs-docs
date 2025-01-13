@@ -22,18 +22,15 @@ export const MdxHeading = <T extends HeadingType>({
   return (
     <Comp
       id={id}
-      className={cn(
-        'group flex scroll-m-28 flex-row items-center gap-2',
-        className
-      )}
+      className={cn('group scroll-m-24 gap-2', className)}
       {...props}
     >
       {children}
-      <a href={`#${id}`}>
-        <LinkIcon
-          aria-label='Link to section'
-          className='ms-1 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100 [&.lucide]:size-4'
-        />
+      <a
+        href={`#${id}`}
+        className='ms-2 text-base text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100'
+      >
+        <LinkIcon className='inline translate-y-[calc(-50%+0.3em)]' />
       </a>
     </Comp>
   );
