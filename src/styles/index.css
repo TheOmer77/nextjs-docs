@@ -134,7 +134,9 @@
   * {
     @apply border-border [-webkit-tap-highlight-color:transparent];
   }
-
+  html {
+    @apply scroll-smooth;
+  }
   body {
     @apply overflow-x-hidden bg-background text-foreground selection:bg-primary-500/30 selection:text-inherit;
   }
