@@ -3,7 +3,7 @@ import { LinkIcon } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
 
-type HeadingType = 'h1' | 'h2' | 'h3';
+type HeadingType = 'h1' | 'h2' | 'h3' | 'h4';
 type HeadingProps<T extends HeadingType> = Omit<
   ComponentPropsWithoutRef<T>,
   'as'
@@ -44,4 +44,7 @@ export const h2 = (props: ComponentPropsWithoutRef<'h2'>) => (
 );
 export const h3 = (props: ComponentPropsWithoutRef<'h3'>) => (
   <MdxHeading as='h3' {...props} />
+);
+export const h4 = (props: ComponentPropsWithoutRef<'h4'>) => (
+  <MdxHeading as='h4' {...props} />
 );
