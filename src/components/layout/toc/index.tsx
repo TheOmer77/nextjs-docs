@@ -10,7 +10,7 @@ export const Toc = ({ doc }: MDXProps) => {
   );
 
   return (
-    <div className='sticky top-0 p-4 pt-8 text-sm print:hidden'>
+    <div className='sticky top-0 hidden p-4 pt-8 text-sm xl:block print:hidden'>
       <h3 className='mb-2 font-bold'>On this page</h3>
       <ul
         className='space-y-2'
