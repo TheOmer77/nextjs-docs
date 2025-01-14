@@ -1,3 +1,5 @@
+'use client';
+
 import type { CSSProperties } from 'react';
 
 import { useDoc } from '../doc-provider';
