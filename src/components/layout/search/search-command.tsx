@@ -17,7 +17,7 @@ export const SearchCommand = forwardRef<
     className='flex size-full flex-col overflow-hidden rounded-lg'
     {...props}
   >
-    <div className='relative flex items-center border-b' cmdk-input-wrapper=''>
+    <div className='relative flex items-center border-b'>
       <SearchIcon className='absolute start-4 me-2 size-4 shrink-0 text-muted-foreground' />
       <CommandInput
         placeholder='Search docs...'
