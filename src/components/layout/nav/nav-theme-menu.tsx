@@ -30,14 +30,8 @@ export const NavThemeMenu = () => {
   return (
     <DropdownMenu>
       <Tooltip content='Theme'>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant='flat'
-            size='lg'
-            icon
-            className='md:size-10'
-            disabled={!isClient}
-          >
+        <DropdownMenuTrigger asChild disabled={!isClient}>
+          <Button variant='flat' size='lg' icon className='md:size-10'>
             <SunIcon className='rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0' />
             <MoonIcon className='absolute rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100' />
             <span className='sr-only'>Toggle theme</span>
