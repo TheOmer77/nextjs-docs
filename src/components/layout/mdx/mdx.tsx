@@ -8,9 +8,14 @@ import { cn } from '@/lib/cn';
 import type { Doc } from '@/types/docs';
 
 import { MdxBlockquote } from './mdx-blockquote';
+import { h1, h2, h3, h4 } from './mdx-heading';
 import { MdxLink } from './mdx-link';
 
 export const mdxComponents = {
+  h1,
+  h2,
+  h3,
+  h4,
   a: MdxLink,
   blockquote: MdxBlockquote,
 
@@ -24,7 +29,8 @@ export const MDX = ({ doc }: MDXProps) => (
   <div
     className={cn(
       `prose mx-auto max-w-[calc(100vw-2rem)] py-8 [print-color-adjust:exact] dark:prose-invert print:max-w-none`,
-      doc.showSidebar && 'md:max-w-[calc(100vw-22rem)] lg:max-w-3xl'
+      doc.showSidebar &&
+        'md:max-w-[calc(100vw-22rem)] lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.3xl))]'
     )}
   >
     {doc.title && doc.showTitle && (

@@ -1,6 +1,7 @@
 import { defineCollection, defineConfig } from '@content-collections/core';
 import { compileMDX } from '@content-collections/mdx';
 import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
+import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { createHighlighter } from 'shiki';
 import { createCssVariablesTheme } from 'shiki/core';
@@ -46,6 +47,7 @@ const doc = defineCollection({
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
         [rehypeShikiFromHighlighter, highlighter, { theme: cssVars.name }],
+        rehypeSlug,
       ],
     });
 
