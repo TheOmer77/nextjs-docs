@@ -16,23 +16,24 @@ const Layout = ({ children }: PropsWithChildren) => {
       .filter(doc => !specialFileNames.includes(doc._meta.path))
       .find(doc => doc.url === pathname),
     notFoundDoc = allDocs.find(doc => doc._meta.path === notFoundPageName);
+  const doc = currentDoc || notFoundDoc;
 
   return (
-    <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden print:block'>
+    <>
       <Nav />
-      <Sidebar />
 
       <div
         className={cn(
-          'relative grow px-4 py-6 pt-16 print:block print:p-0',
-          (currentDoc || notFoundDoc)?.showSidebar && 'md:ps-[21rem]',
-          (currentDoc || notFoundDoc)?.showToc &&
-            'xl:grid xl:grid-cols-[1fr_theme(spacing.72)]'
+          'relative mx-auto grid max-w-8xl grow grid-cols-1 pt-16 xl:grid-cols-[1fr,var(--toc-width,0)] print:block print:grid-cols-1 print:p-0',
+          doc?.showSidebar &&
+            'md:grid-cols-[theme(spacing.80)_1fr] xl:grid-cols-[theme(spacing.80)_1fr,var(--toc-width,0)]',
+          doc?.showToc && '[--toc-width:theme(spacing.72)]'
         )}
       >
+        <Sidebar />
         {children}
       </div>
-    </div>
+    </>
   );
 };
 

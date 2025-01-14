@@ -28,7 +28,7 @@ export type MDXProps = { doc: Doc };
 export const MDX = ({ doc }: MDXProps) => (
   <main
     className={cn(
-      `prose mx-auto w-full max-w-[calc(100vw-2rem)] py-8 [print-color-adjust:exact] dark:prose-invert print:max-w-none`,
+      `prose mx-auto w-full max-w-[100vw] px-4 py-8 [print-color-adjust:exact] dark:prose-invert print:max-w-none print:px-0`,
       doc.showSidebar &&
         'md:max-w-[calc(100vw-22rem)] lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.3xl))]',
       doc.showSidebar &&
