@@ -26,11 +26,14 @@ export const mdxComponents = {
 export type MDXProps = { doc: Doc };
 
 export const MDX = ({ doc }: MDXProps) => (
-  <div
+  <main
     className={cn(
-      `prose mx-auto max-w-[calc(100vw-2rem)] py-8 [print-color-adjust:exact] dark:prose-invert print:max-w-none`,
+      `prose mx-auto w-full max-w-[calc(100vw-2rem)] py-8 [print-color-adjust:exact] dark:prose-invert print:max-w-none`,
       doc.showSidebar &&
-        'md:max-w-[calc(100vw-22rem)] lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.3xl))]'
+        'md:max-w-[calc(100vw-22rem)] lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.3xl))]',
+      doc.showSidebar &&
+        doc.showToc &&
+        'lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.2xl))]'
     )}
   >
     {doc.title && doc.showTitle && (
@@ -39,7 +42,7 @@ export const MDX = ({ doc }: MDXProps) => (
       </h1>
     )}
     <MDXContent code={doc.body.code} components={mdxComponents} />
-  </div>
+  </main>
 );
 
 export default MDX;

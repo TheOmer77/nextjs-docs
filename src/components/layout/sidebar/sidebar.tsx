@@ -123,7 +123,7 @@ export const Sidebar = () => {
   return (
     <>
       {(currentDoc || notFoundDoc)?.showSidebar && (
-        <aside className='fixed hidden h-screen w-80 select-none flex-col bg-card pt-16 after:absolute after:end-0 after:top-0 after:-z-10 after:h-inherit after:w-screen after:bg-inherit md:flex print:hidden [&_[data-sidebar-subheader]]:bg-card'>
+        <aside className='fixed z-10 hidden h-screen w-80 select-none flex-col bg-card pt-16 after:absolute after:end-0 after:top-0 after:-z-10 after:h-inherit after:w-screen after:bg-inherit md:flex print:hidden [&_[data-sidebar-subheader]]:bg-card'>
           <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
             <List className='px-2 pb-2'>
               <ListCategories />

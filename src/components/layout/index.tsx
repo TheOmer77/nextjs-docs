@@ -19,17 +19,19 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   return (
     <div className='mx-auto flex max-w-8xl flex-row overflow-x-hidden print:block'>
-      <Sidebar />
       <Nav />
+      <Sidebar />
 
-      <main
+      <div
         className={cn(
-          'grow px-4 pt-16 print:p-0',
-          (currentDoc || notFoundDoc)?.showSidebar && 'md:ps-[21rem]'
+          'relative grow px-4 py-6 pt-16 print:block print:p-0',
+          (currentDoc || notFoundDoc)?.showSidebar && 'md:ps-[21rem]',
+          (currentDoc || notFoundDoc)?.showToc &&
+            'xl:grid xl:grid-cols-[1fr_theme(spacing.72)]'
         )}
       >
         {children}
-      </main>
+      </div>
     </div>
   );
 };
