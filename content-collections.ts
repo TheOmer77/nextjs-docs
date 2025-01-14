@@ -32,7 +32,7 @@ const doc = defineCollection({
     category: z.optional(z.string()),
     /** Whether or not to show the page's title at its top. */
     showTitle: z.boolean().default(true),
-    /** Whether or not to show the page's table of contents. */
+    /** Whether or not to show the page's table of contents on the side. */
     showToc: z.boolean().default(true),
     /** Whether or not to show the sidebar when this page is viewed. */
     showSidebar: z.boolean().default(true),
