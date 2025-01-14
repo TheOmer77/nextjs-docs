@@ -54,6 +54,7 @@
     "eslint-plugin-prefer-arrow-functions": "^3.6.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-tailwindcss": "^3.17.5",
+    "github-slugger": "^2.0.0",
     "globals": "^15.14.0",
     "postcss": "^8.5.0",
     "postcss-hover-media-feature": "^1.0.2",
