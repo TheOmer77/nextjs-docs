@@ -18,7 +18,7 @@ const NotFoundPage = () => {
   return doc ? (
     <>
       <MDX doc={doc} />
-      {doc.showToc && <Toc />}
+      {doc.showToc && <Toc doc={doc} />}
     </>
   ) : (
     <main className='py-8'>
