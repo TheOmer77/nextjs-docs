@@ -30,8 +30,8 @@ const DocPage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
 
   return (
     <>
-      <MDX doc={doc} />
-      {doc.showToc && <Toc doc={doc} />}
+      <MDX />
+      {doc.showToc && <Toc />}
     </>
   );
 };

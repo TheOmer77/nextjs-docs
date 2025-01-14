@@ -1,12 +1,13 @@
 import type { CSSProperties } from 'react';
 
-import type { MDXProps } from '../mdx';
+import { useDoc } from '../doc-provider';
 
-export const Toc = ({ doc }: MDXProps) => {
-  if (doc.headings.length < 0) return null;
+export const Toc = () => {
+  const doc = useDoc();
+  if (!doc || doc.headings.length < 0) return null;
 
   const lowestLevel = Math.min(
-    ...(doc.headings.map(({ level }) => level).filter(Boolean) as number[])
+    ...(doc?.headings.map(({ level }) => level).filter(Boolean) as number[])
   );
 
   return (
@@ -16,7 +17,7 @@ export const Toc = ({ doc }: MDXProps) => {
         className='space-y-2'
         style={{ '--lowest-level': lowestLevel } as CSSProperties}
       >
-        {doc.headings.map(({ level, slug, text }) => (
+        {doc?.headings.map(({ level, slug, text }) => (
           <li
             key={slug}
             className='ps-[calc(theme(spacing.4)*(var(--level,1)-var(--lowest-level,1)))]'
