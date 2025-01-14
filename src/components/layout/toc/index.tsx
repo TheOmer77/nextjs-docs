@@ -24,7 +24,7 @@ export const Toc = ({ doc }: MDXProps) => {
           >
             <a
               href={`#${slug}`}
-              className='text-muted-foreground hover:text-foreground'
+              className='text-muted-foreground transition-[color] hover:text-foreground'
             >
               {text}
             </a>
