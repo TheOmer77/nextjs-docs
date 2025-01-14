@@ -1,11 +1,38 @@
 'use client';
 
-import type { CSSProperties } from 'react';
+import { type CSSProperties, useEffect, useRef, useState } from 'react';
+
+import { cn } from '@/lib/cn';
 
 import { useDoc } from '../doc-provider';
 
 export const Toc = () => {
   const doc = useDoc();
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const observer = useRef<IntersectionObserver | null>(null);
+
+  const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+    const visibleEntry = entries.find(entry => entry.isIntersecting);
+    if (visibleEntry) setActiveId(visibleEntry.target.id);
+  };
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver(handleIntersect, {
+      root: null,
+      rootMargin: '-20px 0px 0px 0px',
+      threshold: 0.1,
+    });
+
+    const elements = (doc?.headings || []).map(
+      ({ slug }) => slug && document.getElementById(slug)
+    );
+    elements.forEach(el => {
+      if (el && observer.current) observer.current.observe(el);
+    });
+
+    return () => observer.current?.disconnect();
+  }, [doc?.headings]);
+
   if (!doc || doc.headings.length < 0) return null;
 
   const lowestLevel = Math.min(
@@ -27,7 +54,10 @@ export const Toc = () => {
           >
             <a
               href={`#${slug}`}
-              className='text-muted-foreground transition-[color] hover:text-foreground'
+              className={cn(
+                'text-muted-foreground transition-[color] hover:text-foreground',
+                activeId === slug && 'font-medium text-foreground'
+              )}
             >
               {text}
             </a>
