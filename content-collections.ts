@@ -1,10 +1,13 @@
 import { defineCollection, defineConfig } from '@content-collections/core';
 import { compileMDX } from '@content-collections/mdx';
 import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
+import GithubSlugger from 'github-slugger';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { createHighlighter } from 'shiki';
 import { createCssVariablesTheme } from 'shiki/core';
+
+const HEADINGS_REGEX = /\n(?<flag>#{1,6})\s+(?<content>.+)/g;
 
 // Shiki stuff
 const cssVars = createCssVariablesTheme({
@@ -29,6 +32,8 @@ const doc = defineCollection({
     category: z.optional(z.string()),
     /** Whether or not to show the page's title at its top. */
     showTitle: z.boolean().default(true),
+    /** Whether or not to show the page's table of contents on the side. */
+    showToc: z.boolean().default(true),
     /** Whether or not to show the sidebar when this page is viewed. */
     showSidebar: z.boolean().default(true),
     /** Whether or not to include this page as an item in the sidebar. */
@@ -43,6 +48,18 @@ const doc = defineCollection({
       })
       .join('/')}`;
 
+    const headingSlugger = new GithubSlugger();
+    const headings = Array.from(doc.content.matchAll(HEADINGS_REGEX)).map(
+      ({ groups }) => {
+        const text = groups?.content;
+        return {
+          level: groups?.flag?.length,
+          text,
+          slug: text ? headingSlugger.slug(text) : null,
+        };
+      }
+    );
+
     const code = await compileMDX(ctx, doc, {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
@@ -51,7 +68,7 @@ const doc = defineCollection({
       ],
     });
 
-    return { ...doc, _id: doc._meta.filePath, url, body: { code } };
+    return { ...doc, _id: doc._meta.filePath, url, headings, body: { code } };
   },
 });
 

@@ -6,6 +6,7 @@ import { NavLink } from './nav-link';
 import { mdxComponents } from '../mdx';
 
 export const NavLinks = () => {
+  // TODO: Remove this, move links to config.json
   const linksDoc = allDocs.find(doc => doc._meta.path === navLinksName);
   if (linksDoc)
     return (

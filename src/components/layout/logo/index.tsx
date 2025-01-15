@@ -10,6 +10,7 @@ export const Logo = ({
   className,
   ...props
 }: ComponentPropsWithoutRef<'header'>) => {
+  // TODO: Remove this
   const logoDoc = allDocs.find(doc => doc._meta.path === navLogoName);
 
   return (

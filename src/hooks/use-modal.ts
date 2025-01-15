@@ -1,22 +1,41 @@
-import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-import { MODAL_SEARCH_KEY, type ModalValue } from '@/constants/modal';
+import {
+  MODAL_SEARCH_KEY,
+  MODAL_SEARCH_VALUES,
+  type ModalValue,
+} from '@/constants/modal';
+
+const isValidModal = (modal: string | null): modal is ModalValue =>
+  modal === null ||
+  MODAL_SEARCH_VALUES.includes(modal as Exclude<ModalValue, null>);
 
 export const useModal = () => {
-  const searchParams = useSearchParams(),
-    currentModal = searchParams.get(MODAL_SEARCH_KEY) as ModalValue;
+  const [currentModal, setCurrentModal] = useState<ModalValue>(null);
 
-  const openModal = (modal: ModalValue, mode: 'push' | 'replace' = 'push') => {
-    if (typeof window === 'undefined' || modal === currentModal) return;
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const params = new URLSearchParams(window.location.search);
+      const modal = params.get(MODAL_SEARCH_KEY);
+      if (modal && isValidModal(modal)) return setCurrentModal(modal);
+      setCurrentModal(null);
+    };
 
+    handleRouteChange();
+    window.addEventListener('popstate', handleRouteChange);
+    return () => window.removeEventListener('popstate', handleRouteChange);
+  }, []);
+
+  const openModal = (modal: string, mode: 'push' | 'replace' = 'push') => {
     const params = new URLSearchParams(window.location.search);
-    if (modal === null) params.delete(MODAL_SEARCH_KEY);
-    else params.set(MODAL_SEARCH_KEY, modal);
-    const newParamsStr = params.toString();
+    if (modal && isValidModal(modal)) params.set(MODAL_SEARCH_KEY, modal);
+    else params.delete(MODAL_SEARCH_KEY);
+    const newUrl = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
 
-    if (mode === 'replace')
-      return window.history.replaceState(null, '', `?${newParamsStr}`);
-    window.history.pushState(null, '', `?${newParamsStr}`);
+    if (mode === 'replace') window.history.replaceState(null, '', newUrl);
+    else window.history.pushState(null, '', newUrl);
+
+    setCurrentModal(isValidModal(modal) ? modal : null);
   };
 
   const closeModal = (delta = -1) => {

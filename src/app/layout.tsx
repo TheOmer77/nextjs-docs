@@ -4,6 +4,7 @@ import { Figtree, Fira_Code } from 'next/font/google';
 import { clsx } from 'clsx';
 
 import Layout from '@/components/layout';
+import { DocProvider } from '@/components/layout/doc-provider';
 import { config } from '@/constants/docs';
 
 import '@/styles/index.css';
@@ -35,7 +36,9 @@ const RootLayout = ({ children }: PropsWithChildren) => (
     </head>
     <body>
       <ThemeProvider>
-        <Layout>{children}</Layout>
+        <DocProvider>
+          <Layout>{children}</Layout>
+        </DocProvider>
       </ThemeProvider>
     </body>
   </html>

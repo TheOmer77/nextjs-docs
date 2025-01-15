@@ -1,5 +1,6 @@
 import { ErrorLayout } from '@/components/layout/error';
 import { MDX } from '@/components/layout/mdx';
+import { Toc } from '@/components/layout/toc';
 import { allDocs, config, notFoundPageName } from '@/constants/docs';
 
 export const generateMetadata = () => {
@@ -15,11 +16,14 @@ const NotFoundPage = () => {
   const doc = allDocs.find(doc => doc._meta.path === notFoundPageName);
 
   return doc ? (
-    <MDX doc={doc} />
+    <>
+      <MDX />
+      {doc.showToc && <Toc />}
+    </>
   ) : (
-    <div className='py-8'>
+    <main className='py-8'>
       <ErrorLayout code={404} text='Not found' />;
-    </div>
+    </main>
   );
 };
 
