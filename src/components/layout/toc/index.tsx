@@ -23,11 +23,11 @@ export const Toc = () => {
       threshold: 0.1,
     });
 
-    const elements = (doc?.headings || []).map(
-      ({ slug }) => slug && document.getElementById(slug)
-    );
+    const elements = (doc?.headings || [])
+      .map(({ slug }) => slug && document.getElementById(slug))
+      .filter(Boolean) as HTMLElement[];
     elements.forEach(el => {
-      if (el && observer.current) observer.current.observe(el);
+      if (observer.current) observer.current.observe(el);
     });
 
     return () => observer.current?.disconnect();
