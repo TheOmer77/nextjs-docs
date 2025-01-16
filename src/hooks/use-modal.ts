@@ -26,7 +26,10 @@ export const useModal = () => {
     return () => window.removeEventListener('popstate', handleRouteChange);
   }, []);
 
-  const openModal = (modal: string, mode: 'push' | 'replace' = 'push') => {
+  const openModal = (
+    modal: string | null,
+    mode: 'push' | 'replace' = 'push'
+  ) => {
     const params = new URLSearchParams(window.location.search);
     if (modal && isValidModal(modal)) params.set(MODAL_SEARCH_KEY, modal);
     else params.delete(MODAL_SEARCH_KEY);
