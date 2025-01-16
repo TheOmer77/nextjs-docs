@@ -1,10 +1,9 @@
 import type { PropsWithChildren } from 'react';
-import { ThemeProvider } from 'next-themes';
 import { Figtree, Fira_Code } from 'next/font/google';
 import { clsx } from 'clsx';
 
 import Layout from '@/components/layout';
-import { DocProvider } from '@/components/layout/doc-provider';
+import { Provider } from '@/components/layout/provider';
 import { config } from '@/constants/docs';
 
 import '@/styles/index.css';
@@ -35,11 +34,9 @@ const RootLayout = ({ children }: PropsWithChildren) => (
       <link rel='icon' type='image/x-icon' href='/favicon.png' />
     </head>
     <body>
-      <ThemeProvider>
-        <DocProvider>
-          <Layout>{children}</Layout>
-        </DocProvider>
-      </ThemeProvider>
+      <Provider>
+        <Layout>{children}</Layout>
+      </Provider>
     </body>
   </html>
 );

@@ -10,7 +10,7 @@ import { cn } from '@/lib/cn';
 
 import { NavLinks } from './links';
 import { ThemeMenu } from './theme-menu';
-import { useDoc } from '../doc-provider';
+import { useDoc } from '../provider/doc';
 
 const NavDrawerButton = () => {
   const { openModal } = useModal();

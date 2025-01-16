@@ -10,7 +10,7 @@ import type { Doc } from '@/types/docs';
 import { MdxBlockquote } from './mdx-blockquote';
 import { h1, h2, h3, h4 } from './mdx-heading';
 import { MdxLink } from './mdx-link';
-import { useDoc } from '../doc-provider';
+import { useDoc } from '../provider/doc';
 
 export const mdxComponents = {
   h1,

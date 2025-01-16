@@ -4,9 +4,9 @@ import type { PropsWithChildren } from 'react';
 
 import { cn } from '@/lib/cn';
 
-import { useDoc } from './doc-provider';
 import { Nav } from './nav';
 import { Sidebar } from './sidebar';
+import { useDoc } from './provider/doc';
 
 const Layout = ({ children }: PropsWithChildren) => {
   const doc = useDoc();
