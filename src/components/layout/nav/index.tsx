@@ -4,7 +4,6 @@ import { MenuIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/layout/logo';
 import { Search } from '@/components/layout/search';
-import { SearchButton } from '@/components/layout/search/search-button';
 import { useDoc } from '@/hooks/use-doc';
 import { useModal } from '@/hooks/use-modal';
 import { cn } from '@/lib/cn';
@@ -46,9 +45,7 @@ export const Nav = () => {
         className='invisible absolute md:visible md:relative md:h-16 print:visible print:relative print:h-auto print:w-full print:p-0'
       />
       <div className='flex h-full grow flex-row items-center justify-end bg-background px-2 sm:px-4 print:hidden'>
-        <Suspense fallback={<SearchButton disabled />}>
-          <Search />
-        </Suspense>
+        <Search />
         <NavLinks />
         <ThemeMenu />
       </div>
