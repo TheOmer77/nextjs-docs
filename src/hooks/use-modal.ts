@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react';
 import {
   MODAL_SEARCH_KEY,
   MODAL_SEARCH_VALUES,
+  type MaybeModalValue,
   type ModalValue,
 } from '@/constants/modal';
 
-const isValidModal = (modal: string | null): modal is ModalValue =>
+const isValidModal = (modal: MaybeModalValue): modal is ModalValue =>
   modal === null ||
-  MODAL_SEARCH_VALUES.includes(modal as Exclude<ModalValue, null>);
+  MODAL_SEARCH_VALUES.includes(modal as NonNullable<ModalValue>);
 
 export const useModal = () => {
   const [currentModal, setCurrentModal] = useState<ModalValue>(null);
@@ -27,7 +28,7 @@ export const useModal = () => {
   }, []);
 
   const openModal = (
-    modal: string | null,
+    modal: MaybeModalValue,
     mode: 'push' | 'replace' = 'push'
   ) => {
     const params = new URLSearchParams(window.location.search);
