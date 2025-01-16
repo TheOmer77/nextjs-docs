@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 
 import {
+  type MaybeModalValue,
   MODAL_SEARCH_KEY,
   MODAL_SEARCH_VALUES,
   type ModalValue,
 } from '@/constants/modal';
 
-const isValidModal = (modal: string | null): modal is ModalValue =>
+const isValidModal = (modal: MaybeModalValue): modal is ModalValue =>
   modal === null ||
-  MODAL_SEARCH_VALUES.includes(modal as Exclude<ModalValue, null>);
+  MODAL_SEARCH_VALUES.includes(modal as NonNullable<ModalValue>);
 
 export const useModal = () => {
   const [currentModal, setCurrentModal] = useState<ModalValue>(null);
@@ -26,7 +27,10 @@ export const useModal = () => {
     return () => window.removeEventListener('popstate', handleRouteChange);
   }, []);
 
-  const openModal = (modal: string, mode: 'push' | 'replace' = 'push') => {
+  const openModal = (
+    modal: MaybeModalValue,
+    mode: 'push' | 'replace' = 'push'
+  ) => {
     const params = new URLSearchParams(window.location.search);
     if (modal && isValidModal(modal)) params.set(MODAL_SEARCH_KEY, modal);
     else params.delete(MODAL_SEARCH_KEY);

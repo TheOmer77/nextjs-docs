@@ -20,7 +20,7 @@ const THEMES = {
   dark: 'Dark',
 } as const;
 
-export const NavThemeMenu = () => {
+export const ThemeMenu = () => {
   const { setTheme, theme } = useTheme();
   const [isClient, setClient] = useState(false);
   useEffect(() => {

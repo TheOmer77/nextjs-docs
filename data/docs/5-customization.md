@@ -9,8 +9,11 @@ The `config.json` file in the `data/` directory defines various site-wide proper
 
 - `title` - Site title, appearing by default as the home page's `<title>`, as well as in the Nav's header.
 - `titleTemplate` - Template for the `<title>` of pages.
+<!-- TODO: Move nav links here -->
 
 ## Special pages
+
+<!-- TODO: Remove this section -->
 
 The following files are special pages which will be displayed in specific situations:
 
@@ -19,9 +22,9 @@ The following files are special pages which will be displayed in specific situat
 
 ## Navbar customization
 
+<!-- TODO: Remove this section -->
+
 The navbar can be customized by editing the following files:
 
-- `_nav-logo.mdx` - The logo of this docs site, displayed in the desktop navbar as well as at the top of the mobile sidebar.
-  If not present, a simple text with the site's title will be used as the logo.
 - `_nav-links.mdx` - Optional links that will appear after the search button in the navbar, such as links to your git repo, social media, etc.
   Within it you can use the `<NavLink>` component, an icon button which works as a link (`<a>`).
