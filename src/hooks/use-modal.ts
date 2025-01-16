@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import {
+  type MaybeModalValue,
   MODAL_SEARCH_KEY,
   MODAL_SEARCH_VALUES,
-  type MaybeModalValue,
   type ModalValue,
 } from '@/constants/modal';
 
