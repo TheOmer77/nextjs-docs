@@ -21,7 +21,5 @@ The following files are special pages which will be displayed in specific situat
 
 The navbar can be customized by editing the following files:
 
-- `_nav-logo.mdx` - The logo of this docs site, displayed in the desktop navbar as well as at the top of the mobile sidebar.
-  If not present, a simple text with the site's title will be used as the logo.
 - `_nav-links.mdx` - Optional links that will appear after the search button in the navbar, such as links to your git repo, social media, etc.
   Within it you can use the `<NavLink>` component, an icon button which works as a link (`<a>`).
