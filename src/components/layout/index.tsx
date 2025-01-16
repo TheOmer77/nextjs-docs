@@ -2,11 +2,11 @@
 
 import type { PropsWithChildren } from 'react';
 
+import { useDoc } from '@/hooks/use-doc';
 import { cn } from '@/lib/cn';
 
 import { Nav } from './nav';
 import { Sidebar } from './sidebar';
-import { useDoc } from './provider/doc';
 
 const Layout = ({ children }: PropsWithChildren) => {
   const doc = useDoc();

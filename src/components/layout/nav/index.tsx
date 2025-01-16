@@ -5,12 +5,12 @@ import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/layout/logo';
 import { Search } from '@/components/layout/search';
 import { SearchButton } from '@/components/layout/search/search-button';
+import { useDoc } from '@/hooks/use-doc';
 import { useModal } from '@/hooks/use-modal';
 import { cn } from '@/lib/cn';
 
 import { NavLinks } from './links';
 import { ThemeMenu } from './theme-menu';
-import { useDoc } from '../provider/doc';
 
 const NavDrawerButton = () => {
   const { openModal } = useModal();
