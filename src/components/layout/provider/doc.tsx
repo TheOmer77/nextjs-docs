@@ -1,12 +1,12 @@
 'use client';
 
-import { createContext, type PropsWithChildren, useContext } from 'react';
+import { createContext, type PropsWithChildren } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { allDocs, notFoundPageName, specialFileNames } from '@/constants/docs';
 import type { Doc } from '@/types/docs';
 
-const DocContext = createContext<Doc | null>(null);
+export const DocContext = createContext<Doc | null>(null);
 
 export const DocProvider = ({ children }: PropsWithChildren) => {
   const pathname = usePathname();
@@ -18,5 +18,3 @@ export const DocProvider = ({ children }: PropsWithChildren) => {
 
   return <DocContext.Provider value={doc}>{children}</DocContext.Provider>;
 };
-
-export const useDoc = () => useContext(DocContext);

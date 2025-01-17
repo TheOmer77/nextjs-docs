@@ -2,9 +2,8 @@
 
 import { type CSSProperties, useEffect, useRef, useState } from 'react';
 
+import { useDoc } from '@/hooks/use-doc';
 import { cn } from '@/lib/cn';
-
-import { useDoc } from '../doc-provider';
 
 export const Toc = () => {
   const doc = useDoc();

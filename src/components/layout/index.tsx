@@ -2,9 +2,9 @@
 
 import type { PropsWithChildren } from 'react';
 
+import { useDoc } from '@/hooks/use-doc';
 import { cn } from '@/lib/cn';
 
-import { useDoc } from './doc-provider';
 import { Nav } from './nav';
 import { Sidebar } from './sidebar';
 

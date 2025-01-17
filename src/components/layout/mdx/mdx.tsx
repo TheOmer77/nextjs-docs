@@ -4,13 +4,13 @@ import { MDXContent } from '@content-collections/mdx/react';
 
 import { ErrorLayout } from '@/components/layout/error';
 import { HomeLayout } from '@/components/layout/home';
+import { useDoc } from '@/hooks/use-doc';
 import { cn } from '@/lib/cn';
 import type { Doc } from '@/types/docs';
 
 import { MdxBlockquote } from './mdx-blockquote';
 import { h1, h2, h3, h4 } from './mdx-heading';
 import { MdxLink } from './mdx-link';
-import { useDoc } from '../doc-provider';
 
 export const mdxComponents = {
   h1,

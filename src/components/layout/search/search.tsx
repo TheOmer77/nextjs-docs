@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect } from 'react';
+import { Fragment, Suspense, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { useModal } from '@/hooks/use-modal';
@@ -26,7 +26,7 @@ const uncategorizedDocs = sidebarDocs.filter(
     ),
   };
 
-export const Search = () => {
+const ClientSearch = () => {
   const { currentModal, openModal, closeModal } = useModal();
   const router = useRouter();
 
@@ -97,3 +97,9 @@ export const Search = () => {
     </>
   );
 };
+
+export const Search = () => (
+  <Suspense fallback={<SearchButton disabled />}>
+    <ClientSearch />
+  </Suspense>
+);
