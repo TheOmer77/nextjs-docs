@@ -5,26 +5,22 @@ category: usage
 
 ## Site configuration
 
-The `config.json` file in the `data/` directory defines various site-wide properties. In addition to [categories](/docs/categories), the following properties can be defined:
+The `config.json` file in the `data/` directory defines various site-wide properties:
 
 - `title` - Site title, appearing by default as the home page's `<title>`, as well as in the Nav's header.
 - `titleTemplate` - Template for the `<title>` of pages.
-<!-- TODO: Move nav links here -->
+- `links` - An array of links that will appear in the navbar, such as your git repo or social media. Each object in the array must be in the structure of:
+  ```ts
+  { href: string, label: string, type: string }
+  ```
+  In this example site the only type is `github`, but you can add additional types in `@/components/layout/nav/links.mdx`.
+- `categories` - An object where keys are category IDs and values are display names, as described in the [categories page](/docs/categories).
 
 ## Special pages
 
-<!-- TODO: Remove this section -->
+{/* TODO: Remove this section */}
 
 The following files are special pages which will be displayed in specific situations:
 
 - `index.mdx` - Home page of this docs site. It will be displayed when navigating to the root of the site (`/`).
 - `_not-found.mdx` - The "404 not found" error page of the site, which will be displayed when attempting to navigate to a URL of a page that doesn't exist. If not present, a default error page will be used.
-
-## Navbar customization
-
-<!-- TODO: Remove this section -->
-
-The navbar can be customized by editing the following files:
-
-- `_nav-links.mdx` - Optional links that will appear after the search button in the navbar, such as links to your git repo, social media, etc.
-  Within it you can use the `<NavLink>` component, an icon button which works as a link (`<a>`).
