@@ -1,9 +1,9 @@
 import { allConfigs, allDocs } from 'content-collections';
 export { allDocs } from 'content-collections';
 
+// TODO: Remove these
 export const notFoundPageName = '_not-found';
-export const navLinksName = '_nav-links';
-export const specialFileNames = [notFoundPageName, navLinksName];
+export const specialFileNames = [notFoundPageName];
 
 const filteredDocs = allDocs.filter(doc => {
   if (
