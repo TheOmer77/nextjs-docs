@@ -1,6 +1,13 @@
 {
   "title": "Docs Thing",
   "titleTemplate": "%s – Docs Thing",
+  "links": [
+    {
+      "href": "https://github.com/TheOmer77/docs-thing",
+      "label": "GitHub",
+      "type": "github"
+    }
+  ],
   "categories": {
     "usage": "Usage",
     "sample": "Sample pages"
