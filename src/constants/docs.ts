@@ -1,17 +1,8 @@
 import { allConfigs, allDocs } from 'content-collections';
 export { allDocs } from 'content-collections';
 
-// TODO: Remove these
-export const notFoundPageName = '_not-found';
-export const specialFileNames = [notFoundPageName];
-
 const filteredDocs = allDocs.filter(doc => {
-  if (
-    !doc.title ||
-    !doc.includeInSidebar ||
-    specialFileNames.includes(doc._meta.path)
-  )
-    return false;
+  if (!doc.title || !doc.includeInSidebar) return false;
   const parentFolder = doc._meta.path.split('/').slice(0, -1).join('/');
   return !allDocs.some(
     d =>
