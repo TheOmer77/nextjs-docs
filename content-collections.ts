@@ -24,7 +24,7 @@ const highlighter = await createHighlighter({
 const doc = defineCollection({
   name: 'Doc',
   directory: 'data',
-  include: '**/*.md?(x)',
+  include: '**/*.mdx',
   schema: z => ({
     /** Title of this page. */
     title: z.optional(z.string()),
