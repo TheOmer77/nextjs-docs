@@ -1,43 +1,54 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import Link from 'next/link';
-import { MDXContent } from '@content-collections/mdx/react';
+import { LinkIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
+import { Tooltip } from '@/components/ui/tooltip';
+import { GithubIcon } from '@/components/icons/github';
 import { cn } from '@/lib/cn';
-import { allDocs, navLinksName } from '@/constants/docs';
+import { config } from '@/constants/docs';
 
-import { mdxComponents } from '../mdx';
+type ConfigLink = (typeof config.links)[number];
+type NavLinkProps = ConfigLink &
+  Omit<ComponentPropsWithoutRef<'a'>, keyof ConfigLink | 'children'>;
+
+const LINK_ICONS = {
+  DEFAULT: <LinkIcon />,
+  github: <GithubIcon />,
+};
 
 export const NavLink = ({
   href,
+  label,
+  type,
   className,
-  children,
   ...props
-}: ComponentPropsWithoutRef<'a'>) => {
-  const LinkComp = href?.startsWith?.('/') ? Link : 'a';
+}: NavLinkProps) => {
+  const icon =
+    LINK_ICONS[
+      type in LINK_ICONS ? (type as keyof typeof LINK_ICONS) : 'DEFAULT'
+    ];
   return (
-    <Button
-      asChild
-      variant='flat'
-      size='lg'
-      icon
-      className={cn('md:size-10', className)}
-    >
-      <LinkComp {...props} href={href as string}>
-        {children}
-      </LinkComp>
-    </Button>
+    <Tooltip content={label}>
+      <Button
+        asChild
+        variant='flat'
+        size='lg'
+        icon
+        className={cn('md:size-10', className)}
+      >
+        <Link {...props} href={href as string}>
+          {icon}
+        </Link>
+      </Button>
+    </Tooltip>
   );
 };
 
-export const NavLinks = () => {
-  // TODO: Remove this, move links to config.json
-  const linksDoc = allDocs.find(doc => doc._meta.path === navLinksName);
-  if (linksDoc)
-    return (
-      <MDXContent
-        code={linksDoc.body.code}
-        components={{ ...mdxComponents, NavLink }}
-      />
-    );
-};
+export const NavLinks = () => (
+  <>
+    {config.links.map(({ href, label, type }) => (
+      <NavLink key={label} href={href} label={label} type={type} />
+    ))}
+  </>
+);

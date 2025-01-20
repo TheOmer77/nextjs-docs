@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { MDXContent } from '@content-collections/mdx/react';
 
 import { ErrorLayout } from '@/components/layout/error';
@@ -10,14 +11,13 @@ import type { Doc } from '@/types/docs';
 
 import { MdxBlockquote } from './mdx-blockquote';
 import { h1, h2, h3, h4 } from './mdx-heading';
-import { MdxLink } from './mdx-link';
 
 export const mdxComponents = {
   h1,
   h2,
   h3,
   h4,
-  a: MdxLink,
+  a: Link,
   blockquote: MdxBlockquote,
 
   HomeLayout,
