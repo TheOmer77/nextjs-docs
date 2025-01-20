@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { MDXContent } from '@content-collections/mdx/react';
 
-import { ErrorLayout } from '@/components/layout/error';
 import { HomeLayout } from '@/components/layout/home';
 import { useDoc } from '@/hooks/use-doc';
 import { cn } from '@/lib/cn';
@@ -21,7 +20,6 @@ export const mdxComponents = {
   blockquote: MdxBlockquote,
 
   HomeLayout,
-  ErrorLayout,
 };
 
 export type MDXProps = { doc: Doc };
