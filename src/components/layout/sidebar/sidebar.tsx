@@ -5,14 +5,9 @@ import { Collapsible } from '@/components/ui/collapsible';
 import { Drawer, DrawerContent, DrawerTitle } from '@/components/ui/drawer';
 import { List, ListSubheader } from '@/components/ui/list';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { useDoc } from '@/hooks/use-doc';
 import { useModal } from '@/hooks/use-modal';
-import {
-  allDocs,
-  config,
-  notFoundPageName,
-  sidebarDocs,
-  specialFileNames,
-} from '@/constants/docs';
+import { allDocs, config, sidebarDocs } from '@/constants/docs';
 import type { Doc } from '@/types/docs';
 
 import { SidebarItem } from './sidebar-item';
@@ -113,16 +108,11 @@ const SidebarDrawer = () => {
 };
 
 export const Sidebar = () => {
-  const pathname = usePathname();
-
-  const currentDoc = allDocs
-      .filter(doc => !specialFileNames.includes(doc._meta.path))
-      .find(doc => doc.url === pathname),
-    notFoundDoc = allDocs.find(doc => doc._meta.path === notFoundPageName);
+  const doc = useDoc();
 
   return (
     <>
-      {(currentDoc || notFoundDoc)?.showSidebar && (
+      {doc?.showSidebar && (
         <aside className='sticky top-16 z-10 hidden select-none flex-col self-start after:absolute after:-top-16 after:end-0 after:-z-10 after:h-screen after:w-screen after:bg-card md:flex print:hidden [&_[data-sidebar-subheader]]:bg-card'>
           <ScrollArea className='flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
             <List className='px-2 pb-2'>

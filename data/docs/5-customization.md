@@ -15,12 +15,3 @@ The `config.json` file in the `data/` directory defines various site-wide proper
   ```
   In this example site the only type is `github`, but you can add additional types in `@/components/layout/nav/links.tsx`.
 - `categories` - An object where keys are category IDs and values are display names, as described in the [categories page](/docs/categories).
-
-## Special pages
-
-{/* TODO: Remove this section */}
-
-The following files are special pages which will be displayed in specific situations:
-
-- `index.mdx` - Home page of this docs site. It will be displayed when navigating to the root of the site (`/`).
-- `_not-found.mdx` - The "404 not found" error page of the site, which will be displayed when attempting to navigate to a URL of a page that doesn't exist. If not present, a default error page will be used.

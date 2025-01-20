@@ -1,17 +1,8 @@
 import { allConfigs, allDocs } from 'content-collections';
 export { allDocs } from 'content-collections';
 
-// TODO: Remove these
-export const notFoundPageName = '_not-found';
-export const specialFileNames = [notFoundPageName];
-
 const filteredDocs = allDocs.filter(doc => {
-  if (
-    !doc.title ||
-    !doc.includeInSidebar ||
-    specialFileNames.includes(doc._meta.path)
-  )
-    return false;
+  if (!doc.title || !doc.includeInSidebar) return false;
   const parentFolder = doc._meta.path.split('/').slice(0, -1).join('/');
   return !allDocs.some(
     d =>
@@ -45,6 +36,6 @@ export const sidebarDocs = [
     .sort((a, b) => (a.url > b.url ? 1 : a.url < b.url ? -1 : 0)),
 ];
 
-// Workaround: content Collections doesn't support singletons
+// Workaround: Content Collections doesn't support singletons
 if (!allConfigs[0]) throw new Error('Site config (config.json) is missing!');
 export const config = allConfigs[0];

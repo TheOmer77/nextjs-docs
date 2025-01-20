@@ -1,30 +1,18 @@
-import { ErrorLayout } from '@/components/layout/error';
-import { MDX } from '@/components/layout/mdx';
-import { Toc } from '@/components/layout/toc';
-import { allDocs, config, notFoundPageName } from '@/constants/docs';
+import { config } from '@/constants/docs';
 
-export const generateMetadata = () => {
-  const doc = allDocs.find(doc => doc._meta.path === notFoundPageName);
-  return {
-    title: doc?.title
-      ? config.titleTemplate.replace('%s', doc.title)
-      : config.title,
-  };
-};
+export const generateMetadata = () => ({
+  title: config.titleTemplate.replace('%s', 'Not found'),
+});
 
-const NotFoundPage = () => {
-  const doc = allDocs.find(doc => doc._meta.path === notFoundPageName);
-
-  return doc ? (
-    <>
-      <MDX />
-      {doc.showToc && <Toc />}
-    </>
-  ) : (
-    <main className='py-8'>
-      <ErrorLayout code={404} text='Not found' />;
-    </main>
-  );
-};
+const NotFoundPage = () => (
+  <main className='flex min-h-[calc(100dvh-8rem)] w-full flex-col items-center justify-center'>
+    <h1 className='m-0 text-9xl font-extrabold leading-none tracking-tight text-danger-800 sm:text-[16rem] md:text-[12rem] lg:text-[16rem] dark:text-danger-200'>
+      404
+    </h1>
+    <p className='m-0 text-center text-xl text-muted-foreground'>
+      I&apos;m not sure what you were looking for, but it&apos;s not here.
+    </p>
+  </main>
+);
 
 export default NotFoundPage;
