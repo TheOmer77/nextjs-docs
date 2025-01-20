@@ -13,7 +13,7 @@ The `config.json` file in the `data/` directory defines various site-wide proper
   ```ts
   { href: string, label: string, type: string }
   ```
-  In this example site the only type is `github`, but you can add additional types in `@/components/layout/nav/links.mdx`.
+  In this example site the only type is `github`, but you can add additional types in `@/components/layout/nav/links.tsx`.
 - `categories` - An object where keys are category IDs and values are display names, as described in the [categories page](/docs/categories).
 
 ## Special pages
