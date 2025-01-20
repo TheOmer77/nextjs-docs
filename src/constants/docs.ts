@@ -45,6 +45,6 @@ export const sidebarDocs = [
     .sort((a, b) => (a.url > b.url ? 1 : a.url < b.url ? -1 : 0)),
 ];
 
-// Workaround: content Collections doesn't support singletons
+// Workaround: Content Collections doesn't support singletons
 if (!allConfigs[0]) throw new Error('Site config (config.json) is missing!');
 export const config = allConfigs[0];
