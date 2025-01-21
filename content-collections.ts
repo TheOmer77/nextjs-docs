@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm';
 import { createHighlighter } from 'shiki';
 import { createCssVariablesTheme } from 'shiki/core';
 
-const HEADINGS_REGEX = /\n(?<flag>#{1,6})\s+(?<content>.+)/g;
+const HEADINGS_REGEX = /^(?<flag>#{1,6})\s+(?<content>.+)$/gm;
 
 // Shiki stuff
 const cssVars = createCssVariablesTheme({
