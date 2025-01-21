@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm';
 import { createHighlighter } from 'shiki';
 import { createCssVariablesTheme } from 'shiki/core';
 
-const HEADINGS_REGEX = /\n(?<flag>#{1,6})\s+(?<content>.+)/g;
+const HEADINGS_REGEX = /^(?<flag>#{1,6})\s+(?<content>.+)$/gm;
 
 // Shiki stuff
 const cssVars = createCssVariablesTheme({
@@ -40,7 +40,7 @@ const doc = defineCollection({
     includeInSidebar: z.boolean().default(true),
   }),
   transform: async (doc, ctx) => {
-    const slugs = doc._meta.path === 'index' ? [] : doc._meta.path.split('/');
+    const slugs = doc._meta.path.split('/');
     const url = `/${slugs
       .map(slug => {
         const parts = slug.split('-');
