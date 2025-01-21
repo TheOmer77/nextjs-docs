@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { MDXContent } from '@content-collections/mdx/react';
 
-import { HomeLayout } from '@/components/layout/home';
 import { useDoc } from '@/hooks/use-doc';
 import { cn } from '@/lib/cn';
 import type { Doc } from '@/types/docs';
@@ -18,8 +17,6 @@ export const mdxComponents = {
   h4,
   a: Link,
   blockquote: MdxBlockquote,
-
-  HomeLayout,
 };
 
 export type MDXProps = { doc: Doc };
