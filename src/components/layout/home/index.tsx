@@ -17,7 +17,7 @@ export type HomeLayoutProps = Omit<ComponentPropsWithoutRef<'div'>, 'title'> & {
     /** URL opened by clicking on this action button. */
     url: string;
     /** Whether or not this is the primary action, which uses the theme's primary color. */
-    primary: boolean;
+    primary?: boolean;
   }[];
 };
 
@@ -32,7 +32,7 @@ export const HomeLayout = ({
   <div
     {...props}
     className={cn(
-      `relative mx-auto flex min-h-[calc(100dvh-8rem)] w-full flex-col items-start justify-center gap-4 px-4 pb-16 sm:px-8`,
+      `relative mx-auto flex min-h-[calc(100dvh-8rem)] w-full flex-col items-start justify-center gap-4 px-4 sm:px-8`,
       className
     )}
   >
