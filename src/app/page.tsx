@@ -8,7 +8,7 @@ const actions = [
 ] satisfies { text: string; href: string; primary?: boolean }[];
 
 const Page = () => (
-  <main className='relative mx-auto flex min-h-[calc(100dvh-8rem)] w-full flex-col items-start justify-center gap-4 px-4 sm:px-8'>
+  <main className='flex min-h-[calc(100dvh-8rem)] w-full flex-col items-start justify-center gap-4 px-4 sm:px-8'>
     <h1 className='m-0 text-5xl font-extrabold tracking-tight sm:text-7xl'>
       Docs Thing
     </h1>
