@@ -38,7 +38,7 @@ export const MDX = () => {
       )}
     >
       {doc?.title && doc?.showTitle && (
-        <h1 className='text-5xl font-extrabold tracking-tight sm:text-[3.5rem]'>
+        <h1 className='text-5xl font-extrabold tracking-tight sm:text-6xl'>
           {doc?.title}
         </h1>
       )}
