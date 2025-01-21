@@ -40,7 +40,7 @@ const doc = defineCollection({
     includeInSidebar: z.boolean().default(true),
   }),
   transform: async (doc, ctx) => {
-    const slugs = doc._meta.path === 'index' ? [] : doc._meta.path.split('/');
+    const slugs = doc._meta.path.split('/');
     const url = `/${slugs
       .map(slug => {
         const parts = slug.split('-');
