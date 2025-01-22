@@ -40,29 +40,3 @@ Alerts are an extension of the blockquote syntax that you can use to emphasize c
 > [!DANGER] **Warning!**
 >
 > This is the most dangerous alert you have ever seen. But not really.
-
-## Page layouts
-
-The home & 404 error pages use special layout components by default, however these layouts can also be used in any other page.
-
-### HomeLayout
-
-```jsx
-<HomeLayout
-  title='Docs Thing'
-  tagline='A simple docs site powered by Next.js and Content Collections.'
-  actions={[
-    { text: 'Get started', url: '/docs/basic-usage', primary: true },
-    { text: 'Sample pages', url: '/sample/markdown-test' },
-  ]}
-/>
-```
-
-### ErrorLayout
-
-```jsx
-<ErrorLayout
-  code={404}
-  text="I'm not sure what you were looking for, but it's not here."
-/>
-```
