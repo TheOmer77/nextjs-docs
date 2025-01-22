@@ -4,9 +4,10 @@ import { LinkIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Tooltip } from '@/components/ui/tooltip';
-import { GithubIcon } from '@/components/icons/github';
 import { cn } from '@/lib/cn';
 import { config } from '@/constants/docs';
+
+import { GithubIcon } from './icons';
 
 type ConfigLink = (typeof config.links)[number];
 type NavLinkProps = ConfigLink &
