@@ -12,7 +12,7 @@ const NotFoundPage = () => (
     <h1 className='font-mono text-[min(calc(50dvw-1rem),25rem)] font-extrabold leading-none tracking-tighter text-muted-foreground/30'>
       404
     </h1>
-    <p className='mb-8 leading-tight text-muted-foreground'>
+    <p className='mb-8 text-balance leading-tight text-muted-foreground'>
       I&apos;m not sure what you were looking for... but it&apos;s not here.
     </p>
     <Link
