@@ -147,9 +147,6 @@ importers:
       globals:
         specifier: ^15.14.0
         version: 15.14.0
-      mdx-bundler:
-        specifier: ^10.0.3
-        version: 10.0.3(acorn@8.14.0)(esbuild@0.21.5)
       postcss:
         specifier: ^8.5.1
         version: 8.5.1
