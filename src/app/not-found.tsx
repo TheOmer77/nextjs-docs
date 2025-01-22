@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import { ArrowLeftIcon } from 'lucide-react';
 
-import { config } from '@/constants/docs';
-
 export const generateMetadata = () => ({
-  title: config.titleTemplate.replace('%s', 'Not found'),
+  title: 'Not found',
 });
 
 const NotFoundPage = () => (
