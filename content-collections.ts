@@ -1,16 +1,32 @@
 import { defineCollection, defineConfig } from '@content-collections/core';
-import { compileMDX } from '@content-collections/mdx';
+import { compileMDX, type Options } from '@content-collections/mdx';
 import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
 import GithubSlugger from 'github-slugger';
 import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
-import { createHighlighter } from 'shiki';
+import {
+  type BundledLanguage,
+  createHighlighter,
+  type StringLiteralUnion,
+} from 'shiki';
 import { createCssVariablesTheme } from 'shiki/core';
 
 const HEADINGS_REGEX = /^(?<flag>#{1,6})\s+(?<content>.+)$/gm;
 
-// Shiki stuff
+//#region Shiki stuff
+const SHIKI_LANGS = [
+  'html',
+  'js',
+  'json',
+  'jsx',
+  'md',
+  'mdx',
+  'ts',
+  'tsx',
+] satisfies StringLiteralUnion<BundledLanguage, string>[];
+
+type Pluggable = NonNullable<Options['rehypePlugins']>[number];
 const cssVars = createCssVariablesTheme({
   name: 'css-variables',
   variablePrefix: '--shiki-',
@@ -19,8 +35,14 @@ const cssVars = createCssVariablesTheme({
 });
 const highlighter = await createHighlighter({
   themes: [cssVars],
-  langs: ['html', 'js', 'json', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  langs: SHIKI_LANGS,
 });
+const rehypeShiki = [
+  rehypeShikiFromHighlighter,
+  highlighter,
+  { theme: cssVars.name },
+] satisfies Pluggable;
+//#endregion
 
 const doc = defineCollection({
   name: 'Doc',
@@ -63,11 +85,7 @@ const doc = defineCollection({
 
     const code = await compileMDX(ctx, doc, {
       remarkPlugins: [remarkGfm],
-      rehypePlugins: [
-        rehypeCodeTitles,
-        [rehypeShikiFromHighlighter, highlighter, { theme: cssVars.name }],
-        rehypeSlug,
-      ],
+      rehypePlugins: [rehypeCodeTitles, rehypeShiki, rehypeSlug],
     });
 
     return { ...doc, _id: doc._meta.filePath, url, headings, body: { code } };
