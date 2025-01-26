@@ -2,6 +2,7 @@ import { defineCollection, defineConfig } from '@content-collections/core';
 import { compileMDX } from '@content-collections/mdx';
 import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
 import GithubSlugger from 'github-slugger';
+import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { createHighlighter } from 'shiki';
@@ -63,6 +64,7 @@ const doc = defineCollection({
     const code = await compileMDX(ctx, doc, {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
+        rehypeCodeTitles,
         [rehypeShikiFromHighlighter, highlighter, { theme: cssVars.name }],
         rehypeSlug,
       ],
