@@ -7,8 +7,8 @@ import { useDoc } from '@/hooks/use-doc';
 import { cn } from '@/lib/cn';
 import type { Doc } from '@/types/docs';
 
-import { MdxBlockquote } from './mdx-blockquote';
-import { h1, h2, h3, h4 } from './mdx-heading';
+import { MdxBlockquote } from './blockquote';
+import { h1, h2, h3, h4 } from './heading';
 
 export const mdxComponents = {
   h1,
