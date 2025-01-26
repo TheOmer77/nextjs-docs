@@ -8,6 +8,7 @@ import { cn } from '@/lib/cn';
 import type { Doc } from '@/types/docs';
 
 import { MdxBlockquote } from './blockquote';
+import { CodeBlock } from './code-block';
 import { h1, h2, h3, h4 } from './heading';
 
 export const mdxComponents = {
@@ -17,6 +18,7 @@ export const mdxComponents = {
   h4,
   a: Link,
   blockquote: MdxBlockquote,
+  pre: CodeBlock,
 };
 
 export type MDXProps = { doc: Doc };
