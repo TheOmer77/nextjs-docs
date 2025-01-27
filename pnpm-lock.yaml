@@ -96,9 +96,6 @@ importers:
       '@types/eslint__js':
         specifier: ^8.42.3
         version: 8.42.3
-      '@types/hast':
-        specifier: ^3.0.4
-        version: 3.0.4
       '@types/node':
         specifier: ^22.10.7
         version: 22.10.7
@@ -183,9 +180,6 @@ importers:
       typescript-eslint:
         specifier: ^8.21.0
         version: 8.21.0(eslint@9.18.0(jiti@1.21.7))(typescript@5.7.3)
-      unist-util-visit:
-        specifier: ^5.0.0
-        version: 5.0.0
 
 packages:
 

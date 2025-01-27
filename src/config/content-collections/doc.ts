@@ -4,7 +4,6 @@ import GithubSlugger from 'github-slugger';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
-import { rehypeCodeTitles } from './code-titles';
 import { rehypeShiki } from './shiki';
 
 const HEADINGS_REGEX = /^(?<flag>#{1,6})\s+(?<content>.+)$/gm;
@@ -50,7 +49,7 @@ export const doc = defineCollection({
 
     const code = await compileMDX(ctx, doc, {
       remarkPlugins: [remarkGfm],
-      rehypePlugins: [rehypeCodeTitles, rehypeShiki, rehypeSlug],
+      rehypePlugins: [rehypeShiki, rehypeSlug],
     });
 
     return { ...doc, _id: doc._meta.filePath, url, headings, body: { code } };
