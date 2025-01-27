@@ -1,10 +1,10 @@
 import { defineCollection } from '@content-collections/core';
 import { compileMDX } from '@content-collections/mdx';
 import GithubSlugger from 'github-slugger';
-import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
+import { rehypeCodeTitles } from './code-titles';
 import { rehypeShiki } from './shiki';
 
 const HEADINGS_REGEX = /^(?<flag>#{1,6})\s+(?<content>.+)$/gm;
