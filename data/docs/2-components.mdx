@@ -25,7 +25,7 @@ Alerts are an extension of the blockquote syntax that you can use to emphasize c
 > This is the most dangerous alert you have ever seen. But not really.
 ```
 
-### Examples
+The above code would render:
 
 > [!INFO]
 > This is an alert with some info.
@@ -40,3 +40,44 @@ Alerts are an extension of the blockquote syntax that you can use to emphasize c
 > [!DANGER] **Warning!**
 >
 > This is the most dangerous alert you have ever seen. But not really.
+
+## Code blocks
+
+Code blocks allow you to display code snippets with syntax highlighting, using [Shiki](https://shiki.style/). Each code block also includes a copy button to copy to code within it to the clipboard.
+
+````mdx
+```tsx
+import { useState } from 'react';
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <div>{count}</div>
+      <button onClick={() => setCount(prev => prev + 1)}>{count}</button>
+    </>
+  );
+};
+```
+````
+
+You can also add a title to a code block, such as a file name.
+
+````mdx
+```ts title="lib/utils.ts"
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+```
+````
+
+This would render:
+
+```ts title="lib/utils.ts"
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+```
