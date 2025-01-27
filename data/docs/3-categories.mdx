@@ -9,23 +9,19 @@ Categories and their display names can be defined in `data/config.json`. The `ca
 
 Each page can be assigned a category - this is done by setting the `category` field of the page to the desired category ID. If a page does not have a `category` field, or its category value isn't one of the category IDs defined in `data/config.json`, it is considered uncategorized and displayed at the top of the sidebar.
 
-For example, if a page is configured as follows:
+For example, with the following page and configuration, the page will be displayed in the sidebar under the "Getting started" category:
 
-```md
+```md title="docs/installation.mdx"
 ---
-title: Very cool page
-category: category
+title: Installation
+category: getting-started
 ---
 ```
 
-And `data/config.json` looks like this:
-
-```json
+```json title="data/config.json"
 {
   "categories": {
-    "category": "This is a category"
+    "getting-started": "Getting started"
   }
 }
 ```
-
-This page will be displayed in the sidebar under the "This is a category" category.
