@@ -82,6 +82,7 @@ const config = {
             },
             'code::before': { content: 'none' },
             'code::after': { content: 'none' },
+            pre: { borderRadius: 'var(--border-radius)' },
           },
         },
       }),
