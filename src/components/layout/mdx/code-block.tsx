@@ -10,11 +10,14 @@ export const CodeBlock = ({
 }: ComponentPropsWithoutRef<'pre'>) => (
   <>
     {title && (
-      <div className='rounded-t-lg border-b bg-[--tw-prose-pre-bg] p-2 font-mono text-sm text-muted-foreground '>
+      <div className='flex h-10 flex-row items-center rounded-t-lg border-b bg-[--tw-prose-pre-bg] px-4 font-mono text-sm text-muted-foreground '>
         {title}
       </div>
     )}
-    <pre {...props} className={cn(title && 'mt-0 rounded-t-none', className)}>
+    <pre
+      {...props}
+      className={cn('px-4', title && 'mt-0 rounded-t-none', className)}
+    >
       {children}
     </pre>
   </>
