@@ -38,7 +38,7 @@ const CopyCodeButton = ({ codeRef, className }: CopyCodeButtonProps) => {
         icon
         variant='flat'
         size='sm'
-        className={cn('text-muted-foreground', className)}
+        className={cn('text-muted-foreground print:hidden', className)}
         onClick={handleCopy}
       >
         {justCopied ? <CheckIcon /> : <CopyIcon />}
