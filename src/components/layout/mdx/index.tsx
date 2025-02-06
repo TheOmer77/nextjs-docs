@@ -32,7 +32,7 @@ export const MDX = () => {
       className={cn(
         `prose mx-auto w-full max-w-[100vw] px-4 py-8 [print-color-adjust:exact] dark:prose-invert print:max-w-none print:px-0`,
         doc?.showSidebar &&
-          'md:max-w-[calc(100vw-22rem)] lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.3xl))]',
+          'col-start-2 md:max-w-[calc(100vw-22rem)] lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.3xl))]',
         doc?.showSidebar &&
           doc?.showToc &&
           'lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.2xl))]'
