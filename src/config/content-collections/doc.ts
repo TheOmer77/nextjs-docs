@@ -6,7 +6,9 @@ import remarkGfm from 'remark-gfm';
 
 import { rehypeShiki } from './shiki';
 
-const HEADINGS_REGEX = /^(?<flag>#{1,6})\s+(?<content>.+)$/gm;
+const HEADINGS_REGEX = /^(?<flag>#{1,6})\s+(?<content>.+)$/gm,
+  CODEBLOCK_REGEX =
+    /^(?<fence>`{3,})(?!`)[^\n]*\n[\s\S]*?\n^(?:\k<fence>)[ \t]*$/gm;
 
 export const doc = defineCollection({
   name: 'Doc',
@@ -35,17 +37,20 @@ export const doc = defineCollection({
       })
       .join('/')}`;
 
+    // Don't match headings inside codeblocks
+    const contentWithoutCodeblocks = doc.content.replace(CODEBLOCK_REGEX, '');
+
     const headingSlugger = new GithubSlugger();
-    const headings = Array.from(doc.content.matchAll(HEADINGS_REGEX)).map(
-      ({ groups }) => {
-        const text = groups?.content;
-        return {
-          level: groups?.flag?.length,
-          text,
-          slug: text ? headingSlugger.slug(text) : null,
-        };
-      }
-    );
+    const headings = Array.from(
+      contentWithoutCodeblocks.matchAll(HEADINGS_REGEX)
+    ).map(({ groups }) => {
+      const text = groups?.content;
+      return {
+        level: groups?.flag?.length,
+        text,
+        slug: text ? headingSlugger.slug(text) : null,
+      };
+    });
 
     const code = await compileMDX(ctx, doc, {
       remarkPlugins: [remarkGfm],
