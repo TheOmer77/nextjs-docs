@@ -93,3 +93,39 @@ import { twMerge } from 'tailwind-merge';
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 ```
+
+## Steps
+
+The `Steps` component renders a numbered set of steps, useful for displaying step-by-step instructions. It turns each `h3` heading within it into a step heading with a number.
+
+<Steps>
+### Do a thing
+
+This thing is very important! You should do it.
+
+### Do another thing
+
+This other thing is not as important as the first one, but you should do it anyway.
+
+### That's it lol
+
+There isn't really a third thing to do, I just felt like having three steps here is better.
+
+</Steps>
+
+```mdx
+<Steps>
+### Do a thing
+
+This thing is very important! You should do it.
+
+### Do another thing
+
+This other thing is not as important as the first one, but you should do it anyway.
+
+### That's it lol
+
+There isn't really a third thing to do, I just felt like having three steps here is better.
+
+</Steps>
+```
