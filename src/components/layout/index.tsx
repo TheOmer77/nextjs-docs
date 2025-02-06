@@ -17,10 +17,12 @@ const Layout = ({ children }: PropsWithChildren) => {
 
       <div
         className={cn(
-          'relative mx-auto grid max-w-8xl grow grid-cols-1 pt-16 [--sidebar-width:theme(spacing.80)] xl:grid-cols-[1fr,var(--toc-width,0)] print:block print:grid-cols-1 print:p-0',
+          'relative mx-auto grid max-w-8xl grow grid-cols-1 pt-16 [--sidebar-width:theme(spacing.80)] [--toc-width:theme(spacing.72)] print:block print:grid-cols-1 print:p-0',
+          doc?.showSidebar && 'md:grid-cols-[var(--sidebar-width)_1fr]',
+          doc?.showToc && 'xl:grid-cols-[1fr,var(--toc-width)]',
           doc?.showSidebar &&
-            'md:grid-cols-[var(--sidebar-width,0)_1fr] xl:grid-cols-[var(--sidebar-width,0)_1fr,var(--toc-width,0)]',
-          doc?.showToc && '[--toc-width:theme(spacing.72)]'
+            doc.showToc &&
+            'xl:grid-cols-[var(--sidebar-width)_1fr,var(--toc-width,0)]'
         )}
       >
         <Sidebar />

@@ -39,7 +39,7 @@ export const Toc = () => {
   );
 
   return (
-    <div className='sticky top-24 hidden self-start pe-8 ps-4 xl:block print:hidden'>
+    <div className='sticky top-24 mt-8 hidden self-start pe-8 ps-4 xl:block print:hidden'>
       <h3 className='mb-4 font-bold'>On this page</h3>
       <ul
         className='space-y-2 text-sm'
