@@ -40,4 +40,14 @@ pre.shiki {
       @mixin theme-dark;
     }
   }
+
+  [data-theme='dark'] code.shiki,
+  [data-theme='dark'] pre.shiki {
+    @mixin theme-dark;
+  }
+}
+
+[data-theme='light'] code.shiki,
+[data-theme='light'] pre.shiki {
+  @mixin theme-light;
 }

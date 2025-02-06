@@ -3,11 +3,17 @@ title: Components & syntax
 category: usage
 ---
 
-The following components are available out of the box for use in Markdown and MDX:
+The following components are available out of the box for use in MDX pages:
 
 ## Alerts
 
-Alerts are an extension of the blockquote syntax that you can use to emphasize critical information, working similarly to [how they do on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts). To turn a blockquote into an alert, simply start it with either `[!INFO]` for info alerts, or `[!DANGER]` for danger alerts.
+Alerts are an extension of the blockquote syntax that you can use to emphasize critical information, working similarly to [how they do on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts). To turn a blockquote into an alert, simply start it with the correct prefix for the type you want.
+
+### Types
+
+#### Info
+
+For info alerts, use the `[!INFO]` prefix:
 
 ```md
 > [!INFO]
@@ -16,16 +22,7 @@ Alerts are an extension of the blockquote syntax that you can use to emphasize c
 > [!INFO] **Note**
 >
 > There should be some important info here. Unfortunately, I couldn't come up with any.
-
-> [!DANGER]
-> This is an alert with a warning or negative message.
-
-> [!DANGER] **Warning!**
->
-> This is the most dangerous alert you have ever seen. But not really.
 ```
-
-### Examples
 
 > [!INFO]
 > This is an alert with some info.
@@ -34,9 +31,65 @@ Alerts are an extension of the blockquote syntax that you can use to emphasize c
 >
 > There should be some important info here. Unfortunately, I couldn't come up with any.
 
+#### Danger
+
+For danger alerts, use the `[!DANGER]` prefix:
+
+```md
 > [!DANGER]
 > This is an alert with a warning or negative message.
 
 > [!DANGER] **Warning!**
 >
 > This is the most dangerous alert you have ever seen. But not really.
+```
+
+> [!DANGER]
+> This is an alert with a warning or negative message.
+
+> [!DANGER] **Warning!**
+>
+> This is the most dangerous alert you have ever seen. But not really.
+
+## Code blocks
+
+Code blocks allow you to display code snippets with syntax highlighting, using [Shiki](https://shiki.style/). Each code block also includes a copy button to copy to code within it to the clipboard.
+
+````mdx
+```tsx
+import { useState } from 'react';
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <div>{count}</div>
+      <button onClick={() => setCount(prev => prev + 1)}>{count}</button>
+    </>
+  );
+};
+```
+````
+
+### Code block title
+
+You can also add a title to a code block, such as a file name.
+
+````mdx
+```ts title="lib/utils.ts"
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+```
+````
+
+This would render:
+
+```ts title="lib/utils.ts"
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+```
